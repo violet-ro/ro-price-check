@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 const { parseVendorListPage, parseVendorShopPage } = require('./parse');
+const { parseCookieHeader } = require('./cookie-utils');
 
 const listHtml = fs.readFileSync(path.join(__dirname, '..', 'samples', 'vending-list-p1.html'), 'utf8');
 const shopHtml = fs.readFileSync(path.join(__dirname, '..', 'samples', 'viewshop-1.html'), 'utf8');
@@ -51,3 +52,17 @@ assert.deepStrictEqual(items[1], {
 });
 
 console.log('\nAll parser tests passed.');
+
+console.log('\n--- Testing parseCookieHeader ---');
+const cookies = parseCookieHeader('sid=abc123; theme=dark ; empty=; user_id=42', 'example.com');
+console.log(JSON.stringify(cookies, null, 2));
+assert.deepStrictEqual(cookies, [
+  { name: 'sid', value: 'abc123', domain: 'example.com', path: '/' },
+  { name: 'theme', value: 'dark', domain: 'example.com', path: '/' },
+  { name: 'empty', value: '', domain: 'example.com', path: '/' },
+  { name: 'user_id', value: '42', domain: 'example.com', path: '/' },
+]);
+assert.deepStrictEqual(parseCookieHeader('', 'example.com'), []);
+assert.deepStrictEqual(parseCookieHeader('   ', 'example.com'), []);
+
+console.log('All cookie-parsing tests passed.');

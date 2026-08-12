@@ -7,18 +7,29 @@
 
 const fs = require('fs');
 const path = require('path');
-const axios = require('axios');
+const { chromium } = require('playwright');
 const { parseVendorListPage, parseVendorShopPage } = require('./parse');
+const { parseCookieHeader } = require('./cookie-utils');
 
 const BASE_URL = 'https://classiccp.niktoutro.com';
+const COOKIE_DOMAIN = 'classiccp.niktoutro.com';
 const DATA_PATH = path.join(__dirname, '..', 'data', 'vending-history.json');
 const REQUEST_DELAY_MS = 800; // be polite - this is someone else's small server
 const MAX_RETRIES = 3;
+const PAGE_TIMEOUT_MS = 45000;
+const CHALLENGE_WAIT_MS = 12000; // time to let Cloudflare's JS challenge resolve
 
-// The control panel requires a logged-in session to view /vending/ pages.
-// Rather than automating the login form, this reads a raw browser "Cookie"
-// header value from an env var (see README.md: "Getting the session cookie").
-// Set it locally as:  VENDING_SESSION_COOKIE="..." npm run scrape
+// The site sits behind Cloudflare, which challenges plain (non-browser) HTTP
+// clients before a request even reaches the control panel's own login check.
+// A real (if headless) browser is the minimum needed to have any chance of
+// getting past that - axios/fetch cannot execute the challenge's JS at all.
+// See README.md ("How this gets past Cloudflare") for the full picture and
+// what to try if headless alone isn't enough.
+
+// The control panel also requires a logged-in session to view /vending/
+// pages. Rather than automating the login form, this reads a raw browser
+// "Cookie" header value from an env var (see README.md: "Getting the session
+// cookie"). Set it locally as:  VENDING_SESSION_COOKIE="..." npm run scrape
 // and in GitHub Actions as a repo secret of the same name.
 const SESSION_COOKIE = process.env.VENDING_SESSION_COOKIE || '';
 
@@ -30,14 +41,12 @@ if (!SESSION_COOKIE) {
   process.exit(1);
 }
 
-// A realistic browser UA/header set, plus the session cookie above.
-const HEADERS = {
-  'User-Agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language': 'en-US,en;q=0.9',
-  Cookie: SESSION_COOKIE,
-};
+// Headless by default so this works anywhere with no extra setup (including
+// a plain `npm run scrape` locally). Set PLAYWRIGHT_HEADLESS=false to run a
+// headed browser instead (needs a display, e.g. via xvfb-run in CI) - a
+// headed browser presents a stronger "real user" fingerprint to Cloudflare.
+// See README.md if headless alone keeps getting challenged.
+const HEADLESS = process.env.PLAYWRIGHT_HEADLESS !== 'false';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -56,19 +65,69 @@ function looksLoggedOut(html) {
   return /type=["']password["']/i.test(html);
 }
 
+// Heuristic check for "we're still looking at a Cloudflare challenge page,
+// not the real site". Cloudflare's managed-challenge page has a distinctive
+// title and inline script markers.
+function looksLikeCloudflareChallenge(html) {
+  return /just a moment/i.test(html) || /cf_chl_opt/i.test(html) || /Enable JavaScript and cookies to continue/i.test(html);
+}
+
+let browser = null;
+let page = null;
+
+async function getPage() {
+  if (page) return page;
+
+  browser = await chromium.launch({ headless: HEADLESS });
+  const context = await browser.newContext({
+    viewport: { width: 1366, height: 900 },
+  });
+
+  const cookies = parseCookieHeader(SESSION_COOKIE, COOKIE_DOMAIN);
+  if (cookies.length > 0) {
+    await context.addCookies(cookies);
+  }
+
+  page = await context.newPage();
+  return page;
+}
+
+async function closeBrowser() {
+  if (browser) await browser.close();
+}
+
 async function fetchHtml(url, { expectLoggedIn = true } = {}) {
+  const p = await getPage();
   let lastErr;
+
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      const res = await axios.get(url, { headers: HEADERS, timeout: 20000 });
-      if (expectLoggedIn && looksLoggedOut(res.data)) {
+      await p.goto(url, { waitUntil: 'domcontentloaded', timeout: PAGE_TIMEOUT_MS });
+
+      let html = await p.content();
+
+      // Give Cloudflare's challenge script a chance to run and redirect to
+      // the real page before giving up on this attempt.
+      if (looksLikeCloudflareChallenge(html)) {
+        await p.waitForTimeout(CHALLENGE_WAIT_MS);
+        html = await p.content();
+      }
+
+      if (looksLikeCloudflareChallenge(html)) {
+        const err = new Error('CLOUDFLARE_CHALLENGE');
+        err.isCloudflareChallenge = true;
+        throw err;
+      }
+
+      if (expectLoggedIn && looksLoggedOut(html)) {
         const err = new Error('SESSION_EXPIRED');
         err.isSessionExpired = true;
         throw err;
       }
-      return res.data;
+
+      return html;
     } catch (err) {
-      if (err.isSessionExpired) throw err; // don't retry - retrying won't fix an expired cookie
+      if (err.isSessionExpired || err.isCloudflareChallenge) throw err; // retrying won't fix either of these
       lastErr = err;
       console.warn(`  fetch failed (attempt ${attempt}/${MAX_RETRIES}) for ${url}: ${err.message}`);
       if (attempt < MAX_RETRIES) await sleep(REQUEST_DELAY_MS * attempt * 2);
@@ -129,7 +188,7 @@ async function scrapeAll() {
 
       console.log(`[${i + 1}/${allVendors.length}] vendor ${vendor.vendorId} (${vendor.vendorName}): ${items.length} item(s).`);
     } catch (err) {
-      if (err.isSessionExpired) throw err; // stop the whole run - no point hitting every remaining vendor against a login wall
+      if (err.isSessionExpired || err.isCloudflareChallenge) throw err; // stop the whole run - no point hitting every remaining vendor against the same wall
       console.error(`[${i + 1}/${allVendors.length}] FAILED vendor ${vendor.vendorId} (${vendor.vendorName}): ${err.message}`);
     }
     await sleep(REQUEST_DELAY_MS);
@@ -164,14 +223,24 @@ async function scrapeAll() {
   }
 }
 
-scrapeAll().catch((err) => {
-  if (err.isSessionExpired) {
-    console.error(
-      'ERROR: Session cookie appears to be expired or invalid (got redirected to a login page). ' +
-        'Grab a fresh cookie value and update VENDING_SESSION_COOKIE - see README.md.'
-    );
-  } else {
-    console.error('Scrape failed:', err);
-  }
-  process.exit(1);
-});
+scrapeAll()
+  .catch((err) => {
+    if (err.isSessionExpired) {
+      console.error(
+        'ERROR: Session cookie appears to be expired or invalid (got a login page back). ' +
+          'Grab a fresh cookie value and update VENDING_SESSION_COOKIE - see README.md.'
+      );
+    } else if (err.isCloudflareChallenge) {
+      console.error(
+        'ERROR: Still looking at a Cloudflare challenge page after waiting ' +
+          `${CHALLENGE_WAIT_MS}ms. See README.md ("How this gets past Cloudflare") for next steps ` +
+          '(headed mode, a different IP, or a longer wait).'
+      );
+    } else {
+      console.error('Scrape failed:', err);
+    }
+    process.exitCode = 1;
+  })
+  .finally(async () => {
+    await closeBrowser();
+  });

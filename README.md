@@ -26,19 +26,53 @@ every record's `date` is **the day the scraper observed it**, not necessarily wh
 first put it up. Run daily over time, this still builds a real price history; it's just worth
 knowing what the date actually means. It's stated at the bottom of the page, too.
 
-### About login
+### About login and Cloudflare
 
-Viewing `/vending/` requires a logged-in session — the scraper can't just request the page like
-a public site. Rather than automating the login form (which would mean storing an account
-password as a secret), the scraper takes a **session cookie** via an environment variable and
-sends it with every request. See "Getting the session cookie" below.
+Two separate walls stand between the scraper and the real data, and it's worth knowing which is
+which when something breaks:
 
-This does mean the cookie will eventually expire and need refreshing — how often depends on the
-site's session settings, which there's no way to know in advance except by watching it in
-practice. The scraper detects this itself: if a response looks like a login page instead of real
-data, it stops immediately with a clear `SESSION_EXPIRED`-style error in the log, rather than
-silently writing empty data. If you want something that never needs manual refreshing, automating
-the actual login form is the more durable option — see "Switching to automated login" below.
+1. **Cloudflare.** The whole site sits behind Cloudflare, which challenges automated-looking
+   requests before they even reach the control panel itself — this has nothing to do with your
+   account. A plain HTTP request (what the scraper originally used) can't get past this, because
+   the challenge requires executing JavaScript. That's why the scraper drives a real (if headless)
+   [Playwright](https://playwright.dev/) Chromium browser instead of just making HTTP calls — see
+   "How this gets past Cloudflare" below for how well that actually works.
+2. **The control panel's own login.** Viewing `/vending/` separately requires a logged-in session.
+   Rather than automating the login form (which would mean storing an account password as a
+   secret), the scraper takes a **session cookie** via an environment variable and attaches it to
+   the browser context. See "Getting the session cookie" below.
+
+The cookie will eventually expire and need refreshing — how often depends on the site's session
+settings, which there's no way to know in advance except by watching it in practice. The scraper
+detects both failure modes itself and fails loudly with a distinct, specific error
+(`SESSION_EXPIRED` or `CLOUDFLARE_CHALLENGE`) in the log, rather than silently writing empty data.
+
+## How this gets past Cloudflare (and its limits)
+
+A headless browser can execute Cloudflare's challenge script, which a plain HTTP client can't —
+that's the necessary first step, and it's what changed in the scraper. It is **not a guarantee**.
+Cloudflare's bot management also scores requests on things like the IP address's reputation, and
+GitHub Actions runners use well-known shared cloud IP ranges that tend to score worse than a home
+connection, regardless of how convincing the browser itself looks. Whether the daily run actually
+gets through is something you'll only know by watching the Actions log after triggering it.
+
+If it keeps failing with `CLOUDFLARE_CHALLENGE`, in roughly increasing order of effort:
+
+1. **Headed mode.** Set the `PLAYWRIGHT_HEADLESS` env var to `false` in the workflow (and add an
+   `xvfb-run -a` prefix to the `npm run scrape` step, plus `sudo apt-get install -y xvfb` before
+   it, since a headed browser needs a display). A headless browser exposes itself in ways a
+   real windowed one doesn't, and this closes that gap.
+2. **A different IP.** Move the scraper off GitHub-hosted Actions entirely, onto a
+   [self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners) — your own
+   computer, a spare machine, or a plain cron job outside GitHub Actions altogether. A residential
+   IP is scored very differently than a datacenter one.
+3. **Ask the server's staff.** This is worth trying before either of the above, honestly — it's a
+   small private server, and reading `/vending/` isn't something you're not entitled to; you're
+   just automating what you'd otherwise check by hand. The site links a Discord in its sidebar.
+   Server admins can often just allowlist a specific use case, or point you at data they're
+   already fine sharing (some private-server panels expose this kind of thing via a public API
+   or an export nobody's mentioned). That sidesteps the whole Cloudflare fight rather than trying
+   to win it, and is the most durable fix of the three.
 
 ## Getting the session cookie
 
@@ -91,6 +125,7 @@ instead of GitHub Actions:
 ```bash
 cd scraper
 npm install
+npx playwright install chromium   # one-time: downloads the browser Playwright drives
 VENDING_SESSION_COOKIE="paste your cookie value here" npm run scrape
 ```
 
@@ -111,24 +146,23 @@ is worth setting up first if you go this route.
 If the daily workflow runs but `data/vending-history.json` stops growing, check the Actions log
 first — the script logs a vendor/item count every run and fails loudly with specific errors:
 
-- **`SESSION_EXPIRED` in the log** → the cookie needs refreshing. See "Getting the session
-  cookie" above, then update the `VENDING_SESSION_COOKIE` secret. This is the most likely cause
-  day-to-day, since cookies don't last forever.
+- **`CLOUDFLARE_CHALLENGE` in the log** → Cloudflare didn't let the browser through this run. See
+  "How this gets past Cloudflare" above for what to try, in order — this isn't fixed by anything
+  to do with the cookie.
+- **`SESSION_EXPIRED` in the log** → got through Cloudflare fine, but the cookie itself needs
+  refreshing. See "Getting the session cookie" above, then update the `VENDING_SESSION_COOKIE`
+  secret.
 - **`VENDING_SESSION_COOKIE is not set`** → the secret wasn't picked up — check it's named exactly
   `VENDING_SESSION_COOKIE` in repo Settings → Secrets and variables → Actions.
-- **HTTP errors (timeouts, 403s, etc.) unrelated to login** → the site may additionally be
-  rate-limiting or bot-filtering requests regardless of session validity. When building this, a
-  direct fetch attempt from outside a browser was rejected outright before login was even known
-  to be a factor, so this is worth taking seriously as a separate possibility. If it persists:
-  1. **Slow it down further.** Bump `REQUEST_DELAY_MS` in `scraper/scrape.js`.
-  2. **Switch to a headless browser.** Replace `axios` with
-     [Playwright](https://playwright.dev/) (`npm install playwright` in `scraper/`, then load each
-     URL in a real Chromium page, with the session cookie set via
-     `context.addCookies(...)`, and return `page.content()`). Looks far more like a real visitor.
-  3. **Run it from somewhere else.** GitHub-hosted Actions runners use shared cloud IP ranges
-     some bot-protection systems flag more readily than a home connection. A
-     [self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners) (e.g. a
-     spare machine on a residential connection, or your own cron job) sidesteps that.
+- **Anything else (timeouts, browser launch errors, etc.)** → check the "Install Playwright's
+  Chromium" step in the Actions log succeeded — a failed or skipped browser install is a common
+  cause of odd errors in the "Run scraper" step right after it.
+
+Note that bumping the delay between requests (`REQUEST_DELAY_MS` in `scraper/scrape.js`) does
+**not** help with `CLOUDFLARE_CHALLENGE` specifically — a managed challenge isn't rate-limiting,
+it's a one-time gate that either lets a given browser/IP through or doesn't. It's still worth
+keeping the delay as-is regardless, so the crawl doesn't hammer someone else's small server once
+it is through.
 
 ## If the site changes
 
@@ -144,9 +178,10 @@ source to fix the selectors against.
 index.html                       the page you deploy — search + chart
 data/vending-history.json        the growing dataset (committed by the workflow)
 scraper/
-  scrape.js                      network layer: walks pages, calls parse.js, appends to data/
+  scrape.js                      browser automation: walks pages via Playwright, calls parse.js, appends to data/
   parse.js                       pure HTML parsing (cheerio) — unit tested
-  test-parse.js                  parser tests against samples/
+  cookie-utils.js                pure cookie-header parsing — unit tested
+  test-parse.js                  tests for parse.js and cookie-utils.js, against samples/
   package.json
 .github/workflows/scrape.yml     daily cron job
 samples/                         real sample HTML pages, used by the parser tests
