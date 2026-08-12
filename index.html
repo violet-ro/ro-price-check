@@ -329,7 +329,7 @@
       <p>Daily price snapshots from every vendor on classiccp.niktoutro.com</p>
     </div>
     <div class="stats" id="headerStats">
-      <div class="stat"><span class="n">&mdash;</span><span class="l">items</span></div>
+      <div class="stat"><span class="n" id="itemsCount" title="Click to view today's items" style="cursor:pointer">&mdash;</span><span class="l">items</span></div>
       <div class="stat"><span class="n">&mdash;</span><span class="l">shops</span></div>
       <div class="stat"><span class="n">&mdash;</span><span class="l">updated</span></div>
     </div>
@@ -340,6 +340,26 @@
     <div class="suggestions" id="suggestions"></div>
   </div>
   <p class="hint">Start typing any part of an item's name. Select a result to see who's selling it and for how much, over time.</p>
+
+  <div id="todayPanel" class="table-shell" style="display:none; margin-top:1rem;">
+    <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem;">
+      <input type="text" id="todaySearch" placeholder="Filter today's items (shop or item name)" style="flex:1; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:0.5rem; color:var(--text); font-family:inherit;" />
+      <button id="todayClose" style="background:transparent; border:1px solid var(--line); color:var(--text-muted); padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer;">Close</button>
+    </div>
+    <table class="records">
+      <thead>
+        <tr>
+          <th>Shop</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Vendor</th>
+          <th>Location</th>
+          <th>Qty</th>
+        </tr>
+      </thead>
+      <tbody id="todayBody"></tbody>
+    </table>
+  </div>
 
   <div id="loadState" class="load-state">Loading vending data&hellip;</div>
 
@@ -685,6 +705,82 @@
     }).join('');
     document.getElementById('recordsBody').innerHTML = rows;
   }
+
+  // --- Today items panel functionality -------------------------------------------------
+  function openTodayItems(){
+    var el = document.getElementById('todayPanel');
+    if (!el) return;
+    if (el.style.display !== 'none'){
+      el.style.display = 'none';
+      return;
+    }
+    // Use system/local date (YYYY-MM-DD)
+    var d = new Date();
+    var yyyy = d.getFullYear();
+    var mm = String(d.getMonth()+1).padStart(2,'0');
+    var dd = String(d.getDate()).padStart(2,'0');
+    var today = yyyy + '-' + mm + '-' + dd;
+
+    var todays = allRecords.filter(function(r){ return r.date === today; });
+
+    todays.sort(function(a,b){
+      var s = (a.shopTitle||'').localeCompare(b.shopTitle||'');
+      if (s !== 0) return s;
+      var n = (a.itemName||'').localeCompare(b.itemName||'');
+      if (n !== 0) return n;
+      var pa = a.price == null ? Infinity : a.price;
+      var pb = b.price == null ? Infinity : b.price;
+      return pa - pb;
+    });
+
+    renderTodayTable(todays);
+    el.style.display = 'block';
+    var ts = document.getElementById('todaySearch');
+    if (ts){ ts.value = ''; ts.focus(); }
+  }
+
+  function renderTodayTable(records){
+    var rows = records.map(function(r){
+      return '<tr>' +
+        '<td class="name-col">' + escapeHtml(r.shopTitle) + '</td>' +
+        '<td class="name-col">' + escapeHtml(r.itemName) + '</td>' +
+        '<td class="price-col">' + formatPrice(r.price) + '</td>' +
+        '<td class="name-col">' + escapeHtml(r.vendorName) + '</td>' +
+        '<td>' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
+        '<td>' + (r.amount != null ? r.amount : '?') + '</td>' +
+        '</tr>';
+    }).join('');
+    document.getElementById('todayBody').innerHTML = rows;
+  }
+
+  function filterTodayItems(){
+    var q = (document.getElementById('todaySearch').value || '').trim().toLowerCase();
+    var tbody = document.getElementById('todayBody');
+    if (!tbody) return;
+    if (!q){
+      var trs = tbody.querySelectorAll('tr');
+      trs.forEach(function(tr){ tr.style.display = ''; });
+      return;
+    }
+    var trs = tbody.querySelectorAll('tr');
+    trs.forEach(function(tr){
+      var text = (tr.textContent || '').toLowerCase();
+      tr.style.display = text.indexOf(q) !== -1 ? '' : 'none';
+    });
+  }
+
+  // Wire up the header items count and today panel controls
+  (function(){
+    var itemsCountEl = document.getElementById('itemsCount');
+    if (itemsCountEl) itemsCountEl.addEventListener('click', openTodayItems);
+    var ts = document.getElementById('todaySearch');
+    if (ts) ts.addEventListener('input', filterTodayItems);
+    var closeBtn = document.getElementById('todayClose');
+    if (closeBtn) closeBtn.addEventListener('click', function(){ document.getElementById('todayPanel').style.display = 'none'; });
+  })();
+
+  // ------------------------------------------------------------------------------------
+
 
   function highlightActive(){
     var nodes = suggestionsEl.querySelectorAll('.suggestion');
