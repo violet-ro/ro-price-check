@@ -31,7 +31,7 @@ const CHALLENGE_WAIT_MS = 12000; // time to let Cloudflare's JS challenge resolv
 // "Cookie" header value from an env var (see README.md: "Getting the session
 // cookie"). Set it locally as:  VENDING_SESSION_COOKIE="..." npm run scrape
 // and in GitHub Actions as a repo secret of the same name.
-const SESSION_COOKIE = process.env.VENDING_SESSION_COOKIE || '';
+const SESSION_COOKIE = process.env.VENDING_SESSION_COOKIE || 'fluxSessionData=sv8b6082pgi2q9kc2e5r3ranfc; cf_clearance=vqvtw24LJ7kt_Z39qcSzhqfVgMkCLHHe20on12P6ZYs-1786525868-1.2.1.1-9fIfff72gEqbY9Zh2UZP7th61b0obZDemqjjG8h3cfL1qnCcuxilLx5V9hMkuyVB_lrtDG7GBaqex0amcnURgzmWBBMwAYiwOSmplR3JruUfV5ipFFOLZr5NpkpWUj43VzriEJHgI1_q4cUaOWqyUyuxQB1P19gB1iNyNj6zJypK2Qzz7TaAPR53UMmh6qudShbJRobzM_CKsLm_OymAXR5jBKhIjIDYBpNBnxH1ejuuF12r5_DMS6qjVoOa3FT4aoz3p.OsGYouSi4VfjVzfCO5wiSYqH4C0BbYPEE8yBV._VhOqBJ9tCVygxDxp4xJWkHf0P6PZua0kA_ABUcuCw2svkoRl06w5h3GGNkWrWM';
 
 if (!SESSION_COOKIE) {
   console.error(
@@ -137,7 +137,8 @@ async function fetchHtml(url, { expectLoggedIn = true } = {}) {
 }
 
 async function scrapeAll() {
-  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
+  const today = new Date().toISOString().slice(0, 19).replace('T', ' '); // YYYY-MM-DD HH:MM:SS (UTC)
+  // To change the above line to include time, could change it to:  new Date().toISOString().slice(0, 19).replace('T', ' '); // YYYY-MM-DD HH:MM:SS (UTC)
 
   console.log(`Starting scrape for ${today}...`);
 

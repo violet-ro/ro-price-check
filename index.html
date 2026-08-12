@@ -349,12 +349,12 @@
     <table class="records">
       <thead>
         <tr>
-          <th>Shop</th>
-          <th>Item</th>
-          <th>Price</th>
-          <th>Vendor</th>
-          <th>Location</th>
-          <th>Qty</th>
+          <th data-key="shopTitle" class="sortable">Shop</th>
+          <th data-key="itemName" class="sortable">Item</th>
+          <th data-key="price" class="sortable">Price</th>
+          <th data-key="vendorName" class="sortable">Vendor</th>
+          <th data-key="map" class="sortable">Location</th>
+          <th data-key="amount" class="sortable">Qty</th>
         </tr>
       </thead>
       <tbody id="todayBody"></tbody>
@@ -418,6 +418,12 @@
   var chart = null;
   var activeIndex = -1;
   var currentSuggestions = [];
+
+  // Today panel state
+  var todayRecords = [];
+  var todaySortKey = 'shopTitle';
+  var todaySortDir = 1; // 1 = asc, -1 = desc
+
 
   var searchEl = document.getElementById('search');
   var suggestionsEl = document.getElementById('suggestions');
@@ -714,29 +720,54 @@
       el.style.display = 'none';
       return;
     }
-    // Use system/local date (YYYY-MM-DD)
-    var d = new Date();
-    var yyyy = d.getFullYear();
-    var mm = String(d.getMonth()+1).padStart(2,'0');
-    var dd = String(d.getDate()).padStart(2,'0');
-    var today = yyyy + '-' + mm + '-' + dd;
 
-    var todays = allRecords.filter(function(r){ return r.date === today; });
+    // Determine the most recent date present in the data (string compare works for YYYY-MM-DD)
+    var maxDate = null;
+    for (var i = 0; i < allRecords.length; i++){
+      var d = allRecords[i].date;
+      if (!d) continue;
+      if (!maxDate || d > maxDate) maxDate = d;
+    }
+    if (!maxDate){
+      todayRecords = [];
+    } else {
+      todayRecords = allRecords.filter(function(r){ return r.date === maxDate; });
+    }
 
-    todays.sort(function(a,b){
-      var s = (a.shopTitle||'').localeCompare(b.shopTitle||'');
-      if (s !== 0) return s;
-      var n = (a.itemName||'').localeCompare(b.itemName||'');
-      if (n !== 0) return n;
-      var pa = a.price == null ? Infinity : a.price;
-      var pb = b.price == null ? Infinity : b.price;
-      return pa - pb;
-    });
+    // Default sort when opening: by shopTitle
+    todaySortKey = todaySortKey || 'shopTitle';
+    todaySortDir = todaySortDir || 1;
+    sortTodayRecords();
 
-    renderTodayTable(todays);
+    renderTodayTable(todayRecords);
     el.style.display = 'block';
     var ts = document.getElementById('todaySearch');
     if (ts){ ts.value = ''; ts.focus(); }
+  }
+
+  function sortTodayRecords(){
+    if (!todayRecords) return;
+    var key = todaySortKey;
+    var dir = todaySortDir || 1;
+    todayRecords.sort(function(a,b){
+      var va = a[key];
+      var vb = b[key];
+      // Normalize for comparison
+      if (key === 'price' || key === 'amount'){
+        va = (va == null) ? Infinity : Number(va);
+        vb = (vb == null) ? Infinity : Number(vb);
+        return (va < vb ? -1 : va > vb ? 1 : 0) * dir;
+      }
+      if (va == null) va = '';
+      if (vb == null) vb = '';
+      // Special-case location (map + coords)
+      if (key === 'map'){
+        var la = (a.map||'') + ' ' + (a.x||'') + ',' + (a.y||'');
+        var lb = (b.map||'') + ' ' + (b.x||'') + ',' + (b.y||'');
+        return la.localeCompare(lb) * dir;
+      }
+      return String(va).localeCompare(String(vb)) * dir;
+    });
   }
 
   function renderTodayTable(records){
@@ -751,6 +782,31 @@
         '</tr>';
     }).join('');
     document.getElementById('todayBody').innerHTML = rows;
+    updateTodaySortUI();
+  }
+
+  function updateTodaySortUI(){
+    var labels = { shopTitle:'Shop', itemName:'Item', price:'Price', vendorName:'Vendor', map:'Location', amount:'Qty' };
+    var ths = document.querySelectorAll('#todayPanel thead th.sortable');
+    ths.forEach(function(th){
+      var key = th.getAttribute('data-key');
+      var base = labels[key] || th.textContent.replace(/[\u25B2\u25BC]\s*$/,'');
+      var arrow = '';
+      if (key === todaySortKey){ arrow = todaySortDir > 0 ? ' \u25B2' : ' \u25BC'; }
+      th.innerHTML = base + arrow;
+      th.style.cursor = 'pointer';
+    });
+  }
+
+  function sortTodayBy(key){
+    if (todaySortKey === key){
+      todaySortDir = -todaySortDir;
+    } else {
+      todaySortKey = key;
+      todaySortDir = 1;
+    }
+    sortTodayRecords();
+    renderTodayTable(todayRecords);
   }
 
   function filterTodayItems(){
@@ -777,6 +833,15 @@
     if (ts) ts.addEventListener('input', filterTodayItems);
     var closeBtn = document.getElementById('todayClose');
     if (closeBtn) closeBtn.addEventListener('click', function(){ document.getElementById('todayPanel').style.display = 'none'; });
+
+    // Wire sortable header clicks
+    var ths = document.querySelectorAll('#todayPanel thead th.sortable');
+    ths.forEach(function(th){
+      th.addEventListener('click', function(){
+        var k = th.getAttribute('data-key');
+        if (k) sortTodayBy(k);
+      });
+    });
   })();
 
   // ------------------------------------------------------------------------------------
