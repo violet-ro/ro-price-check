@@ -1,0 +1,15 @@
+{
+  "name": "niktoutro-vending-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily scraper for classiccp.niktoutro.com vending listings",
+  "main": "scrape.js",
+  "scripts": {
+    "scrape": "node scrape.js",
+    "test": "node test-parse.js"
+  },
+  "dependencies": {
+    "axios": "^1.19.0",
+    "cheerio": "^1.2.0"
+  }
+}

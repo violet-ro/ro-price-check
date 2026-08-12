@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NiktoutRO Vending Ledger</title>
+<style>
+  :root{
+    --ink:#171512;
+    --panel:#211e19;
+    --panel-2:#28241d;
+    --line:#3a352a;
+    --text:#ece6d6;
+    --text-muted:#9a9280;
+    --text-faint:#6f6857;
+    --gold:#daa520;
+    --gold-dim:#8a6a1f;
+    --teal:#4fae8f;
+    --danger:#c4776a;
+    --radius:10px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:2.5rem 1.5rem 5rem;
+  }
+
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:1rem;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1.5rem;
+    margin-bottom:2rem;
+  }
+
+  h1{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:1.9rem;
+    margin:0 0 0.25rem;
+    letter-spacing:0.01em;
+  }
+
+  header p{
+    margin:0;
+    color:var(--text-muted);
+    font-size:0.92rem;
+  }
+
+  .stats{
+    display:flex;
+    gap:1.5rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+  }
+
+  .stat{
+    text-align:right;
+  }
+
+  .stat .n{
+    display:block;
+    color:var(--gold);
+    font-size:1.05rem;
+  }
+
+  .stat .l{
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:0.65rem;
+  }
+
+  .search-shell{
+    position:relative;
+    margin-bottom:0.5rem;
+  }
+
+  #search{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--text);
+    font-size:1.05rem;
+    padding:0.9rem 1.1rem;
+    font-family:inherit;
+    outline:none;
+    transition:border-color 0.15s ease;
+  }
+
+  #search:focus{
+    border-color:var(--gold-dim);
+  }
+
+  #search::placeholder{
+    color:var(--text-faint);
+  }
+
+  .suggestions{
+    position:absolute;
+    left:0; right:0; top:calc(100% + 6px);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    z-index:20;
+    max-height:360px;
+    overflow-y:auto;
+    display:none;
+  }
+
+  .suggestions.open{ display:block; }
+
+  .suggestion-heading{
+    padding:0.5rem 1rem 0.35rem;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--text-faint);
+    border-bottom:1px solid var(--line);
+  }
+
+  .suggestion{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    padding:0.65rem 1.1rem;
+    cursor:pointer;
+    border-bottom:1px solid var(--line);
+  }
+
+  .suggestion:last-child{ border-bottom:none; }
+  .suggestion:hover, .suggestion.active{ background:var(--panel-2); }
+
+  .suggestion .name{ font-size:0.95rem; }
+  .suggestion .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--text-muted);
+    white-space:nowrap;
+  }
+
+  .suggestion .meta .price{ color:var(--gold); }
+
+  .hint{
+    color:var(--text-faint);
+    font-size:0.82rem;
+    margin:0.6rem 0 2.5rem;
+  }
+
+  .empty-state, .load-state{
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+    padding:2.5rem 1.5rem;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:0.92rem;
+  }
+
+  .empty-state code, .load-state code{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:0.1rem 0.4rem;
+    border-radius:4px;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--text);
+  }
+
+  #detail{ display:none; }
+  #detail.open{ display:block; }
+
+  .item-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:0.5rem 1rem;
+    margin-bottom:1.25rem;
+  }
+
+  .item-header h2{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin:0;
+  }
+
+  .item-header .item-id{
+    color:var(--text-faint);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+  }
+
+  .metric-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+    gap:0.75rem;
+    margin-bottom:1.75rem;
+  }
+
+  .metric{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:0.85rem 1rem;
+  }
+
+  .metric .l{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--text-faint);
+    margin-bottom:0.3rem;
+  }
+
+  .metric .v{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.15rem;
+    color:var(--text);
+  }
+
+  .metric.price .v{ color:var(--gold); }
+
+  .chart-shell{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.25rem 1rem 0.75rem;
+    margin-bottom:1.75rem;
+    position:relative;
+    height:340px;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem 1.1rem;
+    font-size:0.78rem;
+    color:var(--text-muted);
+    margin-bottom:0.75rem;
+  }
+
+  .legend .swatch{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+  }
+
+  .legend .dot{
+    width:9px; height:9px; border-radius:2px; display:inline-block;
+  }
+
+  table.records{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.85rem;
+  }
+
+  table.records th{
+    text-align:left;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-size:0.68rem;
+    font-weight:500;
+    padding:0 0.6rem 0.5rem;
+    border-bottom:1px solid var(--line);
+  }
+
+  table.records td{
+    padding:0.55rem 0.6rem;
+    border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    vertical-align:top;
+  }
+
+  table.records td.name-col{ font-family:inherit; }
+  table.records td.price-col{ color:var(--gold); white-space:nowrap; }
+  table.records tr:last-child td{ border-bottom:none; }
+
+  .table-shell{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:0.5rem 1rem;
+    max-height:340px;
+    overflow-y:auto;
+  }
+
+  footer{
+    margin-top:3rem;
+    border-top:1px solid var(--line);
+    padding-top:1.25rem;
+    color:var(--text-faint);
+    font-size:0.78rem;
+  }
+
+  footer a{ color:var(--text-muted); }
+
+  ::-webkit-scrollbar{ width:8px; height:8px; }
+  ::-webkit-scrollbar-track{ background:transparent; }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>NiktoutRO vending ledger</h1>
+      <p>Daily price snapshots from every vendor on classiccp.niktoutro.com</p>
+    </div>
+    <div class="stats" id="headerStats">
+      <div class="stat"><span class="n">&mdash;</span><span class="l">items</span></div>
+      <div class="stat"><span class="n">&mdash;</span><span class="l">shops</span></div>
+      <div class="stat"><span class="n">&mdash;</span><span class="l">updated</span></div>
+    </div>
+  </header>
+
+  <div class="search-shell">
+    <input type="text" id="search" placeholder="Search for an item, e.g. Giearth Card" autocomplete="off" />
+    <div class="suggestions" id="suggestions"></div>
+  </div>
+  <p class="hint">Start typing any part of an item's name. Select a result to see who's selling it and for how much, over time.</p>
+
+  <div id="loadState" class="load-state">Loading vending data&hellip;</div>
+
+  <div id="detail">
+    <div class="item-header">
+      <h2 id="itemName"></h2>
+      <span class="item-id" id="itemId"></span>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric price"><div class="l">Lowest seen</div><div class="v" id="mLow"></div></div>
+      <div class="metric price"><div class="l">Highest seen</div><div class="v" id="mHigh"></div></div>
+      <div class="metric"><div class="l">Shops selling</div><div class="v" id="mShops"></div></div>
+      <div class="metric"><div class="l">Snapshots</div><div class="v" id="mRecords"></div></div>
+    </div>
+
+    <div class="legend" id="chartLegend"></div>
+    <div class="chart-shell">
+      <canvas id="priceChart" role="img" aria-label="Scatter plot of price versus date for this item across shops"></canvas>
+    </div>
+
+    <div class="table-shell">
+      <table class="records">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Shop</th>
+            <th>Vendor</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody id="recordsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Data collected once daily from <a href="https://classiccp.niktoutro.com/vending/" target="_blank" rel="noopener">classiccp.niktoutro.com/vending</a>.
+    "Date" reflects when a listing was observed, not necessarily when the vendor first posted it.
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script>
+(function(){
+  var DATA_URL = 'data/vending-history.json';
+  var SERIES_COLORS = ['#daa520','#4fae8f','#c4776a','#6f8fc9','#b98cc9','#8fae4f','#c9a25c','#5cb3c9'];
+  var SERIES_SHAPES = ['circle','triangle','rect','rectRot','star','crossRot'];
+
+  var allRecords = [];
+  var itemIndex = {};
+  var itemNamesSorted = [];
+  var chart = null;
+  var activeIndex = -1;
+  var currentSuggestions = [];
+
+  var searchEl = document.getElementById('search');
+  var suggestionsEl = document.getElementById('suggestions');
+  var loadStateEl = document.getElementById('loadState');
+  var detailEl = document.getElementById('detail');
+  var headerStatsEl = document.getElementById('headerStats');
+
+  function formatPrice(n){
+    if (n === null || n === undefined || isNaN(n)) return '?';
+    return Math.round(n).toLocaleString() + 'z';
+  }
+
+  function formatDate(dateStr){
+    var d = new Date(dateStr + 'T00:00:00Z');
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric', timeZone:'UTC' });
+  }
+
+  function dateToEpoch(dateStr){
+    return Date.parse(dateStr + 'T00:00:00Z');
+  }
+
+  function shopKey(r){
+    return r.vendorId + '::' + r.shopTitle;
+  }
+
+  function shopLabel(r){
+    return r.vendorName + ' \u2014 ' + r.shopTitle;
+  }
+
+  function buildIndex(records){
+    itemIndex = {};
+    var itemCount = {};
+    for (var i = 0; i < records.length; i++){
+      var r = records[i];
+      if (!r.itemName) continue;
+      if (!itemIndex[r.itemName]) itemIndex[r.itemName] = [];
+      itemIndex[r.itemName].push(r);
+    }
+    itemNamesSorted = Object.keys(itemIndex).sort(function(a,b){
+      return itemIndex[b].length - itemIndex[a].length;
+    });
+  }
+
+  function uniqueShopCount(records){
+    var seen = {};
+    for (var i = 0; i < records.length; i++) seen[shopKey(records[i])] = true;
+    return Object.keys(seen).length;
+  }
+
+  function priceRange(records){
+    var lo = Infinity, hi = -Infinity;
+    for (var i = 0; i < records.length; i++){
+      var p = records[i].price;
+      if (p === null || p === undefined) continue;
+      if (p < lo) lo = p;
+      if (p > hi) hi = p;
+    }
+    if (lo === Infinity) return { lo:null, hi:null };
+    return { lo:lo, hi:hi };
+  }
+
+  function updateHeaderStats(records){
+    var itemCount = Object.keys(itemIndex).length;
+    var shopCount = uniqueShopCount(records);
+    var lastDate = null;
+    for (var i = 0; i < records.length; i++){
+      if (!lastDate || records[i].date > lastDate) lastDate = records[i].date;
+    }
+    var stats = headerStatsEl.querySelectorAll('.stat .n');
+    stats[0].textContent = itemCount.toLocaleString();
+    stats[1].textContent = shopCount.toLocaleString();
+    stats[2].textContent = lastDate ? formatDate(lastDate) : '\u2014';
+  }
+
+  function renderSuggestions(query){
+    var q = query.trim().toLowerCase();
+    var results;
+    var heading;
+
+    if (q.length === 0){
+      results = itemNamesSorted.slice(0, 8);
+      heading = 'Most listed items';
+    } else {
+      var starts = [];
+      var contains = [];
+      for (var i = 0; i < itemNamesSorted.length; i++){
+        var name = itemNamesSorted[i];
+        var lower = name.toLowerCase();
+        if (lower.indexOf(q) === 0) starts.push(name);
+        else if (lower.indexOf(q) !== -1) contains.push(name);
+      }
+      results = starts.concat(contains).slice(0, 12);
+      heading = results.length ? 'Matching items' : null;
+    }
+
+    currentSuggestions = results;
+    activeIndex = -1;
+
+    if (results.length === 0){
+      suggestionsEl.innerHTML = q.length === 0
+        ? ''
+        : '<div class="suggestion-heading">No items match "' + escapeHtml(query) + '"</div>';
+      suggestionsEl.classList.toggle('open', q.length > 0);
+      return;
+    }
+
+    var html = '<div class="suggestion-heading">' + heading + '</div>';
+    for (var j = 0; j < results.length; j++){
+      var itemName = results[j];
+      var recs = itemIndex[itemName];
+      var range = priceRange(recs);
+      var shops = uniqueShopCount(recs);
+      html += '<div class="suggestion" data-index="' + j + '" data-name="' + escapeAttr(itemName) + '">' +
+        '<span class="name">' + escapeHtml(itemName) + '</span>' +
+        '<span class="meta">' + shops + ' shop' + (shops === 1 ? '' : 's') +
+        ' &middot; <span class="price">' + formatPrice(range.lo) +
+        (range.lo !== range.hi ? ' \u2013 ' + formatPrice(range.hi) : '') + '</span></span>' +
+        '</div>';
+    }
+    suggestionsEl.innerHTML = html;
+    suggestionsEl.classList.add('open');
+
+    var nodes = suggestionsEl.querySelectorAll('.suggestion');
+    nodes.forEach(function(node){
+      node.addEventListener('mousedown', function(e){
+        e.preventDefault();
+        selectItem(node.getAttribute('data-name'));
+      });
+    });
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+  function escapeAttr(s){ return escapeHtml(s); }
+
+  function selectItem(itemName){
+    var records = itemIndex[itemName];
+    if (!records) return;
+
+    searchEl.value = itemName;
+    suggestionsEl.classList.remove('open');
+    detailEl.classList.add('open');
+
+    var sorted = records.slice().sort(function(a,b){ return a.date < b.date ? -1 : 1; });
+    var range = priceRange(sorted);
+    var shops = uniqueShopCount(sorted);
+
+    document.getElementById('itemName').textContent = itemName;
+    document.getElementById('itemId').textContent = sorted[0].itemId ? ('#' + sorted[0].itemId) : '';
+    document.getElementById('mLow').textContent = formatPrice(range.lo);
+    document.getElementById('mHigh').textContent = formatPrice(range.hi);
+    document.getElementById('mShops').textContent = shops;
+    document.getElementById('mRecords').textContent = sorted.length;
+
+    renderChart(sorted);
+    renderTable(sorted);
+  }
+
+  function renderChart(records){
+    var byShop = {};
+    var shopOrder = [];
+    for (var i = 0; i < records.length; i++){
+      var key = shopKey(records[i]);
+      if (!byShop[key]){
+        byShop[key] = [];
+        shopOrder.push(key);
+      }
+      byShop[key].push(records[i]);
+    }
+
+    var datasets = shopOrder.map(function(key, idx){
+      var recs = byShop[key];
+      var color = SERIES_COLORS[idx % SERIES_COLORS.length];
+      var shape = SERIES_SHAPES[idx % SERIES_SHAPES.length];
+      return {
+        label: shopLabel(recs[0]),
+        data: recs.map(function(r){
+          return { x: dateToEpoch(r.date), y: r.price, _r: r };
+        }),
+        backgroundColor: color,
+        borderColor: color,
+        pointStyle: shape,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        showLine: false,
+      };
+    });
+
+    var legendHtml = datasets.map(function(ds){
+      return '<span class="swatch"><span class="dot" style="background:' + ds.backgroundColor + '"></span>' +
+        escapeHtml(ds.label) + '</span>';
+    }).join('');
+    document.getElementById('chartLegend').innerHTML = legendHtml;
+
+    var allX = [], allY = [];
+    datasets.forEach(function(ds){
+      ds.data.forEach(function(p){ allX.push(p.x); allY.push(p.y); });
+    });
+    var minX = Math.min.apply(null, allX), maxX = Math.max.apply(null, allX);
+    var minY = Math.min.apply(null, allY), maxY = Math.max.apply(null, allY);
+    var dayMs = 86400000;
+    var xPad = Math.max((maxX - minX) * 0.12, dayMs * 2);
+    var yPad = Math.max((maxY - minY) * 0.15, Math.max(1, maxY * 0.05));
+
+    var ctx = document.getElementById('priceChart');
+    if (chart) chart.destroy();
+
+    chart = new Chart(ctx, {
+      type: 'scatter',
+      data: { datasets: datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: { padding: 12 },
+        scales: {
+          x: {
+            type: 'linear',
+            min: minX - xPad,
+            max: maxX + xPad,
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            ticks: {
+              color: '#9a9280',
+              maxTicksLimit: 8,
+              callback: function(v){
+                var d = new Date(v);
+                return d.toLocaleDateString(undefined, { month:'short', day:'numeric' });
+              }
+            }
+          },
+          y: {
+            min: Math.max(0, minY - yPad),
+            max: maxY + yPad,
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            ticks: {
+              color: '#9a9280',
+              callback: function(v){ return formatPrice(v); }
+            }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#28241d',
+            borderColor: '#3a352a',
+            borderWidth: 1,
+            titleColor: '#ece6d6',
+            bodyColor: '#ece6d6',
+            padding: 10,
+            callbacks: {
+              title: function(items){
+                var r = items[0].raw._r;
+                return formatDate(r.date);
+              },
+              label: function(item){
+                var r = item.raw._r;
+                var lines = [
+                  shopLabel(r),
+                  formatPrice(r.price) + '  \u00d7' + (r.amount != null ? r.amount : '?'),
+                  r.map + ' (' + r.x + ', ' + r.y + ')'
+                ];
+                return lines;
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function renderTable(records){
+    var sorted = records.slice().sort(function(a,b){ return a.date > b.date ? -1 : 1; });
+    var rows = sorted.map(function(r){
+      return '<tr>' +
+        '<td>' + formatDate(r.date) + '</td>' +
+        '<td class="name-col">' + escapeHtml(r.shopTitle) + '</td>' +
+        '<td class="name-col">' + escapeHtml(r.vendorName) + '</td>' +
+        '<td>' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
+        '<td class="price-col">' + formatPrice(r.price) + '</td>' +
+        '<td>' + (r.amount != null ? r.amount : '?') + '</td>' +
+        '</tr>';
+    }).join('');
+    document.getElementById('recordsBody').innerHTML = rows;
+  }
+
+  function highlightActive(){
+    var nodes = suggestionsEl.querySelectorAll('.suggestion');
+    nodes.forEach(function(n, i){
+      n.classList.toggle('active', i === activeIndex);
+    });
+  }
+
+  searchEl.addEventListener('input', function(){
+    renderSuggestions(searchEl.value);
+  });
+
+  searchEl.addEventListener('focus', function(){
+    renderSuggestions(searchEl.value);
+  });
+
+  searchEl.addEventListener('keydown', function(e){
+    if (!suggestionsEl.classList.contains('open')) return;
+    if (e.key === 'ArrowDown'){
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, currentSuggestions.length - 1);
+      highlightActive();
+    } else if (e.key === 'ArrowUp'){
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      highlightActive();
+    } else if (e.key === 'Enter'){
+      if (activeIndex >= 0 && currentSuggestions[activeIndex]){
+        selectItem(currentSuggestions[activeIndex]);
+      } else if (currentSuggestions.length > 0){
+        selectItem(currentSuggestions[0]);
+      }
+    } else if (e.key === 'Escape'){
+      suggestionsEl.classList.remove('open');
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('.search-shell')){
+      suggestionsEl.classList.remove('open');
+    }
+  });
+
+  fetch(DATA_URL, { cache: 'no-store' })
+    .then(function(res){
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(records){
+      allRecords = Array.isArray(records) ? records : [];
+      buildIndex(allRecords);
+      updateHeaderStats(allRecords);
+
+      if (allRecords.length === 0){
+        loadStateEl.innerHTML = 'No data collected yet. Run <code>npm run scrape</code> in the <code>scraper/</code> folder, or wait for the daily GitHub Action to run.';
+        return;
+      }
+
+      loadStateEl.style.display = 'none';
+      searchEl.disabled = false;
+    })
+    .catch(function(err){
+      loadStateEl.textContent = 'Could not load vending data (' + err.message + '). Check that data/vending-history.json exists next to this page.';
+    });
+})();
+</script>
+</body>
+</html>
