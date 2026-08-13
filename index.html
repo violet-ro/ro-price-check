@@ -555,30 +555,41 @@
     
     var d = new Date(datePart + 'T00:00:00Z');
     if (isNaN(d.getTime())) return dateStr;
-    var formatted = d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric', timeZone:'UTC' });
+    var formatted = d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
     if (timePart) formatted += ' ' + timePart;
     return formatted;
   }
 
   function formatDateForStats(dateStr){
-    // Format as YYYY/MM/DD HH:mm
+    // Format as YYYY/MM/DD HH:mm in JST (UTC+9)
     var hasTimeInfo = dateStr && (dateStr.indexOf('T') !== -1 || dateStr.indexOf(' ') !== -1);
     var datePart = dateStr;
     var timePart = '00:00';
     
     if (hasTimeInfo && dateStr.indexOf(' ') !== -1){
-      // Format: "2026-08-13 01:45:40"
+      // Format: "2026-08-13 01:45:40" (UTC)
       var parts = dateStr.split(' ');
       datePart = parts[0];
       timePart = parts[1] ? parts[1].substring(0, 5) : '00:00'; // HH:mm
     } else if (hasTimeInfo && dateStr.indexOf('T') !== -1){
-      // Format: "2026-08-13T01:45:40Z"
+      // Format: "2026-08-13T01:45:40Z" (UTC)
       var parts = dateStr.split('T');
       datePart = parts[0];
       timePart = parts[1] ? parts[1].substring(0, 5) : '00:00'; // HH:mm
     }
     
-    return datePart + ' ' + timePart;
+    // Parse as UTC and convert to JST (UTC+9)
+    var d = new Date(datePart + 'T' + timePart + ':00Z');
+    var utcTime = d.getTime();
+    var jstTime = new Date(utcTime + (9 * 60 * 60 * 1000)); // Add 9 hours for JST
+    
+    var year = jstTime.getUTCFullYear();
+    var month = String(jstTime.getUTCMonth() + 1).padStart(2, '0');
+    var day = String(jstTime.getUTCDate()).padStart(2, '0');
+    var hours = String(jstTime.getUTCHours()).padStart(2, '0');
+    var minutes = String(jstTime.getUTCMinutes()).padStart(2, '0');
+    
+    return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes;
   }
 
   function dateToEpoch(dateStr){
