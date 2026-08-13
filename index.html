@@ -560,6 +560,27 @@
     return formatted;
   }
 
+  function formatDateForStats(dateStr){
+    // Format as YYYY/MM/DD HH:mm
+    var hasTimeInfo = dateStr && (dateStr.indexOf('T') !== -1 || dateStr.indexOf(' ') !== -1);
+    var datePart = dateStr;
+    var timePart = '00:00';
+    
+    if (hasTimeInfo && dateStr.indexOf(' ') !== -1){
+      // Format: "2026-08-13 01:45:40"
+      var parts = dateStr.split(' ');
+      datePart = parts[0];
+      timePart = parts[1] ? parts[1].substring(0, 5) : '00:00'; // HH:mm
+    } else if (hasTimeInfo && dateStr.indexOf('T') !== -1){
+      // Format: "2026-08-13T01:45:40Z"
+      var parts = dateStr.split('T');
+      datePart = parts[0];
+      timePart = parts[1] ? parts[1].substring(0, 5) : '00:00'; // HH:mm
+    }
+    
+    return datePart + ' ' + timePart;
+  }
+
   function dateToEpoch(dateStr){
     // Check if the string contains time information
     if (dateStr && (dateStr.indexOf('T') !== -1 || dateStr.indexOf(' ') !== -1)){
@@ -623,7 +644,7 @@
     var stats = headerStatsEl.querySelectorAll('.stat .n');
     stats[0].textContent = itemCount.toLocaleString();
     stats[1].textContent = shopCount.toLocaleString();
-    stats[2].textContent = lastDate ? formatDate(lastDate) : '\u2014';
+    stats[2].textContent = lastDate ? formatDateForStats(lastDate) : '\u2014';
   }
 
   function renderSuggestions(query){
