@@ -4,3 +4,4 @@ node_modules/
 scraper/scrape.js
 scraper/
 samples/
+.gitignore
