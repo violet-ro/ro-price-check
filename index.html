@@ -6,18 +6,18 @@
 <title>NiktoutRO Vending Ledger</title>
 <style>
   :root{
-    --ink:#171512;
-    --panel:#211e19;
-    --panel-2:#28241d;
-    --line:#3a352a;
-    --text:#ece6d6;
-    --text-muted:#9a9280;
-    --text-faint:#6f6857;
-    --gold:#daa520;
-    --gold-dim:#8a6a1f;
-    --teal:#4fae8f;
-    --danger:#c4776a;
-    --radius:10px;
+    --ink:#fff;
+    --panel:#f5f5f5;
+    --panel-2:#eee;
+    --line:#ddd;
+    --text:#444;
+    --text-muted:#888;
+    --text-faint:#bbb;
+    --gold:#4083c6;
+    --gold-dim:#2d5a9e;
+    --teal:#80a2c8;
+    --danger:#f00;
+    --radius:4px;
   }
 
   *{ box-sizing:border-box; }
@@ -54,6 +54,12 @@
     font-size:1.9rem;
     margin:0 0 0.25rem;
     letter-spacing:0.01em;
+    cursor:pointer;
+    transition:color 0.15s ease;
+  }
+
+  h1:hover{
+    color:var(--gold);
   }
 
   header p{
@@ -746,8 +752,8 @@
     var averageDataset = {
       label: 'Average Price',
       data: averageData,
-      backgroundColor: 'rgba(218, 165, 32, 0.15)',
-      borderColor: 'rgba(218, 165, 32, 0.4)',
+      backgroundColor: 'rgba(64, 131, 198, 0.1)',
+      borderColor: 'rgba(64, 131, 198, 0.5)',
       borderWidth: 2,
       pointRadius: 0,
       pointHoverRadius: 0,
@@ -788,9 +794,9 @@
             type: 'linear',
             min: xMin,
             max: xMax,
-            grid: { color: 'rgba(255,255,255,0.06)' },
+            grid: { color: 'rgba(0,0,0,0.08)' },
             ticks: {
-              color: '#9a9280',
+              color: '#888',
               maxTicksLimit: 8,
               callback: function(v){
                 var d = new Date(v);
@@ -801,9 +807,9 @@
           y: {
             min: Math.max(0, minY - yPad),
             max: maxY + yPad,
-            grid: { color: 'rgba(255,255,255,0.06)' },
+            grid: { color: 'rgba(0,0,0,0.08)' },
             ticks: {
-              color: '#9a9280',
+              color: '#888',
               callback: function(v){ return formatPrice(v); }
             }
           }
@@ -811,11 +817,11 @@
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#28241d',
-            borderColor: '#3a352a',
+            backgroundColor: '#fff',
+            borderColor: '#ddd',
             borderWidth: 1,
-            titleColor: '#ece6d6',
-            bodyColor: '#ece6d6',
+            titleColor: '#444',
+            bodyColor: '#444',
             padding: 10,
             callbacks: {
               title: function(items){
@@ -984,6 +990,17 @@
   (function(){
     var itemsCountEl = document.getElementById('itemsCount');
     if (itemsCountEl) itemsCountEl.addEventListener('click', openTodayItems);
+    
+    // Wire up title click to reset view
+    var titleEl = document.querySelector('h1');
+    if (titleEl) titleEl.addEventListener('click', function(){
+      searchEl.value = '';
+      suggestionsEl.classList.remove('open');
+      detailEl.classList.remove('open');
+      document.getElementById('todayPanel').style.display = 'none';
+      window.scrollTo(0, 0);
+    });
+    
     var ts = document.getElementById('todaySearch');
     if (ts) ts.addEventListener('input', filterTodayItems);
     var closeBtn = document.getElementById('todayClose');
