@@ -1,7 +1,7 @@
+.gitignore
 node_modules/
 .DS_Store
 *.log
 scraper/scrape.js
 scraper/
 samples/
-.gitignore
