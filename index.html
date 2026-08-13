@@ -468,17 +468,51 @@
   }
 
   function formatDate(dateStr){
-    var d = new Date(dateStr + 'T00:00:00Z');
+    // Check if the string contains time information
+    var hasTimeInfo = dateStr && (dateStr.indexOf('T') !== -1 || dateStr.indexOf(' ') !== -1);
+    var datePart = dateStr;
+    var timePart = '';
+    
+    if (hasTimeInfo && dateStr.indexOf(' ') !== -1){
+      // Format: "2026-08-13 01:45:40"
+      var parts = dateStr.split(' ');
+      datePart = parts[0];
+      timePart = parts[1];
+    } else if (hasTimeInfo && dateStr.indexOf('T') !== -1){
+      // Format: "2026-08-13T01:45:40Z"
+      var parts = dateStr.split('T');
+      datePart = parts[0];
+      timePart = parts[1] ? parts[1].replace('Z', '').substring(0, 8) : '';
+    }
+    
+    var d = new Date(datePart + 'T00:00:00Z');
     if (isNaN(d.getTime())) return dateStr;
-    return d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric', timeZone:'UTC' });
+    var formatted = d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric', timeZone:'UTC' });
+    if (timePart) formatted += ' ' + timePart;
+    return formatted;
   }
 
   function dateToEpoch(dateStr){
+    // Check if the string contains time information
+    if (dateStr && (dateStr.indexOf('T') !== -1 || dateStr.indexOf(' ') !== -1)){
+      // Has time info - convert space to T for ISO format if needed
+      var isoStr = dateStr.replace(' ', 'T');
+      // Add Z if not present
+      if (isoStr.indexOf('Z') === -1 && isoStr.indexOf('+') === -1) isoStr += 'Z';
+      return Date.parse(isoStr);
+    }
+    // No time info - parse as midnight UTC
     return Date.parse(dateStr + 'T00:00:00Z');
   }
 
   function dateToEpochWithJitter(dateStr, recordIndex, totalRecordsForDate){
     var baseEpoch = dateToEpoch(dateStr);
+    // Only add jitter if there's no time component (i.e., it was set to midnight)
+    var hasTimeInfo = dateStr && (dateStr.indexOf('T') !== -1 || dateStr.indexOf(' ') !== -1);
+    if (hasTimeInfo){
+      // Already has time info, don't add jitter
+      return baseEpoch;
+    }
     // Add a small jitter to spread points from the same day across ~24 hours
     // This way, multiple readings from the same day won't overlap perfectly
     var dayMs = 86400000;
