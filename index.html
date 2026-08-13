@@ -477,6 +477,16 @@
     return Date.parse(dateStr + 'T00:00:00Z');
   }
 
+  function dateToEpochWithJitter(dateStr, recordIndex, totalRecordsForDate){
+    var baseEpoch = dateToEpoch(dateStr);
+    // Add a small jitter to spread points from the same day across ~24 hours
+    // This way, multiple readings from the same day won't overlap perfectly
+    var dayMs = 86400000;
+    var jitterRange = dayMs * 0.8; // 80% of a day for jitter
+    var jitter = (recordIndex / Math.max(totalRecordsForDate, 1)) * jitterRange - (jitterRange / 2);
+    return baseEpoch + jitter;
+  }
+
   function shopKey(r){
     return r.vendorId + '::' + r.shopTitle;
   }
@@ -620,6 +630,14 @@
   function renderChart(records){
     var dayMs = 86400000;
     
+    // Group records by date to calculate jitter indices
+    var recordsByDate = {};
+    for (var i = 0; i < records.length; i++){
+      var d = records[i].date;
+      if (!recordsByDate[d]) recordsByDate[d] = [];
+      recordsByDate[d].push(records[i]);
+    }
+    
     // Determine the date range to display
     var maxDate = null;
     var minDate = null;
@@ -667,8 +685,9 @@
       var shape = SERIES_SHAPES[idx % SERIES_SHAPES.length];
       return {
         label: shopLabel(recs[0]),
-        data: recs.map(function(r){
-          return { x: dateToEpoch(r.date), y: r.price, _r: r };
+        data: recs.map(function(r, recIdx){
+          var totalForDate = recordsByDate[r.date] ? recordsByDate[r.date].length : 1;
+          return { x: dateToEpochWithJitter(r.date, recIdx, totalForDate), y: r.price, _r: r };
         }),
         backgroundColor: color,
         borderColor: color,
