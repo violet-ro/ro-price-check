@@ -735,8 +735,47 @@
       };
     });
 
+    // Calculate average prices by timestamp (using base epoch without jitter for grouping)
+    var pricesByTimestamp = {};
+    var timestampOrder = [];
+    for (var i = 0; i < filteredRecords.length; i++){
+      var r = filteredRecords[i];
+      var tsKey = r.date; // Group by original date string
+      if (!pricesByTimestamp[tsKey]){
+        pricesByTimestamp[tsKey] = [];
+        timestampOrder.push(tsKey);
+      }
+      pricesByTimestamp[tsKey].push(r.price);
+    }
+
+    // Create average dataset
+    var averageData = timestampOrder.map(function(ts){
+      var prices = pricesByTimestamp[ts];
+      var sum = 0;
+      for (var i = 0; i < prices.length; i++) sum += prices[i];
+      var avg = sum / prices.length;
+      return { x: dateToEpoch(ts), y: avg };
+    });
+
+    var averageDataset = {
+      label: 'Average Price',
+      data: averageData,
+      backgroundColor: 'rgba(218, 165, 32, 0.15)',
+      borderColor: 'rgba(218, 165, 32, 0.4)',
+      borderWidth: 2,
+      pointRadius: 0,
+      pointHoverRadius: 0,
+      showLine: true,
+      tension: 0.3,
+      fill: true,
+      borderDash: [5, 5],
+    };
+
+    // Insert average dataset at the beginning so it's drawn behind
+    datasets.unshift(averageDataset);
+
     var legendHtml = datasets.map(function(ds){
-      return '<span class="swatch"><span class="dot" style="background:' + ds.backgroundColor + '"></span>' +
+      return '<span class="swatch"><span class="dot" style="background:' + (ds.backgroundColor ? ds.backgroundColor.replace(/[\d.]+\)/, '1)') : ds.borderColor) + '"></span>' +
         escapeHtml(ds.label) + '</span>';
     }).join('');
     document.getElementById('chartLegend').innerHTML = legendHtml;
@@ -795,10 +834,15 @@
             callbacks: {
               title: function(items){
                 var r = items[0].raw._r;
+                if (!r) return new Date(items[0].raw.x).toLocaleDateString();
                 return formatDate(r.date);
               },
               label: function(item){
                 var r = item.raw._r;
+                if (!r){
+                  // Average dataset
+                  return 'Average: ' + formatPrice(item.raw.y);
+                }
                 var lines = [
                   shopLabel(r),
                   formatPrice(r.price) + '  \u00d7' + (r.amount != null ? r.amount : '?'),
