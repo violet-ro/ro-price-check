@@ -305,36 +305,6 @@
     overflow-y:auto;
   }
 
-  .date-range-filters{
-    display:flex;
-    gap:0.5rem;
-    margin-bottom:1rem;
-    flex-wrap:wrap;
-  }
-
-  .date-range-filters button{
-    background:var(--panel);
-    border:1px solid var(--line);
-    color:var(--text);
-    padding:0.5rem 1rem;
-    border-radius:var(--radius);
-    cursor:pointer;
-    font-size:0.8rem;
-    transition:all 0.15s ease;
-    font-family:inherit;
-  }
-
-  .date-range-filters button:hover{
-    border-color:var(--gold-dim);
-    color:var(--gold);
-  }
-
-  .date-range-filters button.active{
-    background:var(--gold-dim);
-    border-color:var(--gold);
-    color:var(--gold);
-  }
-
   footer{
     margin-top:3rem;
     border-top:1px solid var(--line);
@@ -344,6 +314,29 @@
   }
 
   footer a{ color:var(--text-muted); }
+
+  .date-filter{
+    background:var(--panel);
+    border:1px solid var(--line);
+    color:var(--text);
+    padding:0.4rem 0.8rem;
+    border-radius:var(--radius);
+    cursor:pointer;
+    font-family:inherit;
+    font-size:0.85rem;
+    transition:background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .date-filter:hover{
+    background:var(--panel-2);
+    border-color:var(--gold-dim);
+  }
+
+  .date-filter.active{
+    background:var(--gold-dim);
+    color:var(--ink);
+    border-color:var(--gold);
+  }
 
   ::-webkit-scrollbar{ width:8px; height:8px; }
   ::-webkit-scrollbar-track{ background:transparent; }
@@ -406,15 +399,14 @@
       <div class="metric"><div class="l">Snapshots</div><div class="v" id="mRecords"></div></div>
     </div>
 
-    <div class="date-range-filters" id="dateRangeFilters">
-      <button data-range="all" class="active">All Time</button>
-      <button data-range="1y">1 Year</button>
-      <button data-range="1m">1 Month</button>
-      <button data-range="1w">1 Week</button>
-      <button data-range="default">Current Data</button>
-    </div>
-
     <div class="legend" id="chartLegend"></div>
+    <div style="display:flex; gap:0.5rem; margin-bottom:1rem; flex-wrap:wrap;">
+      <button class="date-filter" data-days="1">1 Day</button>
+      <button class="date-filter" data-days="7">1 Week</button>
+      <button class="date-filter" data-days="30">1 Month</button>
+      <button class="date-filter" data-days="365">1 Year</button>
+      <button class="date-filter" data-days="all">All Time</button>
+    </div>
     <div class="chart-shell">
       <canvas id="priceChart" role="img" aria-label="Scatter plot of price versus date for this item across shops"></canvas>
     </div>
@@ -456,8 +448,7 @@
   var chart = null;
   var activeIndex = -1;
   var currentSuggestions = [];
-  var currentDateRange = 'all';
-  var currentItemRecords = [];
+  var selectedDateRangeFilter = 1; // days, 1 by default
 
   // Today panel state
   var todayRecords = [];
@@ -612,9 +603,6 @@
     detailEl.classList.add('open');
 
     var sorted = records.slice().sort(function(a,b){ return a.date < b.date ? -1 : 1; });
-    currentItemRecords = sorted;
-    currentDateRange = 'all';
-    
     var range = priceRange(sorted);
     var shops = uniqueShopCount(sorted);
 
@@ -625,55 +613,52 @@
     document.getElementById('mShops').textContent = shops;
     document.getElementById('mRecords').textContent = sorted.length;
 
-    // Reset date range filter buttons
-    var buttons = document.querySelectorAll('#dateRangeFilters button');
-    buttons.forEach(function(btn){ btn.classList.remove('active'); });
-    document.querySelector('#dateRangeFilters button[data-range="all"]').classList.add('active');
-
     renderChart(sorted);
     renderTable(sorted);
   }
 
-  function getFilteredRecords(records, dateRange){
-    if (dateRange === 'all' || dateRange === 'default') return records;
+  function renderChart(records){
+    var dayMs = 86400000;
     
-    var now = Date.now();
-    var cutoff;
-    switch(dateRange){
-      case '1y': cutoff = now - 365 * 86400000; break;
-      case '1m': cutoff = now - 30 * 86400000; break;
-      case '1w': cutoff = now - 7 * 86400000; break;
-      default: return records;
+    // Determine the date range to display
+    var maxDate = null;
+    var minDate = null;
+    for (var i = 0; i < records.length; i++){
+      var d = dateToEpoch(records[i].date);
+      if (!maxDate || d > maxDate) maxDate = d;
+      if (!minDate || d < minDate) minDate = d;
     }
     
-    return records.filter(function(r){
-      return dateToEpoch(r.date) >= cutoff;
+    // Calculate axis limits based on selected filter
+    var xMin, xMax;
+    if (selectedDateRangeFilter === 'all'){
+      // Show all data from 1 day before earliest to 1 day after latest
+      xMin = minDate - dayMs;
+      xMax = maxDate + dayMs;
+    } else {
+      // Calculate days from now
+      var days = selectedDateRangeFilter;
+      xMax = maxDate + dayMs;
+      xMin = maxDate - (days * dayMs);
+      // But never show less than 1 day before earliest data
+      if (xMin > minDate - dayMs) xMin = minDate - dayMs;
+    }
+    
+    // Filter records to only show within the selected range
+    var filteredRecords = records.filter(function(r){
+      var d = dateToEpoch(r.date);
+      return d >= xMin && d <= xMax;
     });
-  }
-
-  function updateChartWithDateRange(dateRange){
-    currentDateRange = dateRange;
-    var filtered = getFilteredRecords(currentItemRecords, dateRange);
     
-    // Update active button
-    var buttons = document.querySelectorAll('#dateRangeFilters button');
-    buttons.forEach(function(btn){ btn.classList.remove('active'); });
-    document.querySelector('#dateRangeFilters button[data-range="' + dateRange + '"]').classList.add('active');
-    
-    renderChart(filtered);
-    renderTable(filtered);
-  }
-
-  function renderChart(records){
     var byShop = {};
     var shopOrder = [];
-    for (var i = 0; i < records.length; i++){
-      var key = shopKey(records[i]);
+    for (var i = 0; i < filteredRecords.length; i++){
+      var key = shopKey(filteredRecords[i]);
       if (!byShop[key]){
         byShop[key] = [];
         shopOrder.push(key);
       }
-      byShop[key].push(records[i]);
+      byShop[key].push(filteredRecords[i]);
     }
 
     var datasets = shopOrder.map(function(key, idx){
@@ -703,14 +688,11 @@
     }).join('');
     document.getElementById('chartLegend').innerHTML = legendHtml;
 
-    var allX = [], allY = [];
+    var allY = [];
     datasets.forEach(function(ds){
-      ds.data.forEach(function(p){ allX.push(p.x); allY.push(p.y); });
+      ds.data.forEach(function(p){ allY.push(p.y); });
     });
-    var minX = Math.min.apply(null, allX), maxX = Math.max.apply(null, allX);
     var minY = Math.min.apply(null, allY), maxY = Math.max.apply(null, allY);
-    var dayMs = 86400000;
-    var xPad = dayMs; // 1 day padding on each side
     var yPad = Math.max((maxY - minY) * 0.15, Math.max(1, maxY * 0.05));
 
     var ctx = document.getElementById('priceChart');
@@ -726,8 +708,8 @@
         scales: {
           x: {
             type: 'linear',
-            min: minX - xPad,
-            max: maxX + xPad,
+            min: xMin,
+            max: xMax,
             grid: { color: 'rgba(255,255,255,0.06)' },
             ticks: {
               color: '#9a9280',
@@ -924,14 +906,32 @@
       });
     });
 
-    // Wire date range filter buttons
-    var dateRangeButtons = document.querySelectorAll('#dateRangeFilters button');
-    dateRangeButtons.forEach(function(btn){
+    // Wire date filter buttons
+    var filterBtns = document.querySelectorAll('.date-filter');
+    filterBtns.forEach(function(btn){
       btn.addEventListener('click', function(){
-        var range = btn.getAttribute('data-range');
-        if (range) updateChartWithDateRange(range);
+        var daysStr = btn.getAttribute('data-days');
+        var days = daysStr === 'all' ? 'all' : parseInt(daysStr, 10);
+        selectedDateRangeFilter = days;
+        
+        // Update active button styling
+        filterBtns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        
+        // Re-render chart with new filter
+        if (activeIndex >= 0 || searchEl.value.trim().length > 0){
+          var itemName = searchEl.value.trim();
+          if (itemName && itemIndex[itemName]){
+            renderChart(itemIndex[itemName]);
+            renderTable(itemIndex[itemName]);
+          }
+        }
       });
     });
+    
+    // Set initial active button
+    var defaultBtn = document.querySelector('.date-filter[data-days="1"]');
+    if (defaultBtn) defaultBtn.classList.add('active');
   })();
 
   // ------------------------------------------------------------------------------------
