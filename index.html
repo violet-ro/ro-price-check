@@ -355,6 +355,54 @@
     border-color:var(--gold);
   }
 
+  .refresh-button {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .refresh-button:hover:not(:disabled) {
+    background: var(--panel-2);
+    border-color: var(--gold-dim);
+  }
+
+  .refresh-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .refresh-spinner {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid var(--line);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .refresh-success {
+    color: #0c0;
+  }
+
+  .refresh-error {
+    color: var(--danger);
+  }
+
   ::-webkit-scrollbar{ width:8px; height:8px; }
   ::-webkit-scrollbar-track{ background:transparent; }
   ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
@@ -367,6 +415,9 @@
     <div>
       <h1>NiktoutRO vending ledger</h1>
       <p>Daily price snapshots from every vendor on classiccp.niktoutro.com</p>
+    </div>
+    <div>
+      <button id="refreshBtn" class="refresh-button" title="Refresh vending data">Refresh Shops</button>
     </div>
     <div class="stats" id="headerStats">
       <div class="stat"><span class="n" id="itemsCount" title="Click to view today's items" style="cursor:pointer">&mdash;</span><span class="l">items</span></div>
@@ -456,7 +507,7 @@
 <script>
 (function(){
   var DATA_URL = 'data/vending-history.json';
-  var SERIES_COLORS = ['#daa520','#4fae8f','#c4776a','#6f8fc9','#b98cc9','#8fae4f','#c9a25c','#5cb3c9'];
+  var SERIES_COLORS = ['#4083c6','#80a2c8','#26a','#2d5a9e','#708fae','#a0b8d4','#5a7a9e','#94b4d5'];
   var SERIES_SHAPES = ['circle','triangle','rect','rectRot','star','crossRot'];
 
   var allRecords = [];
@@ -1041,7 +1092,53 @@
     // Set initial active button
     var defaultBtn = document.querySelector('.date-filter[data-days="1"]');
     if (defaultBtn) defaultBtn.classList.add('active');
+
+    // Wire refresh button
+    var refreshBtn = document.getElementById('refreshBtn');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', function(){
+        handleRefreshClick(refreshBtn);
+      });
+    }
   })();
+
+  function handleRefreshClick(btn){
+    btn.disabled = true;
+    btn.innerHTML = '<span class="refresh-spinner"></span>Refreshing...';
+    
+    fetch('/api/refresh-scrape', { method: 'POST' })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (data.success){
+          btn.innerHTML = '<span class="refresh-success">✓</span>Updated';
+          btn.classList.add('refresh-success');
+        } else {
+          btn.innerHTML = '<span class="refresh-error">✗</span>Failed';
+          btn.classList.add('refresh-error');
+        }
+        
+        setTimeout(function(){
+          btn.disabled = false;
+          btn.classList.remove('refresh-success', 'refresh-error');
+          btn.textContent = 'Refresh Shops';
+          // Reload the data if successful
+          if (data.success){
+            location.reload();
+          }
+        }, 4000);
+      })
+      .catch(function(err){
+        btn.innerHTML = '<span class="refresh-error">✗</span>Error';
+        btn.classList.add('refresh-error');
+        console.error('Refresh error:', err);
+        
+        setTimeout(function(){
+          btn.disabled = false;
+          btn.classList.remove('refresh-success', 'refresh-error');
+          btn.textContent = 'Refresh Shops';
+        }, 4000);
+      });
+  }
 
   // ------------------------------------------------------------------------------------
 
