@@ -296,6 +296,17 @@
   table.records td.price-col{ color:var(--gold); white-space:nowrap; }
   table.records tr:last-child td{ border-bottom:none; }
 
+  table.records td.item-name-cell{
+    cursor:pointer;
+    color:var(--gold);
+    text-decoration:underline;
+    transition:color 0.15s ease;
+  }
+
+  table.records td.item-name-cell:hover{
+    color:var(--gold-dim);
+  }
+
   .table-shell{
     background:var(--panel);
     border:1px solid var(--line);
@@ -909,7 +920,7 @@
     var rows = records.map(function(r){
       return '<tr>' +
         '<td class="name-col">' + escapeHtml(r.shopTitle) + '</td>' +
-        '<td class="name-col">' + escapeHtml(r.itemName) + '</td>' +
+        '<td class="name-col item-name-cell" data-item-name="' + escapeAttr(r.itemName) + '">' + escapeHtml(r.itemName) + '</td>' +
         '<td class="price-col">' + formatPrice(r.price) + '</td>' +
         '<td class="name-col">' + escapeHtml(r.vendorName) + '</td>' +
         '<td>' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
@@ -918,6 +929,15 @@
     }).join('');
     document.getElementById('todayBody').innerHTML = rows;
     updateTodaySortUI();
+
+    // Add click handlers to item names
+    var itemCells = document.querySelectorAll('#todayBody td.item-name-cell');
+    itemCells.forEach(function(cell){
+      cell.addEventListener('click', function(){
+        var itemName = cell.getAttribute('data-item-name');
+        selectItem(itemName);
+      });
+    });
   }
 
   function updateTodaySortUI(){
