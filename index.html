@@ -4,19 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NiktoutRO Price Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#fff;
-    --panel:#f5f5f5;
-    --panel-2:#eee;
+    --panel:#eef0f2;
+    --panel-2:#e3e6e9;
     --line:#ddd;
     --text:#444;
-    --text-muted:#888;
-    --text-faint:#bbb;
+    --text-muted:#666;
+    --text-faint:#767676;
     --gold:#4083c6;
     --gold-dim:#2d5a9e;
     --teal:#80a2c8;
-    --danger:#f00;
+    --danger:#d9534f;
     --radius:4px;
   }
 
@@ -81,7 +84,7 @@
 
   .stat .n{
     display:block;
-    color:var(--gold);
+    color:var(--gold-dim);
     font-size:1.05rem;
   }
 
@@ -163,7 +166,7 @@
     white-space:nowrap;
   }
 
-  .suggestion .meta .price{ color:var(--gold); }
+  .suggestion .meta .price{ color:var(--gold-dim); }
 
   .hint{
     color:var(--text-faint);
@@ -245,7 +248,7 @@
     color:var(--text);
   }
 
-  .metric.price .v{ color:var(--gold); }
+  .metric.price .v{ color:var(--gold-dim); }
 
   .chart-shell{
     background:var(--panel);
@@ -302,12 +305,21 @@
   }
 
   table.records td.name-col{ font-family:inherit; }
-  table.records td.price-col{ color:var(--gold); white-space:nowrap; }
+  table.records td.price-col{ color:var(--gold-dim); white-space:nowrap; }
   table.records tr:last-child td{ border-bottom:none; }
+  table.records tbody tr:hover td{ background:var(--panel-2); }
+
+  .shop-group-header:hover{
+    background:var(--panel-2);
+  }
+
+  .shop-item-row td{
+    background:var(--ink);
+  }
 
   table.records td.item-name-cell{
     cursor:pointer;
-    color:var(--gold);
+    color:var(--gold-dim);
     text-decoration:underline;
     transition:color 0.15s ease;
   }
@@ -334,7 +346,7 @@
   }
 
   table.records td.item-name-cell:hover{
-    color:var(--gold-dim);
+    color:var(--text);
   }
 
   .table-shell{
@@ -344,6 +356,17 @@
     padding:0.5rem 1rem;
     max-height:340px;
     overflow-y:auto;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .panel-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--text-faint);
+    margin:0 0 0.5rem;
   }
 
   footer{
@@ -430,6 +453,30 @@
   ::-webkit-scrollbar{ width:8px; height:8px; }
   ::-webkit-scrollbar-track{ background:transparent; }
   ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+
+  #adminControls{ display:none; }
+  #adminControls.visible{ display:block; }
+
+  @media (max-width: 640px){
+    .wrap{ padding:1.25rem 0.9rem 3.5rem; }
+
+    header{ gap:0.6rem; padding-bottom:1rem; margin-bottom:1.25rem; }
+    h1{ font-size:1.5rem; }
+
+    .stats{ gap:1rem; width:100%; justify-content:space-between; }
+
+    table.records{ font-size:0.78rem; }
+    table.records th, table.records td{ padding:0.45rem 0.4rem; }
+
+    /* Lower-priority columns: hide on narrow screens instead of forcing
+       horizontal scroll on every table. Still reachable via overflow-x
+       on wider phones/tablets. */
+    .col-location, .col-qty{ display:none; }
+
+    .metric-row{ grid-template-columns:repeat(2, 1fr); }
+
+    .chart-shell{ height:260px; padding:1rem 0.5rem 0.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -440,7 +487,7 @@
       <h1>NiktoutRO Price Check</h1>
       <p>Price snapshots from every vendor on classiccp.niktoutro.com</p>
     </div>
-    <div>
+    <div id="adminControls">
       <button id="refreshBtn" class="refresh-button" title="Admin Action">Admin</button>
     </div>
     <div class="stats" id="headerStats">
@@ -456,7 +503,8 @@
   </div>
   <p class="hint">Start typing any part of an item's name. Select a result to see who's selling it and for how much, over time.</p>
 
-  <div id="todayPanel" class="table-shell" style="display:none; margin-top:1rem;">
+  <div id="todayPanel" class="table-shell" style="display:none; margin: 0.6rem 0 2.5rem;">
+    <p class="panel-title">Today's Items</p>
     <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem;">
       <input type="text" id="todaySearch" placeholder="Filter today's items (shop or item name)" style="flex:1; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:0.5rem; color:var(--text); font-family:inherit;" />
       <button id="todayClose" style="background:transparent; border:1px solid var(--line); color:var(--text-muted); padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer;">Close</button>
@@ -468,15 +516,16 @@
           <th data-key="itemName" class="sortable">Item</th>
           <th data-key="price" class="sortable">Price</th>
           <th data-key="vendorName" class="sortable">Vendor</th>
-          <th data-key="map" class="sortable">Location</th>
-          <th data-key="amount" class="sortable">Qty</th>
+          <th data-key="map" class="sortable col-location">Location</th>
+          <th data-key="amount" class="sortable col-qty">Qty</th>
         </tr>
       </thead>
       <tbody id="todayBody"></tbody>
     </table>
   </div>
 
-  <div id="shopPanel" class="table-shell" style="display:none; margin-top:1rem;">
+  <div id="shopPanel" class="table-shell" style="display:none; margin:0.6rem 0 2.5rem;">
+    <p class="panel-title">Today's Shops</p>
     <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem;">
       <input type="text" id="shopSearch" placeholder="Filter shops or items" style="flex:1; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:0.5rem; color:var(--text); font-family:inherit;" />
       <button id="shopClose" style="background:transparent; border:1px solid var(--line); color:var(--text-muted); padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer;">Close</button>
@@ -501,7 +550,6 @@
 
     <div class="legend" id="chartLegend"></div>
     <div style="display:flex; gap:0.5rem; margin-bottom:1rem; flex-wrap:wrap;">
-      <button class="date-filter" data-days="1">1 Day</button>
       <button class="date-filter" data-days="7">1 Week</button>
       <button class="date-filter" data-days="30">1 Month</button>
       <button class="date-filter" data-days="365">1 Year</button>
@@ -518,9 +566,9 @@
             <th>Date</th>
             <th>Shop</th>
             <th>Vendor</th>
-            <th>Location</th>
+            <th class="col-location">Location</th>
             <th>Price</th>
-            <th>Qty</th>
+            <th class="col-qty">Qty</th>
           </tr>
         </thead>
         <tbody id="recordsBody"></tbody>
@@ -541,6 +589,7 @@
   var DATA_URL = 'data/vending-history.json';
   var SERIES_COLORS = ['#4083c6','#d9534f','#5cb85c','#9932cc','#ff9900','#17a2b8','#e67e22','#c0392b'];
   var SERIES_SHAPES = ['circle','triangle','rect','rectRot','star','crossRot'];
+  var TEXT_MUTED_COLOR = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#666';
 
   var allRecords = [];
   var itemIndex = {};
@@ -554,6 +603,41 @@
   var todayRecords = [];
   var todaySortKey = 'shopTitle';
   var todaySortDir = 1; // 1 = asc, -1 = desc
+
+  // Remembers item icons that have failed to load this session (real
+  // network/HTTP errors), so the same icon isn't re-requested from the
+  // icon host every time it shows up in a different panel.
+  var iconFailedIds = {};
+  window.__markIconFailed = function(id){
+    if (id) iconFailedIds[id] = true;
+  };
+
+  // Bump this whenever you notice bad/placeholder icons persisting (e.g.
+  // after a rate-limited scrape run, or if the check below ever needs a
+  // wider net). It's appended to every icon URL, so on a visitor's next
+  // page load every icon is a URL their browser has never cached before.
+  var ICON_ASSET_VERSION = 'v2';
+
+  // The icon host substitutes a fixed 90x60 placeholder image (served
+  // with a normal 200 OK) when it's serving bad/rate-limited responses;
+  // real item icons are 24x24. We check the actual loaded pixel
+  // dimensions on every load (this works whether the response came from
+  // the network or the browser's own cache) and, if it matches the
+  // placeholder's size, retry once with a fresh cache-busting param.
+  // Only if it's still bad after that do we give up and hide it.
+  var ICON_PLACEHOLDER_WIDTH = 90;
+  var ICON_PLACEHOLDER_HEIGHT = 60;
+  window.__checkIconLoad = function(img, id){
+    if (img.naturalWidth !== ICON_PLACEHOLDER_WIDTH || img.naturalHeight !== ICON_PLACEHOLDER_HEIGHT) return;
+    var retried = img.getAttribute('data-icon-retry') === '1';
+    if (!retried) {
+      img.setAttribute('data-icon-retry', '1');
+      img.src = itemIconUrl(id) + '&_retry=' + Date.now();
+      return;
+    }
+    img.style.display = 'none';
+    window.__markIconFailed(id);
+  };
 
 
   var searchEl = document.getElementById('search');
@@ -813,10 +897,14 @@
     return out;
   }
 
-  function itemIconUrl(itemId){
+  function itemIconUrl(itemId, itemName){
+    // For items with names ending in "card", use the card.gif endpoint
+    if (itemName && typeof itemName === 'string' && itemName.toLowerCase().endsWith('card')){
+      return 'https://file5s.ratemyserver.net/items/small/card.gif?v=' + ICON_ASSET_VERSION;
+    }
     var id = Number(itemId);
     if (!Number.isFinite(id) || id <= 0) return '';
-    return 'https://file5s.ratemyserver.net/items/small/' + id + '.gif';
+    return 'https://file5s.ratemyserver.net/items/small/' + id + '.gif?v=' + ICON_ASSET_VERSION;
   }
 
   function itemCardsSuffix(cards){
@@ -833,9 +921,11 @@
     var name = itemName == null ? '' : String(itemName);
     var displayName = name + itemCardsSuffix(cards);
     var safeName = escapeHtml(displayName);
-    var iconUrl = itemIconUrl(itemId);
-    var iconHtml = iconUrl
-      ? '<img class="item-icon" src="' + iconUrl + '" alt="" width="24" height="24" loading="lazy" onerror="this.style.display=\'none\';" />'
+    var numericId = Number(itemId);
+    var hasValidId = Number.isFinite(numericId) && numericId > 0;
+    var iconUrl = hasValidId || (itemName && itemName.toLowerCase().endsWith('card')) ? itemIconUrl(numericId, itemName) : '';
+    var iconHtml = (iconUrl && !iconFailedIds[numericId])
+      ? '<img class="item-icon" src="' + iconUrl + '" alt="" width="24" height="24" loading="lazy" referrerpolicy="no-referrer" onload="window.__checkIconLoad(this, ' + numericId + ');" onerror="this.style.display=\'none\'; window.__markIconFailed(' + numericId + ');" />'
       : '';
     return '<span class="item-name-with-icon">' + iconHtml + '<span class="item-name-text">' + safeName + '</span></span>';
   }
@@ -997,7 +1087,7 @@
             max: xMax,
             grid: { color: 'rgba(0,0,0,0.08)' },
             ticks: {
-              color: '#888',
+              color: TEXT_MUTED_COLOR,
               maxTicksLimit: 8,
               callback: function(v){
                 var d = new Date(v);
@@ -1010,7 +1100,7 @@
             max: maxY + yPad,
             grid: { color: 'rgba(0,0,0,0.08)' },
             ticks: {
-              color: '#888',
+              color: TEXT_MUTED_COLOR,
               callback: function(v){ return formatPrice(v); }
             }
           }
@@ -1058,9 +1148,9 @@
         '<td>' + formatDate(r.date) + '</td>' +
         '<td class="name-col">' + escapeHtml(r.shopTitle) + '</td>' +
         '<td class="name-col">' + escapeHtml(r.vendorName) + '</td>' +
-        '<td>' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
+        '<td class="col-location">' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
         '<td class="price-col">' + formatPrice(r.price) + '</td>' +
-        '<td>' + (r.amount != null ? r.amount : '?') + '</td>' +
+        '<td class="col-qty">' + (r.amount != null ? r.amount : '?') + '</td>' +
         '</tr>';
     }).join('');
     document.getElementById('recordsBody').innerHTML = rows;
@@ -1193,8 +1283,8 @@
           '</tr>';
       }).join('');
 
-      return '<div class="shop-group" style="border:1px solid var(--line); border-radius:8px; background:var(--panel); overflow:hidden;">' +
-        '<div class="shop-group-header" data-shop-key="' + escapeAttr(group.key) + '" style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.75rem; padding:0.75rem 0.9rem; cursor:pointer; font-weight:600; background:rgba(255,255,255,0.02);">' +
+      return '<div class="shop-group" style="border:1px solid var(--line); border-radius:8px; background:#f8f8f8; overflow:hidden;">' +
+        '<div class="shop-group-header" data-shop-key="' + escapeAttr(group.key) + '" style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.75rem; padding:0.75rem 0.9rem; cursor:pointer; font-weight:600;">' +
         '<div style="display:flex; flex-direction:column; gap:0.18rem; min-width:0;">' +
         '<span style="font-size:1rem;">' + escapeHtml(group.shopTitle) + '</span>' +
         '<span style="font-size:0.8rem; color:var(--text-muted);">' + escapeHtml(group.vendorName || 'Unknown vendor') + ' · ' + escapeHtml(locationText) + '</span>' +
@@ -1296,8 +1386,8 @@
         '<td class="name-col item-name-cell" data-item-name="' + escapeAttr(r.itemName) + '">' + itemNameWithIcon(r.itemName, r.itemId, r.cards) + '</td>' +
         '<td class="price-col">' + formatPrice(r.price) + '</td>' +
         '<td class="name-col">' + escapeHtml(r.vendorName) + '</td>' +
-        '<td>' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
-        '<td>' + (r.amount != null ? r.amount : '?') + '</td>' +
+        '<td class="col-location">' + escapeHtml(r.map) + ' (' + r.x + ', ' + r.y + ')</td>' +
+        '<td class="col-qty">' + (r.amount != null ? r.amount : '?') + '</td>' +
         '</tr>';
     }).join('');
     document.getElementById('todayBody').innerHTML = rows;
@@ -1352,6 +1442,17 @@
       tr.style.display = text.indexOf(q) !== -1 ? '' : 'none';
     });
   }
+
+  // Admin controls are hidden from regular visitors. Append ?admin=1 to the
+  // URL to reveal the manual refresh button.
+  (function(){
+    var isAdmin = false;
+    try {
+      isAdmin = new URLSearchParams(window.location.search).get('admin') === '1';
+    } catch (e) {}
+    var adminEl = document.getElementById('adminControls');
+    if (adminEl && isAdmin) adminEl.classList.add('visible');
+  })();
 
   // Wire up the header items count and today panel controls
   (function(){
