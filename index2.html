@@ -360,6 +360,15 @@
     -webkit-overflow-scrolling:touch;
   }
 
+  .panel-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--text-faint);
+    margin:0 0 0.5rem;
+  }
+
   footer{
     margin-top:3rem;
     border-top:1px solid var(--line);
@@ -495,6 +504,7 @@
   <p class="hint">Start typing any part of an item's name. Select a result to see who's selling it and for how much, over time.</p>
 
   <div id="todayPanel" class="table-shell" style="display:none; margin: 0.6rem 0 2.5rem;">
+    <p class="panel-title">Today's Items</p>
     <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem;">
       <input type="text" id="todaySearch" placeholder="Filter today's items (shop or item name)" style="flex:1; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:0.5rem; color:var(--text); font-family:inherit;" />
       <button id="todayClose" style="background:transparent; border:1px solid var(--line); color:var(--text-muted); padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer;">Close</button>
@@ -515,6 +525,7 @@
   </div>
 
   <div id="shopPanel" class="table-shell" style="display:none; margin:0.6rem 0 2.5rem;">
+    <p class="panel-title">Today's Shops</p>
     <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem;">
       <input type="text" id="shopSearch" placeholder="Filter shops or items" style="flex:1; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:0.5rem; color:var(--text); font-family:inherit;" />
       <button id="shopClose" style="background:transparent; border:1px solid var(--line); color:var(--text-muted); padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer;">Close</button>
@@ -539,7 +550,6 @@
 
     <div class="legend" id="chartLegend"></div>
     <div style="display:flex; gap:0.5rem; margin-bottom:1rem; flex-wrap:wrap;">
-      <button class="date-filter" data-days="1">1 Day</button>
       <button class="date-filter" data-days="7">1 Week</button>
       <button class="date-filter" data-days="30">1 Month</button>
       <button class="date-filter" data-days="365">1 Year</button>
