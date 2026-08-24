@@ -1,0 +1,8042 @@
+[
+  {
+    "name": "Alarm Mask",
+    "item_id": "5086",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cake Hat",
+        "item_id": "5024",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Piece of Cake",
+        "item_id": "539",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Forbidden Red Candle",
+        "item_id": "660",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Alice Doll",
+    "item_id": "5137",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Marionette Doll",
+        "item_id": "5141",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Alice's Apron",
+        "item_id": "7047",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Soft Apron",
+        "item_id": "661",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Angel Wing Ears",
+    "item_id": "5074",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 20000
+      },
+      {
+        "type": "item",
+        "name": "Elven Ears",
+        "item_id": "2286",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Angeling Hat",
+    "item_id": "5132",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Poring Hat",
+        "item_id": "5035",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing Ears",
+        "item_id": "5074",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Angeling Hairpin",
+    "item_id": "5153",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Stellar Hairpin",
+        "item_id": "10011",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Antlers",
+    "item_id": "2284",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Evil Horn",
+        "item_id": "923",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Autumn Leaves",
+    "item_id": "5270",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Huge Leaf",
+        "item_id": "7198",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Burning Heart",
+        "item_id": "7097",
+        "qty": 40
+      }
+    ]
+  },
+  {
+    "name": "Ayam",
+    "item_id": "5174",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Green Bijou",
+        "item_id": "7445",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Blue Bijou",
+        "item_id": "7446",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Red Bijou",
+        "item_id": "7447",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Yellow Bijou",
+        "item_id": "7448",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Raccoon Leaf",
+        "item_id": "945",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cracked Diamond",
+        "item_id": "733",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Soft Silk",
+        "item_id": "7166",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Yellow Bandana",
+    "item_id": "5277",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Yellow Ribbon",
+        "item_id": "5278",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yellow Herb",
+        "item_id": "508",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Bandit Beard",
+    "item_id": "2237",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Black Hair",
+        "item_id": "1020",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Grampa Beard",
+        "item_id": "2241",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Baseball Cap",
+    "item_id": "5147",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2227",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Moth Dust",
+        "item_id": "1057",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Black Cat Ears",
+    "item_id": "5057",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000
+      },
+      {
+        "type": "item",
+        "name": "Kitty Band",
+        "item_id": "2213",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Beanie",
+    "item_id": "5076",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2227",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yarn",
+        "item_id": "7038",
+        "qty": 500
+      }
+    ]
+  },
+  {
+    "name": "Blue Beanie",
+    "item_id": "5236",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2227",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yarn",
+        "item_id": "7038",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Brown Beanie",
+    "item_id": "5235",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2227",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yarn",
+        "item_id": "7038",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Pink Beanie",
+    "item_id": "5237",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2227",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yarn",
+        "item_id": "7038",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bell Ribbon",
+    "item_id": "5382",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 8
+      },
+      {
+        "type": "item",
+        "name": "Golden Bell",
+        "item_id": "10016",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Red Ribbon",
+        "item_id": "5083",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Blue Fish",
+    "item_id": "5065",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Rotten Fish",
+        "item_id": "624",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Stinky Scale",
+        "item_id": "959",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Raw Fish",
+        "item_id": "544",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Fish Tail",
+        "item_id": "1023",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Blue Hairband",
+    "item_id": "5052",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bandana",
+        "item_id": "2211",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Anolian Skin",
+        "item_id": "7003",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Binoculars",
+    "item_id": "2296",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 50000
+      },
+      {
+        "type": "item",
+        "name": "Geek Glasses",
+        "item_id": "2243",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Bird Nest",
+    "item_id": "5129",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Dead Branch",
+        "item_id": "604",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 666
+      }
+    ]
+  },
+  {
+    "name": "Blank Eyes",
+    "item_id": "5102",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cat's Eye",
+        "item_id": "7263",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Angled Glasses",
+        "item_id": "2276",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Monocle",
+        "item_id": "2239",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon",
+        "item_id": "568",
+        "qty": 150
+      }
+    ]
+  },
+  {
+    "name": "Blush",
+    "item_id": "5040",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice's Apron",
+        "item_id": "7047",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Red Bonnet",
+    "item_id": "5109",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 50000
+      },
+      {
+        "type": "item",
+        "name": "Green Lace",
+        "item_id": "10015",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Silk Ribbon",
+        "item_id": "10007",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Parcel Hat",
+        "item_id": "5023",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Boy's Cap",
+    "item_id": "5016",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiger's Footskin",
+        "item_id": "1030",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Baby Pacifier",
+    "item_id": "5110",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Royal Jelly",
+        "item_id": "526",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Nursing Bottle",
+        "item_id": "7270",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Nose Ring",
+        "item_id": "941",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Pacifier",
+        "item_id": "10004",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Black Ribbon",
+    "item_id": "5191",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bride Mask",
+    "item_id": "5169",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Four Leaf Clover",
+        "item_id": "706",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Elastic Band",
+        "item_id": "7200",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Skirt of Virgin",
+        "item_id": "1049",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Transparent Celestial Robe",
+        "item_id": "7165",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Ancient Lips",
+        "item_id": "1054",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Squid Ink",
+        "item_id": "1024",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Bulb Band",
+    "item_id": "5034",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Glass Bead",
+        "item_id": "746",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Bunny Band",
+    "item_id": "2214",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Four Leaf Clover",
+        "item_id": "706",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Pearl",
+        "item_id": "722",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Kitty Band",
+        "item_id": "2213",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "2nd Anniversary Hat",
+    "item_id": "5105",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mr. Scream",
+        "item_id": "2288",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Needle of Alarm",
+        "item_id": "1095",
+        "qty": 3000
+      }
+    ]
+  },
+  {
+    "name": "Censor Bar",
+    "item_id": "5175",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 100000
+      },
+      {
+        "type": "item",
+        "name": "Slick Paper",
+        "item_id": "7111",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Sticky Mucus",
+        "item_id": "938",
+        "qty": 99
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Crown of Ancient Queen",
+    "item_id": "5080",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Queen's Hair Ornament",
+        "item_id": "10006",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Cake Hat",
+    "item_id": "5024",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Candy",
+        "item_id": "529",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Candy Cane",
+        "item_id": "530",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Piece of Cake",
+        "item_id": "539",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Well-baked Cookie",
+        "item_id": "538",
+        "qty": 15
+      }
+    ]
+  },
+  {
+    "name": "Candle",
+    "item_id": "5028",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bomb Wick",
+        "item_id": "2279",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Matchstick",
+        "item_id": "7035",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Royal Jelly",
+        "item_id": "526",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Coppola",
+    "item_id": "5200",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Boy's Cap",
+        "item_id": "5016",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Violet Dyestuffs",
+        "item_id": "981",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Rusty Screw",
+        "item_id": "7317",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Captain's Hat",
+    "item_id": "5184",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bucket Hat",
+        "item_id": "5120",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Mystic Frozen",
+        "item_id": "995",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Aquamarine",
+        "item_id": "720",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Ship Captain Hat",
+    "item_id": "5359",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Antlers",
+        "item_id": "2284",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Corsair",
+        "item_id": "5019",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Moonlight Flower Hat",
+    "item_id": "5214",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Golden Hair",
+        "item_id": "1060",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Nine Tails",
+        "item_id": "1022",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Puppy Love",
+        "item_id": "5008",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Chef Hat",
+    "item_id": "5026",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 450
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 330
+      },
+      {
+        "type": "item",
+        "name": "Piece of Cake",
+        "item_id": "539",
+        "qty": 120
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Crescent Helm",
+    "item_id": "5142",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bone Helm",
+        "item_id": "5017",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Helm",
+        "item_id": "2229",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fin Helm",
+        "item_id": "5014",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Helm of Dullahan",
+        "item_id": "7209",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Dragon Skin",
+        "item_id": "7123",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Chick Hat",
+    "item_id": "5283",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Bill of Birds",
+        "item_id": "925",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Cookie Hat",
+    "item_id": "5260",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cookie Card",
+        "item_id": "4293",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Well-baked Cookie",
+        "item_id": "538",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Candy Cane",
+        "item_id": "530",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Candy",
+        "item_id": "529",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Cowboy Hat",
+    "item_id": "5075",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Western Grace",
+        "item_id": "2248",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 108
+      },
+      {
+        "type": "item",
+        "name": "Soft Blade of Grass",
+        "item_id": "7194",
+        "qty": 108
+      },
+      {
+        "type": "item",
+        "name": "Burning Horseshoe",
+        "item_id": "7120",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Cresent Hairpin",
+    "item_id": "5048",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Heart Hairpin",
+        "item_id": "5041",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Cross Hat",
+    "item_id": "5036",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Rosary",
+        "item_id": "2608",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Destroyed Armor",
+        "item_id": "7069",
+        "qty": 500
+      }
+    ]
+  },
+  {
+    "name": "Cyclop's Eye",
+    "item_id": "5135",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blinker",
+        "item_id": "2295",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Helm of Darkness",
+    "item_id": "5181",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Rune of Darkness",
+        "item_id": "7511",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Will of the Darkness",
+        "item_id": "7340",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Blade Lost in Darkness",
+        "item_id": "7023",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Renown Detective's Cap",
+    "item_id": "5108",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 5000
+      },
+      {
+        "type": "item",
+        "name": "Tassel",
+        "item_id": "7301",
+        "qty": 1887
+      },
+      {
+        "type": "item",
+        "name": "Bucket Hat",
+        "item_id": "5114",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Magnifier",
+        "item_id": "611",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Deviling Hat",
+    "item_id": "5254",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angeling Hat",
+        "item_id": "5132",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Evil Wing Ears",
+        "item_id": "5068",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Evil Wing",
+        "item_id": "2255",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blade Lost in Darkness",
+        "item_id": "7023",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Deviruchi Hat",
+    "item_id": "5038",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Little Evil Horn",
+        "item_id": "1038",
+        "qty": 600
+      },
+      {
+        "type": "item",
+        "name": "Talon of Griffon",
+        "item_id": "7048",
+        "qty": 40
+      }
+    ]
+  },
+  {
+    "name": "Brown Deviruchi Hat",
+    "item_id": "5229",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Little Evil Horn",
+        "item_id": "1038",
+        "qty": 600
+      },
+      {
+        "type": "item",
+        "name": "Talon of Griffon",
+        "item_id": "7048",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Red Deviruchi Hat",
+    "item_id": "5227",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Little Evil Horn",
+        "item_id": "1038",
+        "qty": 600
+      },
+      {
+        "type": "item",
+        "name": "Talon of Griffon",
+        "item_id": "7048",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Gray Deviruchi Hat",
+    "item_id": "5228",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Little Evil Horn",
+        "item_id": "1038",
+        "qty": 600
+      },
+      {
+        "type": "item",
+        "name": "Talon of Griffon",
+        "item_id": "7048",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Geographer Band",
+    "item_id": "5186",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Maneater Blossom",
+        "item_id": "1032",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Sharp Leaf",
+        "item_id": "7100",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Stem",
+        "item_id": "905",
+        "qty": 250
+      }
+    ]
+  },
+  {
+    "name": "Decorative Golden Bell",
+    "item_id": "5091",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 20000
+      },
+      {
+        "type": "item",
+        "name": "Golden Bell",
+        "item_id": "10016",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Decorative Mushroom",
+    "item_id": "5082",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mushroom Spore",
+        "item_id": "921",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Doctor Band",
+    "item_id": "2273",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 3500
+      },
+      {
+        "type": "item",
+        "name": "Red Bandana",
+        "item_id": "2275",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Iron",
+        "item_id": "998",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Cracked Diamond",
+        "item_id": "733",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Afro Wig",
+    "item_id": "5258",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Drooping Bunny",
+    "item_id": "5198",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Drooping Cat",
+        "item_id": "5058",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Bunny Band",
+        "item_id": "2214",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Rainbow Carrot",
+        "item_id": "622",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Carrot Whip",
+        "item_id": "1974",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Drooping Cat",
+    "item_id": "5058",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat Doll",
+        "item_id": "7206",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Blue Drooping Cat",
+    "item_id": "5233",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat Doll",
+        "item_id": "7206",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Brown Drooping Cat",
+    "item_id": "5231",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat Doll",
+        "item_id": "7206",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Pink Drooping Cat",
+    "item_id": "5232",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat Doll",
+        "item_id": "7206",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Gray Drooping Cat",
+    "item_id": "5230",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat Doll",
+        "item_id": "7206",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Yellow Drooping Cat",
+    "item_id": "5234",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat Doll",
+        "item_id": "7206",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Lif Doll Hat",
+    "item_id": "5253",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blue Hair",
+        "item_id": "1034",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Green Bijou",
+        "item_id": "7445",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Marionette Doll",
+        "item_id": "5141",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Drooping Ninetail",
+    "item_id": "5252",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Drooping Cat",
+        "item_id": "5058",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Nine Tails",
+        "item_id": "1022",
+        "qty": 250
+      },
+      {
+        "type": "item",
+        "name": "Tiger Panty",
+        "item_id": "7267",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Ear Muffs",
+    "item_id": "2283",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cursed Ruby",
+        "item_id": "724",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Headset",
+        "item_id": "5001",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Shafka",
+    "item_id": "5243",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Blue Feather",
+        "item_id": "7441",
+        "qty": 150
+      },
+      {
+        "type": "item",
+        "name": "Sea-Otter Fur",
+        "item_id": "7065",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Ear Muffs",
+        "item_id": "2283",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Elephant Hat",
+    "item_id": "5259",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Glacial Heart",
+        "item_id": "7561",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Acorn",
+        "item_id": "1026",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Emperor's Laurel Crown",
+    "item_id": "5205",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Laurel Wreath",
+        "item_id": "5185",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yggdrasil Leaf",
+        "item_id": "610",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Four Leaf Clover",
+        "item_id": "706",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Soft Blade of Grass",
+        "item_id": "7194",
+        "qty": 113
+      }
+    ]
+  },
+  {
+    "name": "Evil Wing Ears",
+    "item_id": "5068",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 20000
+      },
+      {
+        "type": "item",
+        "name": "Evil Wing",
+        "item_id": "2255",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Elven Ears",
+        "item_id": "2286",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Cap Of Blindness",
+    "item_id": "5304",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Executioner's Mitten",
+        "item_id": "7017",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Somber Novice Hood",
+        "item_id": "2510",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Angel Blessing",
+    "item_id": "5207",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Halo",
+        "item_id": "2282",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 15
+      }
+    ]
+  },
+  {
+    "name": "Radio Antenna",
+    "item_id": "5333",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Rough Wind",
+        "item_id": "996",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Box of Thunder",
+        "item_id": "12028",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Box of Storms",
+        "item_id": "12032",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Wind of Verdure",
+        "item_id": "992",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Aerial",
+        "item_id": "5011",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Ayothaya King's Hat",
+    "item_id": "5312",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sakkat",
+        "item_id": "2280",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Belt",
+        "item_id": "2627",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Tam",
+    "item_id": "5379",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower Hairpin",
+        "item_id": "5061",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Romantic Leaf",
+        "item_id": "2270",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Red Ribbon",
+        "item_id": "5083",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fabric",
+        "item_id": "1059",
+        "qty": 150
+      }
+    ]
+  },
+  {
+    "name": "Beer Hat",
+    "item_id": "5416",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Glass Bead",
+        "item_id": "746",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Burning Heart",
+        "item_id": "7097",
+        "qty": 12
+      },
+      {
+        "type": "item",
+        "name": "Red Prickly Fruit",
+        "item_id": "587",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Pocket Watch",
+        "item_id": "2717",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Black Frame Glasses",
+    "item_id": "5401",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Glasses",
+        "item_id": "5288",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Black Tea Kochakaden Hat",
+    "item_id": "5427",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Glasses",
+        "item_id": "5288",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Royal Family Tea",
+        "item_id": "12078",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Flame Stone",
+        "item_id": "7521",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Holy Arrow Quiver",
+        "item_id": "12183",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Blue Ribbon",
+    "item_id": "5404",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Twin Ribbon",
+        "item_id": "5187",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blue Hair",
+        "item_id": "1034",
+        "qty": 70
+      },
+      {
+        "type": "item",
+        "name": "Blue Feather",
+        "item_id": "7441",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Blush of Groom",
+    "item_id": "5800",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blush",
+        "item_id": "5040",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tuxedo",
+        "item_id": "7170",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Pantie",
+        "item_id": "2371",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bogy Cap",
+    "item_id": "5429",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sales Banner",
+        "item_id": "5100",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dokebi Horn",
+        "item_id": "1021",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Little Ghost Doll",
+        "item_id": "7268",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bf Recruiter Hat",
+    "item_id": "5338",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sales Banner",
+        "item_id": "5100",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sharp Paper",
+        "item_id": "7112",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "White Chocolate",
+        "item_id": "561",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bullock Helm",
+    "item_id": "5300",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Antelope Horn",
+        "item_id": "7106",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Golden Gear",
+        "item_id": "2246",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cat's Eye",
+        "item_id": "7263",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bunny Top Hat",
+    "item_id": "5378",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bunny Band",
+        "item_id": "2214",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Magician Hat",
+        "item_id": "5045",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Puppet",
+        "item_id": "740",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Camp Fire Hat",
+    "item_id": "5414",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000000
+      },
+      {
+        "type": "item",
+        "name": "Gemstone",
+        "item_id": "7300",
+        "qty": 9
+      },
+      {
+        "type": "item",
+        "name": "Barren Trunk",
+        "item_id": "1068",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Live Coal",
+        "item_id": "7098",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Carmen Miranda's Hat",
+    "item_id": "5307",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Bandana",
+        "item_id": "2275",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Grape",
+        "item_id": "514",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tropical Banana",
+        "item_id": "634",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Unripe Apple",
+        "item_id": "619",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Porcupine Quill",
+        "item_id": "1027",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Chicken Hat",
+    "item_id": "5431",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 5000000
+      },
+      {
+        "type": "item",
+        "name": "Chick Hat",
+        "item_id": "5283",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Pocket Watch",
+        "item_id": "2717",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Glaris Doll Hat",
+    "item_id": "5341",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 8000000
+      },
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angled Glasses",
+        "item_id": "2276",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Golden Hair",
+        "item_id": "1060",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Close Helmet",
+    "item_id": "5131",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Goibne's Helm",
+        "item_id": "5128",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Elunium",
+        "item_id": "985",
+        "qty": 27
+      }
+    ]
+  },
+  {
+    "name": "Crown Parrots",
+    "item_id": "5417",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Marduk Card",
+        "item_id": "4112",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Pagdayaw",
+        "item_id": "5299",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Dark Randgris Helm",
+    "item_id": "5373",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Evil Wing",
+        "item_id": "2255",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Will of Red Darkness",
+        "item_id": "7566",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Rune of Darkness",
+        "item_id": "7511",
+        "qty": 60
+      },
+      {
+        "type": "item",
+        "name": "Dark Blinder",
+        "item_id": "5104",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Crystal of Darkness",
+        "item_id": "7799",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Blade Lost in Darkness",
+        "item_id": "7023",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Dark Wing",
+    "item_id": "5369",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Black Ribbon",
+        "item_id": "5191",
+        "qty": 6
+      },
+      {
+        "type": "item",
+        "name": "Piece of Black Cloth",
+        "item_id": "7205",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Chocolate",
+        "item_id": "558",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blue Feather",
+        "item_id": "7441",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Defolty Doll Hat",
+    "item_id": "5340",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blush",
+        "item_id": "5040",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blue Hair",
+        "item_id": "1034",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Diadem",
+    "item_id": "5313",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Fricca's Circlet",
+        "item_id": "5124",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Coronet",
+        "item_id": "2249",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Grand Circlet",
+        "item_id": "5007",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Holy Water",
+        "item_id": "523",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Dragon Skull",
+    "item_id": "5292",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Denture from Dragon Mask",
+        "item_id": "7266",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Dragon Canine",
+        "item_id": "1035",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Skull Helm",
+        "item_id": "10001",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Jasper Crest",
+    "item_id": "5396",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Drooping Cat",
+        "item_id": "5058",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Orange Dyestuffs",
+        "item_id": "980",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Nine Tails",
+        "item_id": "1022",
+        "qty": 53
+      }
+    ]
+  },
+  {
+    "name": "Elephant Hat",
+    "item_id": "5146",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Europe Baseball Cap",
+    "item_id": "5282",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Coppola",
+        "item_id": "5200",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Satanic Helm",
+    "item_id": "5247",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Little Evil Wing",
+        "item_id": "1039",
+        "qty": 60
+      },
+      {
+        "type": "item",
+        "name": "Evil Horn",
+        "item_id": "923",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Evil Wing",
+        "item_id": "2255",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Evil Snake Lord Hat",
+    "item_id": "5364",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ph.D Hat",
+        "item_id": "5347",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cresent Hairpin",
+        "item_id": "5048",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Flapping Angel Wing",
+    "item_id": "5210",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Giant Butterfly Wing",
+        "item_id": "7168",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Yarn",
+        "item_id": "7038",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Fashionable Glasses",
+    "item_id": "5047",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Jack be Dandy",
+        "item_id": "2271",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Feather Beret",
+    "item_id": "5170",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Beret",
+        "item_id": "5172",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Fish Head Hat",
+    "item_id": "5380",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blue Fish",
+        "item_id": "5065",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Flower Crown",
+    "item_id": "5303",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower",
+        "item_id": "712",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Illusion Flower",
+        "item_id": "710",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Singing Flower",
+        "item_id": "629",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Wild Flower",
+        "item_id": "10009",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Flower Lily",
+    "item_id": "5302",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Lotus Flower",
+        "item_id": "7553",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lotus Leaf",
+        "item_id": "7771",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Fruit of Love",
+    "item_id": "5056",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "X Hairpin",
+        "item_id": "5079",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Strawberry",
+        "item_id": "578",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Gambler Hat",
+    "item_id": "5144",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bunny Band",
+        "item_id": "2214",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Hat",
+        "item_id": "2221",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Suspicious Hat",
+        "item_id": "7567",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Star Dust",
+        "item_id": "1001",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Giant Band Aid",
+    "item_id": "5063",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alcohol",
+        "item_id": "970",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Rotten Bandage",
+        "item_id": "930",
+        "qty": 500
+      }
+    ]
+  },
+  {
+    "name": "Green Ribbon",
+    "item_id": "5193",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Grief for Greed",
+    "item_id": "5021",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Circlet",
+        "item_id": "2233",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 80
+      },
+      {
+        "type": "item",
+        "name": "Sticky Mucus",
+        "item_id": "938",
+        "qty": 800
+      }
+    ]
+  },
+  {
+    "name": "Golden Tiara",
+    "item_id": "5179",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiara",
+        "item_id": "2234",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Gold Ring",
+        "item_id": "2610",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Gold Lux",
+        "item_id": "13106",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Hahoe Mask",
+    "item_id": "5176",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Four Leaf Clover",
+        "item_id": "706",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Elastic Band",
+        "item_id": "7200",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Bookclip in Memory",
+        "item_id": "7015",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Cigarette",
+        "item_id": "2267",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cactus Needle",
+        "item_id": "952",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Mane",
+        "item_id": "1028",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Headset",
+    "item_id": "5001",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "Oridecon",
+        "item_id": "984",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Alcohol",
+        "item_id": "970",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Coal",
+        "item_id": "1003",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Mine Hat",
+    "item_id": "5031",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Safety Helmet",
+        "item_id": "5009",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Candle",
+        "item_id": "5028",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Crystal Mirror",
+        "item_id": "747",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Helm of Angel",
+    "item_id": "5025",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Helm",
+        "item_id": "2229",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fang of Hatii",
+        "item_id": "7036",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Flower Hairpin",
+    "item_id": "5061",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 20000
+      },
+      {
+        "type": "item",
+        "name": "Romantic Flower",
+        "item_id": "2269",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Hibiscus",
+    "item_id": "5139",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Small Ribbons",
+        "item_id": "5085",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Illusion Flower",
+        "item_id": "710",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Valhalla's Flower",
+        "item_id": "7510",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Hot-blooded Headband",
+    "item_id": "5070",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Muffler",
+        "item_id": "7216",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Burning Heart",
+        "item_id": "7097",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Bandana",
+        "item_id": "2211",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Indian Headband",
+    "item_id": "5071",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000
+      },
+      {
+        "type": "item",
+        "name": "Indian Fillet",
+        "item_id": "5010",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Striped Hairband",
+        "item_id": "5049",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Peco Peco Feather",
+        "item_id": "7101",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Magistrate Hat",
+    "item_id": "5173",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Green Bijou",
+        "item_id": "7445",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Blue Bijou",
+        "item_id": "7446",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Red Bijou",
+        "item_id": "7447",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Level 7 Cookbook",
+        "item_id": "7478",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Raccoon Leaf",
+        "item_id": "945",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cracked Diamond",
+        "item_id": "733",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Hat",
+        "item_id": "2221",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bandana Merah Putih",
+    "item_id": "5321",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Bandana",
+        "item_id": "2275",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Bandana",
+        "item_id": "2211",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Broken Needle",
+        "item_id": "7215",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Spool",
+        "item_id": "7217",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Gigantic Majestic Goat",
+    "item_id": "5374",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cursed Baphomet Doll",
+        "item_id": "6004",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Majestic Goat",
+        "item_id": "5160",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Evil Horn",
+        "item_id": "923",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Beard",
+    "item_id": "2240",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Elder Pixie's Moustache",
+        "item_id": "1040",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Cooking Oil",
+        "item_id": "7457",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Filir Hat",
+    "item_id": "5405",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blue Feather",
+        "item_id": "7441",
+        "qty": 45
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 80
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Brown Paperbag Hat",
+    "item_id": "5410",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 50000000
+      },
+      {
+        "type": "item",
+        "name": "Brown Root",
+        "item_id": "7188",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "Slick Paper",
+        "item_id": "7111",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Ears Of Ifrit",
+    "item_id": "5421",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000000
+      },
+      {
+        "type": "item",
+        "name": "Elven Ears",
+        "item_id": "2286",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Burning Hair",
+        "item_id": "7122",
+        "qty": 60
+      }
+    ]
+  },
+  {
+    "name": "Fanta Orange Can Hat",
+    "item_id": "5424",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Orange Dyestuffs",
+        "item_id": "980",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Orange Juice",
+        "item_id": "620",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Anodyne",
+        "item_id": "605",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elunium",
+        "item_id": "985",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Fanta Grape Can Hat",
+    "item_id": "5425",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Violet Dyestuffs",
+        "item_id": "981",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Grape Juice",
+        "item_id": "533",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Anodyne",
+        "item_id": "605",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elunium",
+        "item_id": "985",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Fantastic Wig",
+    "item_id": "5276",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Father's Mask",
+    "item_id": "5156",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Gangster Mask",
+        "item_id": "2265",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Father's Sunglasses",
+    "item_id": "5154",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sunglasses",
+        "item_id": "2202",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Mother's Nightmare",
+        "item_id": "7020",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Father's White Moustache",
+    "item_id": "5155",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bloody Edge",
+        "item_id": "7024",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Broken Crown",
+        "item_id": "7754",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Ice Scale",
+        "item_id": "7562",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Skeletal Armor Piece",
+        "item_id": "7450",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Feather Bonnet",
+    "item_id": "5018",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 500
+      },
+      {
+        "type": "item",
+        "name": "Romantic Gent",
+        "item_id": "2247",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Fish In Mouth",
+    "item_id": "5403",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Fish Tail",
+        "item_id": "1023",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Raw Fish",
+        "item_id": "544",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Fresh Fish",
+        "item_id": "579",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Fisherman's Hat",
+    "item_id": "5317",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bucket Hat",
+        "item_id": "5120",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Funeral Hat",
+        "item_id": "2290",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sticky Mucus",
+        "item_id": "938",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Flapping Angel Wing",
+    "item_id": "5269",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Smiling Mask",
+        "item_id": "5203",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 60
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Flapping Angeling",
+    "item_id": "5334",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angeling Hat",
+        "item_id": "5132",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Electric Wire",
+        "item_id": "1971",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Cogwheel",
+        "item_id": "7093",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Vesper Core 01",
+        "item_id": "2659",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Flying Evil Wing",
+    "item_id": "5376",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Contract in Shadow",
+        "item_id": "641",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 60
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Fox Hat",
+    "item_id": "5400",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Nine Tails",
+        "item_id": "1022",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Moonlight Dagger",
+        "item_id": "1234",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Friend Recruiter Hat",
+    "item_id": "5339",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sales Banner",
+        "item_id": "5100",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sharp Paper",
+        "item_id": "7112",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Girl's Diary",
+        "item_id": "1558",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Gangster Scarf",
+    "item_id": "5361",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Muffler",
+        "item_id": "7216",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Gentleman's Pipe",
+    "item_id": "5377",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000000
+      },
+      {
+        "type": "item",
+        "name": "Pipe",
+        "item_id": "2268",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Elder Pixie's Moustache",
+        "item_id": "1040",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Gentleman's Staff",
+        "item_id": "1629",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Gf Recruiter Hat",
+    "item_id": "5346",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sales Banner",
+        "item_id": "5100",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sharp Paper",
+        "item_id": "7112",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Chocolate",
+        "item_id": "558",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Golden Laurel",
+    "item_id": "5433",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Laurel Wreath",
+        "item_id": "5185",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Golden Tiara",
+    "item_id": "5262",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiara",
+        "item_id": "5164",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Crystal of Darkness",
+        "item_id": "7799",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Countermagic Crystal",
+        "item_id": "7578",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Guildsman Recruiter Hat",
+    "item_id": "5336",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sales Banner",
+        "item_id": "5100",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sharp Paper",
+        "item_id": "7112",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Happy Wig",
+    "item_id": "5273",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Hello Mother Hat",
+    "item_id": "5319",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Poring Hat",
+        "item_id": "5035",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing Ears",
+        "item_id": "5074",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Helm Of Abyss",
+    "item_id": "5363",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bucket Hat",
+        "item_id": "5120",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Hockey Mask",
+    "item_id": "5314",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Suspicious Hat",
+        "item_id": "7567",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Blank Eyes",
+        "item_id": "5102",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Hyuke's Black Cat Ears",
+    "item_id": "5360",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Black Cat Ears",
+        "item_id": "5057",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat",
+        "item_id": "2747",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Spiky Band",
+        "item_id": "2258",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Hunter's Cap",
+    "item_id": "5383",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Coppola",
+        "item_id": "5200",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Green Bijou",
+        "item_id": "7445",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "I Love China",
+    "item_id": "5423",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 5000000
+      },
+      {
+        "type": "item",
+        "name": "China",
+        "item_id": "736",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing Ears",
+        "item_id": "5074",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Flame Heart",
+        "item_id": "994",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Love Dad Cap",
+    "item_id": "5209",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Baseball Cap",
+        "item_id": "5147",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Judge Hat",
+    "item_id": "5371",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Boy's Cap",
+        "item_id": "5016",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Chivalry Emblem",
+        "item_id": "1004",
+        "qty": 35
+      }
+    ]
+  },
+  {
+    "name": "Karada Meguricha Hat",
+    "item_id": "5426",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mage Hat",
+        "item_id": "5027",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Kerchief",
+    "item_id": "5322",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Scarf",
+        "item_id": "10019",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Kettle Hat",
+    "item_id": "5291",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Battered Kettle",
+        "item_id": "7323",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Koneko Hat",
+    "item_id": "5372",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Neko Mimi",
+        "item_id": "5099",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gray Drooping Cat",
+        "item_id": "5230",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Cat",
+        "item_id": "2747",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 15
+      }
+    ]
+  },
+  {
+    "name": "Large Hisbiscus",
+    "item_id": "5311",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Hibiscus",
+        "item_id": "5139",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Legionnaire Hat",
+    "item_id": "5418",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Boy's Cap",
+        "item_id": "5016",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Heroic Emblem",
+        "item_id": "968",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Chivalry Emblem",
+        "item_id": "1004",
+        "qty": 35
+      }
+    ]
+  },
+  {
+    "name": "Linguistic Book Hat",
+    "item_id": "5422",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 500000
+      },
+      {
+        "type": "item",
+        "name": "Book",
+        "item_id": "1550",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Old Magicbook",
+        "item_id": "1006",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Little Angel Doll",
+    "item_id": "5324",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Blue Hair",
+        "item_id": "1034",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Soloplay Box1",
+    "item_id": "5448",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Aloe Leaflet",
+        "item_id": "521",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Soloplay Box2",
+    "item_id": "5449",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Aloe Leaflet",
+        "item_id": "521",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Loki Mask",
+    "item_id": "5332",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Loki's Whispers",
+        "item_id": "7019",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Elastic Band",
+        "item_id": "7200",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Louyang NewYear Hat",
+    "item_id": "5392",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 100000
+      },
+      {
+        "type": "item",
+        "name": "Emerald",
+        "item_id": "721",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Red Muffler",
+        "item_id": "7216",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Love Flower Hat",
+    "item_id": "5803",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower Band",
+        "item_id": "2215",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Flower Hairpin",
+        "item_id": "5061",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Wild Flower",
+        "item_id": "10009",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Love Valentine's Hat",
+    "item_id": "5393",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 777777
+      },
+      {
+        "type": "item",
+        "name": "Apple of Archer",
+        "item_id": "2285",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Flame Heart",
+        "item_id": "994",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Burning Heart",
+        "item_id": "7097",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Magnolia Hat",
+    "item_id": "5365",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Egg",
+        "item_id": "574",
+        "qty": 150
+      },
+      {
+        "type": "item",
+        "name": "Old Frying Pan",
+        "item_id": "7031",
+        "qty": 150
+      }
+    ]
+  },
+  {
+    "name": "Kabuki Mask",
+    "item_id": "5143",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Goblin Leader Mask",
+        "item_id": "5090",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Hair",
+        "item_id": "1020",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Kafra Band",
+    "item_id": "5020",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower Band",
+        "item_id": "2215",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Charming Ribbon",
+    "item_id": "5140",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Small Ribbons",
+        "item_id": "5085",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Big Ribbon",
+        "item_id": "2244",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Ribbon",
+        "item_id": "5191",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Silk",
+        "item_id": "7166",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Kitsune Mask",
+    "item_id": "5069",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Nine Tails",
+        "item_id": "1022",
+        "qty": 99
+      }
+    ]
+  },
+  {
+    "name": "Laurel Wreath",
+    "item_id": "5185",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower Hairpin",
+        "item_id": "5061",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Flower",
+        "item_id": "712",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Soft Blade of Grass",
+        "item_id": "7194",
+        "qty": 150
+      },
+      {
+        "type": "item",
+        "name": "Fig Leaf",
+        "item_id": "7298",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Hinalle Leaflet",
+        "item_id": "520",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Aloe Leaflet",
+        "item_id": "521",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Lion Mask",
+    "item_id": "5130",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Horrendous Hair",
+        "item_id": "1048",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Rotten Meat",
+        "item_id": "7564",
+        "qty": 150
+      },
+      {
+        "type": "item",
+        "name": "Meat",
+        "item_id": "517",
+        "qty": 30
+      }
+    ]
+  },
+  {
+    "name": "Mythical Lion Mask",
+    "item_id": "5177",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Four Leaf Clover",
+        "item_id": "706",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Elastic Band",
+        "item_id": "7200",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Skirt of Virgin",
+        "item_id": "1049",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Ancient Tooth",
+        "item_id": "1053",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Orange Dyestuffs",
+        "item_id": "980",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Lazy Smokie",
+    "item_id": "5084",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Acorn",
+        "item_id": "1026",
+        "qty": 1000
+      },
+      {
+        "type": "item",
+        "name": "Sea-Otter Fur",
+        "item_id": "7065",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Raccoon Leaf",
+        "item_id": "945",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Mage Hat",
+    "item_id": "5027",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 400
+      },
+      {
+        "type": "item",
+        "name": "Mould Powder",
+        "item_id": "7001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Blue Mage Hat",
+    "item_id": "5241",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 400
+      },
+      {
+        "type": "item",
+        "name": "Mould Powder",
+        "item_id": "7001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Brown Mage Hat",
+    "item_id": "5240",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 400
+      },
+      {
+        "type": "item",
+        "name": "Mould Powder",
+        "item_id": "7001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Red Mage Hat",
+    "item_id": "5238",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 400
+      },
+      {
+        "type": "item",
+        "name": "Mould Powder",
+        "item_id": "7001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Gray Mage Hat",
+    "item_id": "5239",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 400
+      },
+      {
+        "type": "item",
+        "name": "Mould Powder",
+        "item_id": "7001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Yellow Mage Hat",
+    "item_id": "5242",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 400
+      },
+      {
+        "type": "item",
+        "name": "Mould Powder",
+        "item_id": "7001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Assassin Mask",
+    "item_id": "5054",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Wizard Hat",
+        "item_id": "2252",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Ancient Lips",
+        "item_id": "1054",
+        "qty": 450
+      },
+      {
+        "type": "item",
+        "name": "Solid Shell",
+        "item_id": "943",
+        "qty": 1200
+      }
+    ]
+  },
+  {
+    "name": "Twin Ribbon",
+    "item_id": "5187",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Small Ribbons",
+        "item_id": "5085",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Decorative Golden Bell",
+        "item_id": "5091",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Mystic Rose",
+        "item_id": "5117",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Magic Eyes",
+    "item_id": "5138",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ulle's Cap",
+        "item_id": "5123",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Mage Hat",
+        "item_id": "5027",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Eye of Hellion",
+        "item_id": "7337",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Violet Dyestuffs",
+        "item_id": "981",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Neko Mimi",
+    "item_id": "5099",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiger Panty",
+        "item_id": "7267",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Leopard Skin",
+        "item_id": "7171",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Tiger Skin",
+        "item_id": "1029",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Crown of Mistress",
+    "item_id": "5081",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 40000
+      },
+      {
+        "type": "item",
+        "name": "Coronet",
+        "item_id": "2249",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Model Training Hat",
+    "item_id": "5073",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Apple of Archer",
+        "item_id": "2285",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Book",
+        "item_id": "1550",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Mystic Rose",
+    "item_id": "5117",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 50000
+      },
+      {
+        "type": "item",
+        "name": "2carat Diamond",
+        "item_id": "731",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Witherless Rose",
+        "item_id": "748",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Bird Nest Hat",
+    "item_id": "5183",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Dead Branch",
+        "item_id": "604",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Harpy Feather",
+        "item_id": "7115",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Note Headphones",
+    "item_id": "5151",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Headset",
+        "item_id": "5001",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Crystal Blue",
+        "item_id": "991",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Opera Masque",
+    "item_id": "2281",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 5000
+      },
+      {
+        "type": "item",
+        "name": "Iron",
+        "item_id": "998",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Singing Plant",
+        "item_id": "707",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Opera Phantom Mask",
+    "item_id": "5043",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Opera Masque",
+        "item_id": "2281",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Horrendous Hair",
+        "item_id": "1048",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Helmet of Orc Hero",
+    "item_id": "5094",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Heroic Emblem",
+        "item_id": "968",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Orc Helm",
+        "item_id": "2299",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Orcish Sword",
+        "item_id": "1124",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Orcish Voucher",
+        "item_id": "931",
+        "qty": 1000
+      }
+    ]
+  },
+  {
+    "name": "Orange Ribbon",
+    "item_id": "5196",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Orange Dyestuffs",
+        "item_id": "980",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Sea-Otter Hat",
+    "item_id": "5078",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Raccoon Hat",
+        "item_id": "5033",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Smokie Leaf",
+        "item_id": "5064",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Oxygen Mask",
+    "item_id": "5004",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ora Ora",
+        "item_id": "701",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Marvelous Wig",
+    "item_id": "5275",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Violet Dyestuffs",
+        "item_id": "981",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Angel Spirit",
+    "item_id": "5389",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Opera Phantom Mask",
+        "item_id": "5043",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "White Mask",
+        "item_id": "7568",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Mask Of Ifrit",
+    "item_id": "5420",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 30000000
+      },
+      {
+        "type": "item",
+        "name": "Torch Cap",
+        "item_id": "5430",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Ears Of Ifrit",
+        "item_id": "5421",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Misstrance Crown",
+    "item_id": "5323",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Crown of Mistress",
+        "item_id": "5081",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Broken Crown",
+        "item_id": "7754",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sacred Mission",
+        "item_id": "2128",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Poet Natalie's Hat",
+    "item_id": "5806",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sakkat",
+        "item_id": "2280",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Level 8 Cookbook",
+        "item_id": "7479",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Memory Book",
+        "item_id": "2109",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Observer",
+    "item_id": "5315",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angled Glasses",
+        "item_id": "2276",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cyclop's Eye",
+        "item_id": "5135",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fragment",
+        "item_id": "7094",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Transparent Plate",
+        "item_id": "7353",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "October Fest Cap",
+    "item_id": "5807",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Beer Hat",
+        "item_id": "5416",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Bandana",
+        "item_id": "2211",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Orc Hero Headdress",
+    "item_id": "5375",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Helmet of Orc Hero",
+        "item_id": "5094",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Monkey Circlet",
+        "item_id": "10018",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Heroic Emblem",
+        "item_id": "968",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Red Feather",
+        "item_id": "7440",
+        "qty": 30
+      }
+    ]
+  },
+  {
+    "name": "Orchid Hairband",
+    "item_id": "5370",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower Lily",
+        "item_id": "5302",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Violet Dyestuffs",
+        "item_id": "981",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Party Hat",
+    "item_id": "5060",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Santa Hat",
+        "item_id": "2236",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Oil Paper",
+        "item_id": "7151",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Slick Paper",
+        "item_id": "7111",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Pagdayaw",
+    "item_id": "5299",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blue Feather",
+        "item_id": "7441",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Feather",
+        "item_id": "949",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Feather of Birds",
+        "item_id": "916",
+        "qty": 15
+      },
+      {
+        "type": "item",
+        "name": "Harpy Feather",
+        "item_id": "7115",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Red Feather",
+        "item_id": "7440",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Elastic Band",
+        "item_id": "7200",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Bunny Band",
+        "item_id": "2214",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Parcel Hat",
+    "item_id": "5023",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Fabric",
+        "item_id": "1059",
+        "qty": 150
+      },
+      {
+        "type": "item",
+        "name": "Resin",
+        "item_id": "907",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Pecopeco Hairband",
+    "item_id": "5286",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Peco Peco Feather",
+        "item_id": "7101",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Valhalla's Flower",
+        "item_id": "7510",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Phoenix Crown",
+    "item_id": "5271",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Ruby",
+        "item_id": "723",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tassel",
+        "item_id": "7301",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Poporing Cap",
+    "item_id": "5352",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Poring Hat",
+        "item_id": "5035",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Darkgreen Dyestuffs",
+        "item_id": "979",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sticky Mucus",
+        "item_id": "938",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Pretend Murdered",
+    "item_id": "2293",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Skirt of Virgin",
+        "item_id": "1049",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Pink Ribbon",
+    "item_id": "5194",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Fantastic Pumpkin-Head",
+    "item_id": "5202",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Poring Hat",
+        "item_id": "5035",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Jack o' Pumpkin",
+        "item_id": "1062",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Pumpkin",
+        "item_id": "535",
+        "qty": 80
+      }
+    ]
+  },
+  {
+    "name": "Puppy Hat",
+    "item_id": "5182",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Puppy Love",
+        "item_id": "5008",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Puppy Headband",
+        "item_id": "5118",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Golden Hair",
+        "item_id": "1060",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Sheila Hairnet",
+    "item_id": "5213",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bunny Band",
+        "item_id": "2214",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 30
+      }
+    ]
+  },
+  {
+    "name": "Raccoon Hat",
+    "item_id": "5033",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "item_id": "1036",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Kitty Band",
+        "item_id": "2213",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sea-Otter Fur",
+        "item_id": "7065",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Tough Scalelike Stem",
+        "item_id": "7012",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Rainbow Eggshell",
+    "item_id": "5039",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Egg Shell",
+        "item_id": "5015",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Red Glasses",
+    "item_id": "5288",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Fashionable Glasses",
+        "item_id": "5047",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angled Glasses",
+        "item_id": "2276",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Red Ribbon",
+    "item_id": "5195",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Dress Hat",
+    "item_id": "5211",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Magician Hat",
+        "item_id": "5045",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Red Ribbon",
+        "item_id": "5083",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "Lotus Flower",
+        "item_id": "7553",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Rideword Hat",
+    "item_id": "5208",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Book",
+        "item_id": "1550",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Book of Billows",
+        "item_id": "1553",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Book of Gust of Wind",
+        "item_id": "1556",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Book of Mother Earth",
+        "item_id": "1554",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Book of the Apocalypse",
+        "item_id": "1557",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Book of the Blazing Sun",
+        "item_id": "1555",
+        "qty": 7
+      },
+      {
+        "type": "item",
+        "name": "Bookclip in Memory",
+        "item_id": "7015",
+        "qty": 30
+      }
+    ]
+  },
+  {
+    "name": "Red Ribbon",
+    "item_id": "5083",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Big Ribbon",
+        "item_id": "2244",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2209",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Silk Ribbon",
+        "item_id": "10007",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Sakkat",
+    "item_id": "2280",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 120
+      }
+    ]
+  },
+  {
+    "name": "Sales Banner",
+    "item_id": "5100",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Stop Post",
+        "item_id": "2272",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fire Dragon Scale",
+        "item_id": "7451",
+        "qty": 4
+      },
+      {
+        "type": "item",
+        "name": "Blank Scroll",
+        "item_id": "7433",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Level 3 Fire Bolt",
+        "item_id": "690",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Sombrero",
+    "item_id": "5067",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Straw Hat",
+        "item_id": "5062",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cactus Needle",
+        "item_id": "952",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Guitar",
+        "item_id": "1907",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Sheep Hat",
+    "item_id": "5133",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Majestic Goat",
+        "item_id": "5160",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Antelope Horn",
+        "item_id": "7106",
+        "qty": 6
+      },
+      {
+        "type": "item",
+        "name": "Antelope Skin",
+        "item_id": "7107",
+        "qty": 80
+      }
+    ]
+  },
+  {
+    "name": "Silver Tiara",
+    "item_id": "5149",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiara",
+        "item_id": "2234",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Silver Ring",
+        "item_id": "2611",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Smokie Leaf",
+    "item_id": "5064",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Raccoon Leaf",
+        "item_id": "945",
+        "qty": 600
+      },
+      {
+        "type": "item",
+        "name": "Claw of Desert Wolf",
+        "item_id": "7030",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Mr. Smile",
+    "item_id": "2278",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Clover",
+        "item_id": "705",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Jellopy",
+        "item_id": "909",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Smiling Mask",
+    "item_id": "5203",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mr. Smile",
+        "item_id": "2278",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tongue",
+        "item_id": "1015",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Satellite Hairband",
+    "item_id": "5212",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Electric Fist",
+        "item_id": "1820",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Aerial",
+        "item_id": "5011",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Morrigane's Pendant",
+        "item_id": "2651",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Deviace Card",
+        "item_id": "4125",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Soul Ring",
+    "item_id": "5257",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angel Wing Ears",
+        "item_id": "5074",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Halo",
+        "item_id": "2282",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Wing of Dragonfly",
+        "item_id": "7064",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Spore Hat",
+    "item_id": "5029",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Burnt Tree",
+        "item_id": "7068",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Poison Spore",
+        "item_id": "7033",
+        "qty": 850
+      },
+      {
+        "type": "item",
+        "name": "Tongue",
+        "item_id": "1015",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Stop Post",
+    "item_id": "2272",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 911000
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Straw Hat",
+    "item_id": "5062",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sakkat",
+        "item_id": "2280",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tough Vines",
+        "item_id": "7197",
+        "qty": 300
+      },
+      {
+        "type": "item",
+        "name": "Piece of Bamboo",
+        "item_id": "7150",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Striped Hairband",
+    "item_id": "5049",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Worn-out Prison Uniform",
+        "item_id": "1099",
+        "qty": 1500
+      }
+    ]
+  },
+  {
+    "name": "Vacation Hat",
+    "item_id": "5287",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Straw Hat",
+        "item_id": "5062",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Big Ribbon",
+        "item_id": "5348",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Sunday Hat",
+    "item_id": "5032",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Fabric",
+        "item_id": "1059",
+        "qty": 250
+      },
+      {
+        "type": "item",
+        "name": "Hat",
+        "item_id": "2221",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2227",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 600
+      }
+    ]
+  },
+  {
+    "name": "Sunflower Hairpin",
+    "item_id": "5103",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sunflower",
+        "item_id": "2253",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Stellar Hairpin",
+        "item_id": "10011",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Hat of the Sun God",
+    "item_id": "5022",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Emblem of the Sun God",
+        "item_id": "7086",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 40
+      },
+      {
+        "type": "item",
+        "name": "Coal",
+        "item_id": "1003",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Oridecon",
+        "item_id": "984",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Striped Hat",
+    "item_id": "5395",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Magician Hat",
+        "item_id": "5045",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Piece of Black Cloth",
+        "item_id": "7205",
+        "qty": 150
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fabric",
+        "item_id": "1059",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Teddybear Hat",
+    "item_id": "5059",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Panda Hat",
+        "item_id": "5030",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Needle Packet",
+        "item_id": "7213",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Spool",
+        "item_id": "7217",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Black Bear Skin",
+        "item_id": "7161",
+        "qty": 300
+      }
+    ]
+  },
+  {
+    "name": "Crunch Toast",
+    "item_id": "5107",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Milk",
+        "item_id": "519",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Old Frying Pan",
+        "item_id": "7031",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Cheese",
+        "item_id": "548",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Piece of Cake",
+        "item_id": "539",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Triple Poring Hat",
+    "item_id": "5255",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angeling Hairpin",
+        "item_id": "5153",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Poring Doll",
+        "item_id": "741",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Angeling Hat",
+        "item_id": "5132",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Angel Wing Ears",
+        "item_id": "5074",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Tulip Hairpin",
+    "item_id": "5077",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mr. Smile",
+        "item_id": "2278",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Party Recruiter Hat",
+    "item_id": "5337",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Sales Banner",
+        "item_id": "5100",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Sharp Paper",
+        "item_id": "7112",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Celebrant's Mitten",
+        "item_id": "2617",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Peco Ears",
+    "item_id": "5358",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Elven Ears",
+        "item_id": "2286",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Peco Peco Feather",
+        "item_id": "7101",
+        "qty": 30
+      }
+    ]
+  },
+  {
+    "name": "Chinese Crown",
+    "item_id": "5152",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Angel Wing",
+        "item_id": "2254",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cursed Ruby",
+        "item_id": "724",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tassel",
+        "item_id": "7301",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Pirate Dagger",
+    "item_id": "5305",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Dagger",
+        "item_id": "1214",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Gold",
+        "item_id": "969",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Crystal of Darkness",
+        "item_id": "7799",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Pop Corn Hat",
+    "item_id": "5413",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Yggdrasil Seed",
+        "item_id": "608",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Fire Arrow",
+        "item_id": "1752",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Poring Cake Hat",
+    "item_id": "5415",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Triple Poring Hat",
+        "item_id": "5255",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cake Hat",
+        "item_id": "5024",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Poring Party Hat",
+    "item_id": "5318",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Poring Hat",
+        "item_id": "5035",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Party Hat",
+        "item_id": "5060",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Poring Doll",
+        "item_id": "741",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Candy Cane",
+        "item_id": "530",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Sticky Mucus",
+        "item_id": "938",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Purple Cowboy Hat",
+    "item_id": "5409",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cowboy Hat",
+        "item_id": "5075",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Peco Peco Feather",
+        "item_id": "7101",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Violet Dyestuffs",
+        "item_id": "981",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Pussy Cat Bell",
+    "item_id": "5051",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice's Apron",
+        "item_id": "7047",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Ramen Hat",
+    "item_id": "5293",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bag of Grain",
+        "item_id": "577",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Medicine Bowl",
+        "item_id": "7134",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Edible Mushroom",
+        "item_id": "581",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Savory Sauce",
+        "item_id": "7454",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Spicy Sauce",
+        "item_id": "7455",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Horn of Tendrilion",
+        "item_id": "6033",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Hard Skin",
+        "item_id": "6022",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "Red Tailed Ribbon",
+    "item_id": "5801",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Red Ribbon",
+        "item_id": "5083",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Red Silk Seal",
+        "item_id": "2700",
+        "qty": 12
+      },
+      {
+        "type": "item",
+        "name": "Will of Red Darkness",
+        "item_id": "7566",
+        "qty": 12
+      },
+      {
+        "type": "item",
+        "name": "Ice Scale",
+        "item_id": "7562",
+        "qty": 12
+      },
+      {
+        "type": "item",
+        "name": "Valkyrian Armor",
+        "item_id": "2357",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Robo Eye",
+    "item_id": "5325",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Blank Eyes",
+        "item_id": "5102",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Transparent Plate",
+        "item_id": "7355",
+        "qty": 12
+      },
+      {
+        "type": "item",
+        "name": "Metal Fragment",
+        "item_id": "7095",
+        "qty": 8
+      },
+      {
+        "type": "item",
+        "name": "Rusty Screw",
+        "item_id": "7317",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Champion Wreath",
+    "item_id": "5320",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Emperor's Laurel Crown",
+        "item_id": "5205",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Hand of God",
+        "item_id": "1009",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Sacred Mission",
+        "item_id": "2111",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Muslim Hat M",
+    "item_id": "5354",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Chicken Hat",
+        "item_id": "5431",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dragon Breath Cocktail",
+        "item_id": "12080",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gentleman's Staff",
+        "item_id": "1629",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Santa's Beard",
+    "item_id": "5811",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Elunium",
+        "item_id": "985",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Grampa Beard",
+        "item_id": "2241",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Santa Poring Hat",
+    "item_id": "5381",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Jumping Poring",
+        "item_id": "5335",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Santa Hat",
+        "item_id": "2236",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Scuba Gear",
+    "item_id": "5397",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flexible Tube",
+        "item_id": "7325",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Diver Goggles",
+        "item_id": "2205",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Transparent Plate",
+        "item_id": "7355",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Selendang",
+    "item_id": "5355",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Soft Silk",
+        "item_id": "7166",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Fabric",
+        "item_id": "1059",
+        "qty": 200
+      }
+    ]
+  },
+  {
+    "name": "Shining Electric Bulb Hairband",
+    "item_id": "5310",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Bulb Band",
+        "item_id": "5034",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Electric Wire",
+        "item_id": "1971",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Rough Wind",
+        "item_id": "996",
+        "qty": 6
+      }
+    ]
+  },
+  {
+    "name": "Shiny Wig",
+    "item_id": "5274",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Fluff",
+        "item_id": "914",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Orange Dyestuffs",
+        "item_id": "980",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Silver Tiara",
+    "item_id": "5261",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiara",
+        "item_id": "5164",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Emperium",
+        "item_id": "714",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "Silver Ring",
+        "item_id": "2611",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Crystal of Darkness",
+        "item_id": "7799",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Snake Head Hat",
+    "item_id": "5388",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Horrendous Hair",
+        "item_id": "1048",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Snake Scale",
+        "item_id": "926",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "Sorin Doll Hat",
+    "item_id": "5342",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blush",
+        "item_id": "5040",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Black Hair",
+        "item_id": "1020",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Glossy Hair",
+        "item_id": "7152",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Soul Wing",
+    "item_id": "5297",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Soul Ring",
+        "item_id": "5257",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soul Staff",
+        "item_id": "1472",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Monk Hat",
+        "item_id": "5158",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 40
+      }
+    ]
+  },
+  {
+    "name": "Jumping Poring",
+    "item_id": "5335",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Poring Doll",
+        "item_id": "741",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Yggdrasil Berry",
+        "item_id": "607",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Grasshopper's Leg",
+        "item_id": "940",
+        "qty": 150
+      }
+    ]
+  },
+  {
+    "name": "Sweet Candy",
+    "item_id": "5412",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Candy Cane",
+        "item_id": "530",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Matchstick",
+        "item_id": "7035",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Telling Doll Hat",
+    "item_id": "5343",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Flower Band",
+        "item_id": "2215",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Blue Hair",
+        "item_id": "1034",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "Tiger Mask",
+    "item_id": "5098",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Tiger Skin",
+        "item_id": "1029",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Goblin Mask",
+        "item_id": "2297",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Tiger Panty",
+        "item_id": "7267",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Torch Cap",
+    "item_id": "5430",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000000
+      },
+      {
+        "type": "item",
+        "name": "Camp Fire Hat",
+        "item_id": "5414",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Bottle Grenade",
+        "item_id": "7135",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Fire Dragon Scale",
+        "item_id": "7451",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "name": "Twin Pompom By JB",
+    "item_id": "5384",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Frozen Twin Pompom",
+        "item_id": "5390",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Umbrella Hat",
+    "item_id": "5316",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cap",
+        "item_id": "2226",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Rainbow Carrot",
+        "item_id": "622",
+        "qty": 10
+      }
+    ]
+  },
+  {
+    "name": "Vanilmirth Hat",
+    "item_id": "5289",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Royal Jelly",
+        "item_id": "526",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Little Ghost Doll",
+        "item_id": "7268",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Victorious Coronet",
+    "item_id": "5805",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000000
+      },
+      {
+        "type": "item",
+        "name": "Spiky Band",
+        "item_id": "2258",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Peco Peco Card",
+        "item_id": "4031",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Victory Hairband",
+    "item_id": "5301",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Black Ribbon",
+        "item_id": "5191",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Red Ribbon",
+        "item_id": "5195",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Bennit Doll Hat",
+    "item_id": "5344",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yarn",
+        "item_id": "7038",
+        "qty": 20
+      },
+      {
+        "type": "item",
+        "name": "Golden Hair",
+        "item_id": "1060",
+        "qty": 25
+      }
+    ]
+  },
+  {
+    "name": "W Doll Hat",
+    "item_id": "5345",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Alice Doll",
+        "item_id": "5137",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Red Ribbon",
+        "item_id": "5195",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Golden Hair",
+        "item_id": "1060",
+        "qty": 45
+      }
+    ]
+  },
+  {
+    "name": "White Snake Hat",
+    "item_id": "5411",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Snake Head Hat",
+        "item_id": "5388",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Cat's Eye",
+        "item_id": "7263",
+        "qty": 2
+      },
+      {
+        "type": "item",
+        "name": "Cobaltblue Dyestuffs",
+        "item_id": "978",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "name": "White Wing",
+    "item_id": "5368",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "White Ribbon",
+        "item_id": "5197",
+        "qty": 6
+      },
+      {
+        "type": "item",
+        "name": "Old White Cloth",
+        "item_id": "7751",
+        "qty": 25
+      },
+      {
+        "type": "item",
+        "name": "White Chocolate",
+        "item_id": "561",
+        "qty": 3
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Yoyo Hat",
+    "item_id": "5385",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Yoyo Doll",
+        "item_id": "753",
+        "qty": 100
+      }
+    ]
+  },
+  {
+    "name": "X Hairpin",
+    "item_id": "5079",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Stellar",
+        "item_id": "2294",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Ectoplasm",
+        "item_id": "7220",
+        "qty": 400
+      }
+    ]
+  },
+  {
+    "name": "Valkyrie Feather Band",
+    "item_id": "5256",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Valhalla's Flower",
+        "item_id": "7510",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Vane Hairpin",
+    "item_id": "5285",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Vane",
+        "item_id": "7192",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Stellar Hairpin",
+        "item_id": "10011",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Wings Of Victory",
+    "item_id": "5357",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Valhalla's Flower",
+        "item_id": "7510",
+        "qty": 20
+      }
+    ]
+  },
+  {
+    "name": "Wandering Minstrel Hat",
+    "item_id": "5188",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mage Hat",
+        "item_id": "5027",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Soft Silk",
+        "item_id": "7166",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Wing of Dragonfly",
+        "item_id": "7064",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Welding Mask",
+    "item_id": "2292",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 2000
+      },
+      {
+        "type": "item",
+        "name": "Steel",
+        "item_id": "999",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Whisper Mask",
+    "item_id": "5294",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Loki's Whispers",
+        "item_id": "7019",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Suspicious Hat",
+        "item_id": "7567",
+        "qty": 50
+      }
+    ]
+  },
+  {
+    "name": "Winter Hat",
+    "item_id": "5115",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 50000
+      },
+      {
+        "type": "item",
+        "name": "Black Dyestuffs",
+        "item_id": "983",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Tiger Panty",
+        "item_id": "7267",
+        "qty": 99
+      },
+      {
+        "type": "item",
+        "name": "Frozen Rose",
+        "item_id": "749",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Water Lily Crown",
+    "item_id": "5284",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Flower Lily",
+        "item_id": "5302",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Scarlet Dyestuffs",
+        "item_id": "975",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Crown",
+        "item_id": "5165",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Wonder Nutshell",
+    "item_id": "5050",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Nut Shell",
+        "item_id": "5037",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Wing of Dragonfly",
+        "item_id": "7064",
+        "qty": 500
+      }
+    ]
+  },
+  {
+    "name": "Romantic White Flower",
+    "item_id": "5206",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Romantic Flower",
+        "item_id": "2269",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "White Ribbon",
+    "item_id": "5197",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "White Dyestuffs",
+        "item_id": "982",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Yellow Ribbon",
+    "item_id": "5278",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Hair Band",
+        "item_id": "2210",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Yellow Ribbon",
+        "item_id": "5192",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Cute Ribbon",
+        "item_id": "2250",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Yellow Ribbon",
+    "item_id": "5192",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Ribbon",
+        "item_id": "2208",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Lemon Dyestuffs",
+        "item_id": "976",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Zealotus Mask",
+    "item_id": "5121",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Cat's Eye",
+        "item_id": "7263",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Forbidden Red Candle",
+        "item_id": "660",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Worn-out Magic Scroll",
+        "item_id": "7099",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Dark Crystal Fragment",
+        "item_id": "7315",
+        "qty": 369
+      }
+    ]
+  },
+  {
+    "name": "Well-Chewed Pencil",
+    "item_id": "5574",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 1000000
+      },
+      {
+        "type": "item",
+        "name": "Pencil Case",
+        "item_id": "738",
+        "qty": 5
+      },
+      {
+        "type": "item",
+        "name": "Bookclip in Memory",
+        "item_id": "7015",
+        "qty": 100
+      },
+      {
+        "type": "item",
+        "name": "Trunk",
+        "item_id": "1019",
+        "qty": 500
+      }
+    ]
+  }
+]

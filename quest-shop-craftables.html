@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quest Shop Crafting List — NiktoutRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#fff;
+    --panel:#eef0f2;
+    --panel-2:#e3e6e9;
+    --line:#ddd;
+    --text:#444;
+    --text-muted:#666;
+    --text-faint:#767676;
+    --gold:#4083c6;
+    --gold-dim:#2d5a9e;
+    --danger:#b5453f;
+    --qty-bg:#eeeefd;
+    --qty-text:#3f45b5;
+    --zeny-bg:#fff6dd;
+    --zeny-text:#8a6d1a;
+    --script-bg:#2d333b;
+    --script-text:#d7dde3;
+    --radius:4px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:2.5rem 1.5rem 5rem;
+  }
+
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:1rem;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1.5rem;
+    margin-bottom:1.5rem;
+  }
+
+  h1{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:1.9rem;
+    margin:0 0 0.25rem;
+    letter-spacing:0.01em;
+  }
+
+  header p{
+    margin:0;
+    color:var(--text-muted);
+    font-size:0.92rem;
+    max-width:46ch;
+  }
+
+  header p a{ color:inherit; }
+
+  .stats{
+    display:flex;
+    gap:1.5rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+  }
+
+  .stat-box{ text-align:right; }
+
+  .stat-box .n{
+    display:block;
+    color:var(--gold-dim);
+    font-size:1.05rem;
+  }
+
+  .stat-box .l{
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:0.65rem;
+  }
+
+  .search-shell{ position:relative; margin-bottom:0.5rem; }
+
+  #search{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--text);
+    font-size:1.05rem;
+    padding:0.9rem 1.1rem;
+    font-family:inherit;
+    outline:none;
+    transition:border-color 0.15s ease;
+  }
+
+  #search:focus{ border-color:var(--gold-dim); }
+  #search::placeholder{ color:var(--text-faint); }
+
+  .hint{
+    color:var(--text-faint);
+    font-size:0.82rem;
+    margin:0.6rem 0 1.5rem;
+  }
+
+  .hint code{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:0.1rem 0.4rem;
+    border-radius:4px;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--text);
+  }
+
+  .notice{
+    display:none;
+    background:var(--zeny-bg);
+    border:1px solid #ecd98f;
+    color:var(--zeny-text);
+    border-radius:var(--radius);
+    padding:0.75rem 1rem;
+    font-size:0.85rem;
+    margin-bottom:1.5rem;
+  }
+
+  .notice.show{ display:block; }
+  .notice code{
+    background:rgba(255,255,255,0.5);
+    padding:0.05rem 0.35rem;
+    border-radius:4px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .az-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px;
+    margin-bottom:2rem;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+
+  .az-link{
+    flex:1 1 auto;
+    text-align:center;
+    min-width:1.8rem;
+    padding:0.3rem 0.35rem;
+    color:var(--gold-dim);
+    text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    border-radius:3px;
+    transition:background-color 0.15s ease;
+  }
+
+  .az-link:hover{ background:var(--panel-2); }
+  .az-disabled{ color:var(--text-faint); opacity:0.4; }
+
+  .letter-section{ margin-bottom:1.25rem; scroll-margin-top:1rem; }
+
+  .letter-heading{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:1.1rem;
+    color:var(--gold-dim);
+    border-bottom:1px solid var(--line);
+    padding-bottom:0.4rem;
+    margin:0 0 0.75rem;
+  }
+
+  /* ---------- compact item card ---------- */
+
+  .item-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:0.65rem 0.85rem 0.75rem;
+    margin-bottom:0.5rem;
+  }
+
+  .item-head{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-bottom:0.4rem;
+    flex-wrap:wrap;
+  }
+
+  .item-info{
+    flex:0 0 30%;
+    min-width:220px;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+
+  .item-icon{
+    width:24px;
+    height:24px;
+    flex-shrink:0;
+    object-fit:contain;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:4px;
+  }
+
+  .item-name{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:0.98rem;
+    color:var(--text);
+    text-decoration:none;
+  }
+
+  .item-name:hover{ color:var(--gold-dim); }
+
+  .item-id{
+    color:var(--text-faint);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+  }
+
+  .pending-tag{
+    margin-left:auto;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--text-faint);
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:0.1rem 0.55rem;
+    white-space:nowrap;
+  }
+
+  .stat-line{
+    flex:1;
+    min-width:220px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0 0.9rem;
+    font-size:0.76rem;
+    color:var(--text-muted);
+    margin:0;
+    /* display:flex;
+    flex-wrap:wrap;
+    gap:0 0.9rem;
+    font-size:0.76rem;
+    color:var(--text-muted);
+    margin-bottom:0.25rem; */
+  }
+
+  .stat-line b{
+    color:var(--text);
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:0.62rem;
+    letter-spacing:0.04em;
+    margin-right:0.3rem;
+  }
+
+  .jobs-line{
+    font-size:0.76rem;
+    color:var(--text-muted);
+    margin-bottom:0.35rem;
+  }
+
+  .jobs-line b{
+    color:var(--text);
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:0.62rem;
+    letter-spacing:0.04em;
+    margin-right:0.3rem;
+  }
+
+  .desc-line{
+    font-size:0.8rem;
+    color:var(--text);
+    margin-bottom:0.4rem;
+    line-height:1.4;
+  }
+
+  .script-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    line-height:1.45;
+    background:var(--script-bg);
+    color:var(--script-text);
+    border-radius:4px;
+    padding:0.4rem 0.55rem;
+    margin-bottom:0.5rem;
+    overflow-x:auto;
+    white-space:pre-wrap;
+    word-break:break-word;
+  }
+
+  .ingredients-row{ display:flex; align-items:flex-start; gap:0.5rem; flex-wrap:wrap; }
+
+  .ing-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--text);
+    flex-shrink:0;
+    padding-top:0.25rem;
+  }
+
+  .ing-grid{ display:flex; flex-wrap:wrap; gap:0.35rem; flex:1; }
+
+  .ing-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:0.12rem 0.5rem 0.12rem 0.22rem;
+    text-decoration:none;
+    color:var(--text);
+    font-size:0.76rem;
+    transition:border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  a.ing-chip:hover{ border-color:var(--gold-dim); background:var(--panel-2); }
+
+  .ing-icon{ width:16px; height:16px; object-fit:contain; border-radius:3px; flex-shrink:0; }
+  .ing-name{ color:var(--gold-dim); }
+
+  .ing-qty{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--qty-text);
+    background:var(--qty-bg);
+    padding:0.02rem 0.32rem;
+    border-radius:999px;
+  }
+
+  .ing-zeny{ padding:0.12rem 0.6rem; background:var(--zeny-bg); border-color:#ecd98f; cursor:default; }
+  .ing-zeny-amt{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; font-weight:500; color:var(--zeny-text); }
+
+  .no-results{
+    display:none;
+    text-align:center;
+    color:var(--text-muted);
+    padding:3rem 1rem;
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+    font-size:0.92rem;
+  }
+
+  .no-results.show{ display:block; }
+
+  footer{
+    margin-top:3rem;
+    border-top:1px solid var(--line);
+    padding-top:1.25rem;
+    color:var(--text-faint);
+    font-size:0.78rem;
+  }
+
+  footer a{ color:var(--text-muted); }
+
+  .loading{
+    text-align:center;
+    color:var(--text-faint);
+    padding:3rem 1rem;
+    font-size:0.9rem;
+  }
+
+  ::-webkit-scrollbar{ width:8px; height:8px; }
+  ::-webkit-scrollbar-track{ background:transparent; }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+
+  @media (max-width: 640px){
+    .wrap{ padding:1.25rem 0.9rem 3.5rem; }
+    header{ gap:0.6rem; padding-bottom:1rem; margin-bottom:1.25rem; }
+    h1{ font-size:1.5rem; }
+    .stats{ gap:1rem; width:100%; justify-content:space-between; }
+    .az-link{ min-width:1.5rem; font-size:0.72rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>Quest Shop Crafting List</h1>
+      <p>Every craftable Quest Shop headgear, with full stats and ingredients. Sourced from <a href="https://forums.atomixro.com/index.php/topic,103.0.html" target="_blank" rel="noopener">Atomix Game Center's Guides board</a>, cross-referenced with <a href="https://ratemyserver.net/index.php?page=item_db&item_type=4&item_class=201" target="_blank" rel="noopener">RateMyServer</a>.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-box"><span class="n" id="statTotal">—</span><span class="l">craftables</span></div>
+      <div class="stat-box"><span class="n" id="statIngredients">—</span><span class="l">ingredients</span></div>
+    </div>
+  </header>
+
+  <div class="notice" id="pendingNotice">
+    Item stats haven't been fetched yet (or the fetch is still in progress). Run <code>npm start</code> in this project's
+    folder to pull Class / Weight / Defense / Level / Slot / Jobs / Description / Item Script from RateMyServer — it
+    takes a few minutes and is safe to stop and resume. Ingredients still work without it.
+  </div>
+
+  <div class="search-shell">
+    <input type="text" id="search" placeholder="Search by item or ingredient name, e.g. Deviling Hat" autocomplete="off" />
+  </div>
+  <nav class="az-nav" id="azNav"></nav>
+
+  <div id="itemsRoot"><div class="loading">Loading craftables…</div></div>
+  <div class="no-results" id="noResults">No craftables match your search.</div>
+
+  <footer>
+    Item data collected from the <a href="https://forums.atomixro.com/index.php/topic,103.0.html" target="_blank" rel="noopener">Quest Shop Item List thread</a> on the Atomix Game Center forums, originally posted by Antares.
+    Stats and icons via <a href="https://ratemyserver.net/" target="_blank" rel="noopener">RateMyServer.net</a>.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var ICON_BASE = "https://file5s.ratemyserver.net/items/small/";
+  var RMS_ITEM_URL = "https://ratemyserver.net/item_db.php?item_id=";
+
+  var ICON_ASSET_VERSION = 'v2';
+
+  var iconFailedIds = {};
+
+  window.__markIconFailed = function(id){
+    if (id) iconFailedIds[id] = true;
+  };
+
+  var ICON_PLACEHOLDER_WIDTH = 90;
+  var ICON_PLACEHOLDER_HEIGHT = 60;
+
+  function itemIconUrl(itemId, itemName){
+    // RateMyServer uses card.gif for card items.
+    if (itemName && typeof itemName === 'string' &&
+        itemName.toLowerCase().endsWith('card')){
+      return ICON_BASE + 'card.gif?v=' + ICON_ASSET_VERSION;
+    }
+
+    var id = Number(itemId);
+    if (!Number.isFinite(id) || id <= 0) return '';
+
+    return ICON_BASE + id + '.gif?v=' + ICON_ASSET_VERSION;
+  }
+
+  window.__checkIconLoad = function(img, id){
+    if (img.naturalWidth !== ICON_PLACEHOLDER_WIDTH ||
+        img.naturalHeight !== ICON_PLACEHOLDER_HEIGHT){
+      return;
+    }
+
+    var retried = img.getAttribute('data-icon-retry') === '1';
+
+    if (!retried){
+      img.setAttribute('data-icon-retry', '1');
+      img.src = itemIconUrl(id, '') + '&_retry=' + Date.now();
+      return;
+    }
+
+    img.style.display = 'none';
+    window.__markIconFailed(id);
+  };
+
+  function escapeHtml(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function multiline(s){
+    return escapeHtml(String(s || '').replace(/\\n/g, '\n')).replace(/\n/g, '<br>');
+  }
+
+  // ---- tiny CSV parser matching the Node writer's escaping ----
+  function parseCsvLine(line){
+    var fields = [], cur = '', inQuotes = false;
+    for (var i = 0; i < line.length; i++){
+      var c = line[i];
+      if (inQuotes){
+        if (c === '"'){
+          if (line[i+1] === '"'){ cur += '"'; i++; } else { inQuotes = false; }
+        } else { cur += c; }
+      } else if (c === '"'){
+        inQuotes = true;
+      } else if (c === ','){
+        fields.push(cur); cur = '';
+      } else { cur += c; }
+    }
+    fields.push(cur);
+    return fields;
+  }
+
+  function parseCsv(text){
+    var lines = text.split(/\r?\n/).filter(function(l){ return l.length > 0; });
+    if (!lines.length) return [];
+    var headers = parseCsvLine(lines[0]);
+    return lines.slice(1).map(function(line){
+      var fields = parseCsvLine(line);
+      var row = {};
+      headers.forEach(function(h, i){ row[h] = fields[i] !== undefined ? fields[i] : ''; });
+      return row;
+    });
+  }
+
+  // function renderIngredient(ing){
+  //   if (ing.type === 'zeny'){
+  //     var amt = Number(ing.amount).toLocaleString();
+  //     return '<span class="ing-chip ing-zeny"><span class="ing-zeny-amt">' + amt + 'z</span></span>';
+  //   }
+  //   var iconUrl = ICON_BASE + ing.item_id + '.gif';
+  //   var itemUrl = RMS_ITEM_URL + ing.item_id + '&small=1';
+  //   var qty = Number(ing.qty).toLocaleString();
+  //   return '<a class="ing-chip" href="' + itemUrl + '" target="_blank" rel="noopener">' +
+  //     '<img class="ing-icon" src="' + iconUrl + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
+  //     '<span class="ing-name">' + escapeHtml(ing.name) + '</span>' +
+  //     '<span class="ing-qty">&times;' + qty + '</span></a>';
+  // }
+  
+  function renderIngredient(ing){
+    if (ing.type === 'zeny'){
+      var amt = Number(ing.amount).toLocaleString();
+      return '<span class="ing-chip ing-zeny"><span class="ing-zeny-amt">' + amt + 'z</span></span>';
+    }
+
+    var itemId = Number(ing.item_id);
+    var iconUrl = itemIconUrl(itemId, ing.name);
+    var itemUrl = RMS_ITEM_URL + itemId + '&small=1';
+    var qty = Number(ing.qty).toLocaleString();
+
+    var iconHtml = '';
+
+    if (iconUrl && !iconFailedIds[itemId]){
+      iconHtml =
+        '<img class="ing-icon" src="' + iconUrl + '"' +
+        ' alt="" width="16" height="16" loading="lazy" referrerpolicy="no-referrer"' +
+        ' onload="window.__checkIconLoad(this, ' + itemId + ');"' +
+        ' onerror="this.style.display=\'none\'; window.__markIconFailed(' + itemId + ');">';
+    }
+
+    return '<a class="ing-chip" href="' + itemUrl + '" target="_blank" rel="noopener">' +
+      iconHtml +
+      '<span class="ing-name">' + escapeHtml(ing.name) + '</span>' +
+      '<span class="ing-qty">&times;' + qty + '</span></a>';
+  }
+
+  function renderStatLine(stats){
+    var parts = [];
+    if (stats.class) parts.push('<span class="stat-part"><b>Class</b>' + escapeHtml(stats.class) + '</span>');
+    if (stats.weight) parts.push('<span class="stat-part"><b>Weight</b>' + escapeHtml(stats.weight) + '</span>');
+    if (stats.defense) parts.push('<span class="stat-part"><b>Def</b>' + escapeHtml(stats.defense) + '</span>');
+    if (stats.required_level) parts.push('<span class="stat-part"><b>Lvl</b>' + escapeHtml(stats.required_level) + '</span>');
+    if (stats.slot !== undefined && stats.slot !== '') parts.push('<span class="stat-part"><b>Slot</b>' + escapeHtml(stats.slot) + '</span>');
+    return parts.join('');
+  }
+
+  function renderItem(it){
+    var iid = it.item_id;
+    var name = escapeHtml(it.name);
+    var iconUrl = itemIconUrl(iid, it.name);
+    var itemUrl = RMS_ITEM_URL + iid + '&small=1';
+    var ingHtml = it.ingredients.map(renderIngredient).join('');
+    var searchBlob = (it.name + ' ' + it.ingredients.map(function(i){ return i.name || ''; }).join(' ')).toLowerCase();
+
+    var statsHtml = '';
+    if (it.stats){
+      var s = it.stats;
+      statsHtml =
+        '<div class="stat-line">' + renderStatLine(s) + '</div>' +
+        (s.jobs ? '<div class="jobs-line"><b>Jobs</b>' + escapeHtml(s.jobs) + '</div>' : '') +
+        (s.description ? '<div class="desc-line">' + multiline(s.description) + '</div>' : '') +
+        (s.item_script ? '<div class="script-line">' + multiline(s.item_script) + '</div>' : '');
+    }
+
+    return '<article class="item-card" data-name="' + escapeHtml(searchBlob) + '">' +
+      '<div class="item-head">' +
+        '<div class="item-info">' +
+          '<img class="item-icon" src="' + iconUrl + '" alt="" width="24" height="24" loading="lazy" referrerpolicy="no-referrer"' +
+            'onload="window.__checkIconLoad(this, ' + iid + ');"' +
+            'onerror="this.style.display=\'none\'; window.__markIconFailed(' + iid + ');">' +
+          '<a class="item-name" href="' + itemUrl + '" target="_blank" rel="noopener">' + name + '</a>' +
+          '<span class="item-id">#' + iid + '</span>' +
+          (it.stats ? '' : '<span class="pending-tag">stats pending</span>') +
+        '</div>' +
+        (it.stats ? '<div class="stat-line">' + renderStatLine(it.stats) + '</div>' : '') +
+      '</div>' +
+      (it.stats ? 
+        (it.stats.jobs ? '<div class="jobs-line"><b>Jobs</b>' + escapeHtml(it.stats.jobs) + '</div>' : '') +
+        (it.stats.description ? '<div class="desc-line">' + multiline(it.stats.description) + '</div>' : '') +
+        (it.stats.item_script ? '<div class="script-line">' + multiline(it.stats.item_script) + '</div>' : '')
+      : '') +
+      // statsHtml +
+      '<div class="ingredients-row">' +
+        '<span class="ing-label">Ingredients</span>' +
+        '<div class="ing-grid">' + ingHtml + '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function letterOf(name){
+    var ch = name.charAt(0).toUpperCase();
+    return /[A-Z]/.test(ch) ? ch : '#';
+  }
+
+  function buildPage(items){
+    var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').concat(['#']);
+    var groups = {};
+    items.forEach(function(it){
+      var l = letterOf(it.name);
+      (groups[l] = groups[l] || []).push(it);
+    });
+
+    var azNav = document.getElementById('azNav');
+    azNav.innerHTML = ALPHABET.map(function(letter){
+      return groups[letter]
+        ? '<a href="#letter-' + letter + '" class="az-link">' + letter + '</a>'
+        : '<span class="az-link az-disabled">' + letter + '</span>';
+    }).join('');
+
+    var root = document.getElementById('itemsRoot');
+    var sectionsHtml = ALPHABET.filter(function(l){ return groups[l]; }).map(function(letter){
+      var cards = groups[letter].map(renderItem).join('');
+      return '<section class="letter-section" id="letter-' + letter + '">' +
+        '<h2 class="letter-heading">' + letter + '</h2>' + cards + '</section>';
+    }).join('');
+    root.innerHTML = sectionsHtml;
+
+    document.getElementById('statTotal').textContent = items.length.toLocaleString();
+    document.getElementById('statIngredients').textContent = items.map(function(it){ return it.ingredients.map(function(i){ return i.item_id; }); }).flat().filter(function(value, index, self){ return self.indexOf(value) === index; }).length.toLocaleString();
+    
+
+    // items.filter(function(it){ return it.stats; }).length.toLocaleString();
+
+    var withStats = items.filter(function(it){ return it.stats; }).length;
+    if (withStats === 0){
+      document.getElementById('pendingNotice').classList.add('show');
+    }
+
+    // search filter
+    var searchEl = document.getElementById('search');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.item-card'));
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.letter-section'));
+    var noResults = document.getElementById('noResults');
+
+    function filter(){
+      var q = searchEl.value.toLowerCase().trim();
+      var anyVisible = false;
+      cards.forEach(function(card){
+        var visible = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+        card.style.display = visible ? '' : 'none';
+        if (visible) anyVisible = true;
+      });
+      sections.forEach(function(sec){
+        var visibleCards = sec.querySelectorAll('.item-card:not([style*="display: none"])');
+        sec.style.display = visibleCards.length ? '' : 'none';
+      });
+      noResults.classList.toggle('show', !anyVisible);
+    }
+    searchEl.addEventListener('input', filter);
+  }
+
+  function loadData(){
+    return Promise.all([
+      fetch('data/craftables.json').then(function(r){ return r.json(); }),
+      fetch('data/item-stats.csv').then(function(r){ return r.text(); }).then(parseCsv).catch(function(){ return []; })
+    ]).then(function(results){
+      var craftables = results[0];
+      var statsRows = results[1];
+      var statsById = {};
+      statsRows.forEach(function(row){ statsById[row.item_id] = row; });
+
+      var merged = craftables.map(function(it){
+        return {
+          name: it.name,
+          item_id: it.item_id,
+          ingredients: it.ingredients,
+          stats: statsById[it.item_id] || null
+        };
+      });
+
+      merged.sort(function(a, b){
+        var an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+        if (an < bn) return -1;
+        if (an > bn) return 1;
+        return Number(a.item_id) - Number(b.item_id);
+      });
+
+      buildPage(merged);
+    }).catch(function(err){
+      document.getElementById('itemsRoot').innerHTML =
+        '<div class="loading">Could not load craftables data (' + escapeHtml(err.message) +
+        '). If you opened this file directly in the browser, try serving the folder instead ' +
+        '(e.g. <code>npx serve .</code>) — browsers block local file: fetches.</div>';
+    });
+  }
+
+  loadData();
+})();
+</script>
+</body>
+</html>
