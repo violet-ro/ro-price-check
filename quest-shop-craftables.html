@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/gif" href="./data/pan.gif">
 <title>Quest Shop Crafting List — NiktoutRO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +69,7 @@
     margin:0;
     color:var(--text-muted);
     font-size:0.92rem;
-    max-width:46ch;
+    max-width:55ch;
   }
 
   header p a{ color:inherit; }
@@ -147,31 +148,116 @@
     font-family:'IBM Plex Mono', monospace;
   }
 
-  .az-nav{
+  /* ---------- browse controls: mode tabs + chip navs ---------- */
+
+  .browse-controls{ margin-bottom:1.75rem; }
+
+  .mode-tabs{
+    display:inline-flex;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:3px;
+    gap:2px;
+    margin-bottom:0.6rem;
+  }
+
+  .mode-tab{
+    border:0;
+    background:transparent;
+    color:var(--text-muted);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    font-weight:500;
+    letter-spacing:0.02em;
+    padding:0.42rem 1.05rem;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .mode-tab:hover{ color:var(--text); }
+
+  .mode-tab.active{
+    background:var(--gold-dim);
+    color:#fff;
+  }
+
+  .chip-nav{
     display:flex;
     flex-wrap:wrap;
-    gap:2px;
-    margin-bottom:2rem;
+    gap:3px;
     background:var(--panel);
     border:1px solid var(--line);
     border-radius:var(--radius);
+    padding:0.4rem;
   }
+
+  .chip-nav.hidden{ display:none; }
 
   .az-link{
     flex:1 1 auto;
     text-align:center;
-    min-width:1.8rem;
-    padding:0.3rem 0.35rem;
+    min-width:2rem;
+    padding:0.32rem 0.3rem 0.24rem;
     color:var(--gold-dim);
     text-decoration:none;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.8rem;
+    line-height:1.05;
     border-radius:3px;
     transition:background-color 0.15s ease;
   }
 
+  .az-link .az-count{
+    display:block;
+    font-size:0.55rem;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--text-faint);
+    margin-top:1px;
+  }
+
   .az-link:hover{ background:var(--panel-2); }
-  .az-disabled{ color:var(--text-faint); opacity:0.4; }
+
+  .az-disabled{
+    color:var(--text-faint);
+    opacity:0.35;
+    cursor:default;
+    pointer-events:none;
+  }
+
+  .chip-nav-pages{ gap:0.4rem; }
+
+  .npc-filter{
+    display:inline-flex;
+    align-items:baseline;
+    gap:0.4rem;
+    border:1px solid var(--line);
+    background:var(--ink);
+    color:var(--text);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    padding:0.4rem 0.75rem;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .npc-filter .npc-count{
+    font-size:0.65rem;
+    color:var(--text-faint);
+  }
+
+  .npc-filter:hover{ border-color:var(--gold-dim); }
+
+  .npc-filter.active{
+    background:var(--gold-dim);
+    border-color:var(--gold-dim);
+    color:#fff;
+  }
+
+  .npc-filter.active .npc-count{ color:rgba(255,255,255,0.75); }
 
   .letter-section{ margin-bottom:1.25rem; scroll-margin-top:1rem; }
 
@@ -395,17 +481,21 @@
     header{ gap:0.6rem; padding-bottom:1rem; margin-bottom:1.25rem; }
     h1{ font-size:1.5rem; }
     .stats{ gap:1rem; width:100%; justify-content:space-between; }
-    .az-link{ min-width:1.5rem; font-size:0.72rem; }
+    .az-link{ min-width:1.6rem; font-size:0.72rem; }
+    .mode-tab{ padding:0.4rem 0.8rem; font-size:0.74rem; }
+    .npc-filter{ font-size:0.72rem; padding:0.36rem 0.6rem; }
   }
 </style>
 </head>
+
 <body>
 <div class="wrap">
 
   <header>
     <div>
-      <h1>Quest Shop Crafting List</h1>
-      <p>Every craftable Quest Shop headgear, with full stats and ingredients. Sourced from <a href="https://forums.atomixro.com/index.php/topic,103.0.html" target="_blank" rel="noopener">Atomix Game Center's Guides board</a>, cross-referenced with <a href="https://ratemyserver.net/index.php?page=item_db&item_type=4&item_class=201" target="_blank" rel="noopener">RateMyServer</a>.</p>
+      <img src="data/pan2.png" alt="Bread Icon" style="width:24px; height:24px; vertical-align:text-bottom; margin-right:0.25rem;" />
+      <h1 style="display:inline-block; margin:0;">Quest Shop Crafting List</h1>
+      <p>Every craftable Quest Shop headgear, with full stats and ingredients. Sourced from <a href="https://forums.atomixro.com/index.php/topic,103.0.html" target="_blank" rel="noopener">NiktoutRO Guides board</a> and <a href="https://ratemyserver.net/index.php?page=item_db&item_type=4&item_class=201" target="_blank" rel="noopener">RateMyServer</a>.</p>
     </div>
     <div class="stats">
       <div class="stat-box"><span class="n" id="statTotal">—</span><span class="l">craftables</span></div>
@@ -422,7 +512,14 @@
   <div class="search-shell">
     <input type="text" id="search" placeholder="Search by item or ingredient name, e.g. Deviling Hat" autocomplete="off" />
   </div>
-  <nav class="az-nav" id="azNav"></nav>
+  <div class="browse-controls">
+    <div class="mode-tabs" role="tablist" aria-label="Browse mode">
+      <button type="button" class="mode-tab active" id="azMode" role="tab" aria-selected="true">A – Z</button>
+      <button type="button" class="mode-tab" id="npcMode" role="tab" aria-selected="false">By NPC Page</button>
+    </div>
+    <nav class="chip-nav" id="azNav" aria-label="Jump to letter"></nav>
+    <nav class="chip-nav chip-nav-pages hidden" id="npcNav" aria-label="Filter by NPC page"></nav>
+  </div>
 
   <div id="itemsRoot"><div class="loading">Loading craftables…</div></div>
   <div class="no-results" id="noResults">No craftables match your search.</div>
@@ -623,61 +720,381 @@
     return /[A-Z]/.test(ch) ? ch : '#';
   }
 
-  function buildPage(items){
-    var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').concat(['#']);
-    var groups = {};
-    items.forEach(function(it){
-      var l = letterOf(it.name);
-      (groups[l] = groups[l] || []).push(it);
-    });
+  // function buildPage(items){
+  //   var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').concat(['#']);
+  //   var groups = {};
+  //   items.forEach(function(it){
+  //     var l = letterOf(it.name);
+  //     (groups[l] = groups[l] || []).push(it);
+  //   });
 
-    var azNav = document.getElementById('azNav');
-    azNav.innerHTML = ALPHABET.map(function(letter){
-      return groups[letter]
-        ? '<a href="#letter-' + letter + '" class="az-link">' + letter + '</a>'
-        : '<span class="az-link az-disabled">' + letter + '</span>';
-    }).join('');
+  //   var azNav = document.getElementById('azNav');
+  //   azNav.innerHTML = ALPHABET.map(function(letter){
+  //     return groups[letter]
+  //       ? '<a href="#letter-' + letter + '" class="az-link">' + letter + '</a>'
+  //       : '<span class="az-link az-disabled">' + letter + '</span>';
+  //   // azNav.innerHTML now looks like:
+  //   // ['<a href="#letter-A" class="az-link">A</a>', '<span class="az-link az-disabled">B</span>', ...]
+  //   }).join('');
 
-    var root = document.getElementById('itemsRoot');
-    var sectionsHtml = ALPHABET.filter(function(l){ return groups[l]; }).map(function(letter){
-      var cards = groups[letter].map(renderItem).join('');
-      return '<section class="letter-section" id="letter-' + letter + '">' +
-        '<h2 class="letter-heading">' + letter + '</h2>' + cards + '</section>';
-    }).join('');
-    root.innerHTML = sectionsHtml;
 
-    document.getElementById('statTotal').textContent = items.length.toLocaleString();
-    document.getElementById('statIngredients').textContent = items.map(function(it){ return it.ingredients.map(function(i){ return i.item_id; }); }).flat().filter(function(value, index, self){ return self.indexOf(value) === index; }).length.toLocaleString();
+  //   var npcNav = document.getElementById('npcNav');
+  //   npcNav.innerHTML = Array.from(
+  //     new Set(
+  //       items.map(
+  //         function(it){ return it.stats ? it.stats.npc_page : null; }).filter(
+  //           function(page){ 
+  //             return page; }
+  //           )
+  //         )
+  //       ).sort().map(function(page){
+  //     return '<a href="#page-' + page + '" class="az-link">' + page + '</a>';
+  //   }).join('');
+
+  //   var root = document.getElementById('itemsRoot');
+  //   var sectionsHtml = ALPHABET.filter(function(l){ return groups[l]; }).map(function(letter){
+  //     var cards = groups[letter].map(renderItem).join('');
+  //     return '<section class="letter-section" id="letter-' + letter + '">' +
+  //       '<h2 class="letter-heading">' + letter + '</h2>' + cards + '</section>';
+  //   }).join('');
+  //   root.innerHTML = sectionsHtml;
+
+  //   document.getElementById('statTotal').textContent = items.length.toLocaleString();
+  //   document.getElementById('statIngredients').textContent = items.map(function(it){ return it.ingredients.map(function(i){ return i.item_id; }); }).flat().filter(function(value, index, self){ return self.indexOf(value) === index; }).length.toLocaleString();
     
 
-    // items.filter(function(it){ return it.stats; }).length.toLocaleString();
+  //   // items.filter(function(it){ return it.stats; }).length.toLocaleString();
 
-    var withStats = items.filter(function(it){ return it.stats; }).length;
+  //   var withStats = items.filter(function(it){ return it.stats; }).length;
+  //   if (withStats === 0){
+  //     document.getElementById('pendingNotice').classList.add('show');
+  //   }
+
+  //   // search filter
+  //   var searchEl = document.getElementById('search');
+  //   var cards = Array.prototype.slice.call(document.querySelectorAll('.item-card'));
+  //   var sections = Array.prototype.slice.call(document.querySelectorAll('.letter-section'));
+  //   var noResults = document.getElementById('noResults');
+
+  //   function filter(){
+  //     var q = searchEl.value.toLowerCase().trim();
+  //     var anyVisible = false;
+  //     cards.forEach(function(card){
+  //       var visible = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+  //       card.style.display = visible ? '' : 'none';
+  //       if (visible) anyVisible = true;
+  //     });
+  //     sections.forEach(function(sec){
+  //       var visibleCards = sec.querySelectorAll('.item-card:not([style*="display: none"])');
+  //       sec.style.display = visibleCards.length ? '' : 'none';
+  //     });
+  //     noResults.classList.toggle('show', !anyVisible);
+  //   }
+  //   searchEl.addEventListener('input', filter);
+  // }
+  function buildPage(items){
+    var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').concat(['#']);
+
+    var currentNpcPage = null;
+    var currentMode = 'alphabetical';
+
+    var azNav = document.getElementById('azNav');
+    var npcNav = document.getElementById('npcNav');
+    var root = document.getElementById('itemsRoot');
+    var searchEl = document.getElementById('search');
+    var noResults = document.getElementById('noResults');
+    var azMode = document.getElementById('azMode');
+    var npcMode = document.getElementById('npcMode');
+
+    /*
+    * Build NPC page list, with a count of items on each page (and
+    * how many letters/pages actually have anything in them, so the
+    * nav can gray out empty ones instead of linking to nowhere).
+    */
+    var npcPageCounts = {};
+    items.forEach(function(it){
+      var page = it.stats && it.stats.npc_page;
+      if (page) npcPageCounts[page] = (npcPageCounts[page] || 0) + 1;
+    });
+
+    var npcPages = Object.keys(npcPageCounts).sort(function(a, b){
+      return String(a).localeCompare(String(b));
+    });
+
+    var itemsWithPage = items.filter(function(it){
+      return it.stats && it.stats.npc_page;
+    }).length;
+
+    var letterCounts = {};
+    items.forEach(function(it){
+      var l = letterOf(it.name);
+      letterCounts[l] = (letterCounts[l] || 0) + 1;
+    });
+
+    /*
+    * A-Z navigation.
+    * Letters with nothing under them render as disabled (no dead
+    * links to sections that don't exist).
+    */
+    azNav.innerHTML = ALPHABET.map(function(letter){
+      var count = letterCounts[letter] || 0;
+      if (!count){
+        return '<span class="az-link az-disabled">' + letter + '</span>';
+      }
+      return '<a href="#letter-' + letter + '" class="az-link">' + letter +
+        '<span class="az-count">' + count + '</span></a>';
+    }).join('');
+
+    /*
+    * NPC page filter buttons, with an explicit "All Pages" chip
+    * first so the reset behaviour is visible, not implicit.
+    */
+    npcNav.innerHTML =
+      '<button type="button" class="npc-filter" data-page="">All Pages' +
+        '<span class="npc-count">' + itemsWithPage.toLocaleString() + '</span></button>' +
+      npcPages.map(function(page){
+        return '<button type="button" class="npc-filter" data-page="' +
+          escapeHtml(page) + '">' + escapeHtml(page) +
+          '<span class="npc-count">' + npcPageCounts[page] + '</span></button>';
+      }).join('');
+
+    /*
+    * Switches which tab looks active and which chip-nav is shown.
+    * Only one browsing mode's controls are visible at a time.
+    */
+    function setActiveTab(mode){
+      var isNpc = mode === 'npc';
+      azMode.classList.toggle('active', !isNpc);
+      npcMode.classList.toggle('active', isNpc);
+      azMode.setAttribute('aria-selected', String(!isNpc));
+      npcMode.setAttribute('aria-selected', String(isNpc));
+      azNav.classList.toggle('hidden', isNpc);
+      npcNav.classList.toggle('hidden', !isNpc);
+    }
+
+    /*
+    * Render the currently filtered/sorted list.
+    */
+    function renderList(){
+      var query = searchEl.value.toLowerCase().trim();
+
+      /*
+      * NPC page filter.
+      */
+      var filtered = items.filter(function(it){
+        if (!currentNpcPage) return true;
+
+        return it.stats &&
+              it.stats.npc_page === currentNpcPage;
+      });
+
+      /*
+      * Search filter.
+      */
+      filtered = filtered.filter(function(it){
+        if (!query) return true;
+
+        var searchBlob =
+          it.name + ' ' +
+          it.ingredients.map(function(i){
+            return i.name || '';
+          }).join(' ');
+
+        return searchBlob.toLowerCase().indexOf(query) !== -1;
+      });
+
+      /*
+      * Sort.
+      */
+      if (currentMode === 'npc'){
+        filtered.sort(function(a, b){
+          var ap = a.stats && a.stats.npc_page
+            ? a.stats.npc_page
+            : 'ZZZZZZ';
+
+          var bp = b.stats && b.stats.npc_page
+            ? b.stats.npc_page
+            : 'ZZZZZZ';
+
+          var pageCompare = String(ap).localeCompare(String(bp));
+
+          if (pageCompare !== 0){
+            return pageCompare;
+          }
+
+          /*
+          * Within each NPC page, preserve the original
+          * order from item-stats.csv.
+          */
+          return a.csvOrder - b.csvOrder;
+        });
+
+        /*
+        * Group by NPC page.
+        */
+        var npcGroups = {};
+
+        filtered.forEach(function(it){
+          var page = it.stats && it.stats.npc_page
+            ? it.stats.npc_page
+            : 'No Page';
+
+          if (!npcGroups[page]){
+            npcGroups[page] = [];
+          }
+
+          npcGroups[page].push(it);
+        });
+
+        var pages = Object.keys(npcGroups).sort(function(a, b){
+          return a.localeCompare(b);
+        });
+
+        root.innerHTML = pages.map(function(page){
+          var pageId = 'npc-page-' + pages.indexOf(page);
+
+          return '<section class="letter-section" id="' + pageId + '">' +
+            '<h2 class="letter-heading">' + escapeHtml(page) + '</h2>' +
+            npcGroups[page].map(renderItem).join('') +
+            '</section>';
+        }).join('');
+
+      } else {
+
+        /*
+        * Alphabetical sorting.
+        */
+        filtered.sort(function(a, b){
+          var an = a.name.toLowerCase();
+          var bn = b.name.toLowerCase();
+
+          if (an < bn) return -1;
+          if (an > bn) return 1;
+
+          return Number(a.item_id) - Number(b.item_id);
+        });
+
+        /*
+        * Group by first letter.
+        */
+        var groups = {};
+
+        filtered.forEach(function(it){
+          var l = letterOf(it.name);
+
+          if (!groups[l]){
+            groups[l] = [];
+          }
+
+          groups[l].push(it);
+        });
+
+        root.innerHTML = ALPHABET
+          .filter(function(letter){
+            return groups[letter];
+          })
+          .map(function(letter){
+            return '<section class="letter-section" id="letter-' + letter + '">' +
+              '<h2 class="letter-heading">' + letter + '</h2>' +
+              groups[letter].map(renderItem).join('') +
+              '</section>';
+          })
+          .join('');
+      }
+
+      noResults.classList.toggle('show', filtered.length === 0);
+
+      /*
+      * Update active NPC button.
+      */
+      Array.prototype.forEach.call(
+        npcNav.querySelectorAll('.npc-filter'),
+        function(button){
+          button.classList.toggle(
+            'active',
+            button.getAttribute('data-page') === (currentNpcPage || '')
+          );
+        }
+      );
+
+      /*
+      * Update counts.
+      */
+      document.getElementById('statTotal').textContent =
+        filtered.length.toLocaleString();
+
+      document.getElementById('statIngredients').textContent =
+        filtered
+          .map(function(it){
+            return it.ingredients.map(function(i){
+              return i.item_id;
+            });
+          })
+          .flat()
+          .filter(function(value, index, self){
+            return self.indexOf(value) === index;
+          })
+          .length
+          .toLocaleString();
+    }
+
+    /*
+    * NPC filter clicks.
+    */
+    npcNav.addEventListener('click', function(event){
+      var button = event.target.closest('.npc-filter');
+
+      if (!button) return;
+
+      currentMode = 'npc';
+      currentNpcPage = button.getAttribute('data-page');
+
+      azMode.classList.remove('active');
+      npcMode.classList.add('active');
+
+      renderList();
+    });
+
+    azMode.addEventListener('click', function(){
+      currentMode = 'alphabetical';
+      currentNpcPage = null;
+
+      azMode.classList.add('active');
+      npcMode.classList.remove('active');
+
+      renderList();
+    });
+
+    npcMode.addEventListener('click', function(){
+      currentMode = 'npc';
+      currentNpcPage = null;
+
+      azMode.classList.remove('active');
+      npcMode.classList.add('active');
+
+      renderList();
+    });
+
+    /*
+    * Search.
+    */
+    searchEl.addEventListener('input', renderList);
+
+    /*
+    * Initial render.
+    */
+    renderList();
+
+    /*
+    * Stats notice.
+    */
+    var withStats = items.filter(function(it){
+      return it.stats;
+    }).length;
+
     if (withStats === 0){
       document.getElementById('pendingNotice').classList.add('show');
     }
-
-    // search filter
-    var searchEl = document.getElementById('search');
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.item-card'));
-    var sections = Array.prototype.slice.call(document.querySelectorAll('.letter-section'));
-    var noResults = document.getElementById('noResults');
-
-    function filter(){
-      var q = searchEl.value.toLowerCase().trim();
-      var anyVisible = false;
-      cards.forEach(function(card){
-        var visible = !q || card.getAttribute('data-name').indexOf(q) !== -1;
-        card.style.display = visible ? '' : 'none';
-        if (visible) anyVisible = true;
-      });
-      sections.forEach(function(sec){
-        var visibleCards = sec.querySelectorAll('.item-card:not([style*="display: none"])');
-        sec.style.display = visibleCards.length ? '' : 'none';
-      });
-      noResults.classList.toggle('show', !anyVisible);
-    }
-    searchEl.addEventListener('input', filter);
   }
 
   function loadData(){
@@ -688,23 +1105,30 @@
       var craftables = results[0];
       var statsRows = results[1];
       var statsById = {};
-      statsRows.forEach(function(row){ statsById[row.item_id] = row; });
+      // statsRows.forEach(function(row){ statsById[row.item_id] = row; });
+      statsRows.forEach(function(row, index){
+        row.__csvOrder = index;
+        statsById[row.item_id] = row;
+      });
 
       var merged = craftables.map(function(it){
         return {
           name: it.name,
           item_id: it.item_id,
           ingredients: it.ingredients,
-          stats: statsById[it.item_id] || null
+          stats: statsById[it.item_id] || null,
+          csvOrder: statsById[it.item_id]
+            ? statsById[it.item_id].__csvOrder
+            : 999999999
         };
       });
 
-      merged.sort(function(a, b){
-        var an = a.name.toLowerCase(), bn = b.name.toLowerCase();
-        if (an < bn) return -1;
-        if (an > bn) return 1;
-        return Number(a.item_id) - Number(b.item_id);
-      });
+      // merged.sort(function(a, b){
+      //   var an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+      //   if (an < bn) return -1;
+      //   if (an > bn) return 1;
+      //   return Number(a.item_id) - Number(b.item_id);
+      // });
 
       buildPage(merged);
     }).catch(function(err){
