@@ -1110,7 +1110,7 @@
 
       var merged = craftables.map(function(it){
         return {
-          name: it.name,
+          name: statsById[it.item_id].name,
           item_id: it.item_id,
           ingredients: it.ingredients,
           stats: statsById[it.item_id] || null,
