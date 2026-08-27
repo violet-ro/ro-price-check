@@ -8012,8 +8012,100 @@
     ]
   },
   {
-    "name": "Well-Chewed Pencil",
-    "item_id": "5574",
+    "name": "Rainbow Scarf",
+    "item_id": "5463",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 3000000
+      },
+      {
+        "type": "item",
+        "name": "Elder Willow Card",
+        "item_id": "4052",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Gangster Scarf",
+        "item_id": "5361",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Red Scarf",
+        "item_id": "10019",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Red Muffler",
+        "item_id": "7216",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Mud Lump",
+        "item_id": "7004",
+        "qty": 500
+      }
+    ]
+  },
+  {
+    "name": "CD in Mouth",
+    "item_id": "18666",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 10000000
+      },
+      {
+        "type": "item",
+        "name": "Flame Heart",
+        "item_id": "994",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Mystic Frozen",
+        "item_id": "995",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Rough Wind",
+        "item_id": "996",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Great Nature",
+        "item_id": "997",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Red Frame",
+        "item_id": "734",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Ectoplasm",
+        "item_id": "7220",
+        "qty": 500
+      },
+      {
+        "type": "item",
+        "name": "Crystal Mirror",
+        "item_id": "747",
+        "qty": 5
+      }
+    ]
+  },
+  {
+    "name": "Gryphon Hat",
+    "item_id": "5660",
     "ingredients": [
       {
         "type": "zeny",
@@ -8021,21 +8113,151 @@
       },
       {
         "type": "item",
-        "name": "Pencil Case",
-        "item_id": "738",
-        "qty": 5
+        "name": "Costume Chicken Beak",
+        "item_id": "19513",
+        "qty": 1
       },
       {
         "type": "item",
-        "name": "Bookclip in Memory",
-        "item_id": "7015",
+        "name": "Talon of Griffon",
+        "item_id": "7048",
+        "qty": 60
+      },
+      {
+        "type": "item",
+        "name": "Soft Feather",
+        "item_id": "7063",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Rough Wind",
+        "item_id": "996",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Dokebi Card",
+        "item_id": "4098",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Dustiness Card",
+        "item_id": "4056",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "Heart Hairpin",
+    "item_id": "5041",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Coral Reef",
+        "item_id": "7013",
+        "qty": 1200
+      }
+    ]
+  },
+  {
+    "name": "Rabbit Magic Hat",
+    "item_id": "5561",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 5000000
+      },
+      {
+        "type": "item",
+        "name": "Flame Heart",
+        "item_id": "994",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Mystic Frozen",
+        "item_id": "995",
+        "qty": 30
+      },
+      {
+        "type": "item",
+        "name": "Rough Wind",
+        "item_id": "996",
+        "qty": 30
+      },
+
+      {
+        "type": "item",
+        "name": "Magician Hat",
+        "item_id": "5045",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Bunny Band",
+        "item_id": "2214",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Baby Desert Wolf Card",
+        "item_id": "4023",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "SleeperHat",
+    "item_id": "5659",
+    "ingredients": [
+      {
+        "type": "zeny",
+        "amount": 1000000
+      },
+      {
+        "type": "item",
+        "name": "Sand Clump",
+        "item_id": "7124",
+        "qty": 200
+      },
+      {
+        "type": "item",
+        "name": "Great Nature",
+        "item_id": "997",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Green Live",
+        "item_id": "993",
+        "qty": 10
+      },
+
+      {
+        "type": "item",
+        "name": "Star Dust",
+        "item_id": "1001",
+        "qty": 50
+      },
+      {
+        "type": "item",
+        "name": "Fine Sand",
+        "item_id": "7043",
         "qty": 100
       },
       {
         "type": "item",
-        "name": "Trunk",
-        "item_id": "1019",
-        "qty": 500
+        "name": "Sandman Card",
+        "item_id": "4101",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Hode Card",
+        "item_id": "4081",
+        "qty": 1
       }
     ]
   }
