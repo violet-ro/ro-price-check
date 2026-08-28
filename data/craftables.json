@@ -1,7 +1,7 @@
 [
   {
-    "name": "Alarm Mask",
-    "item_id": "5086",
+    "name": "2nd Anniversary Hat",
+    "item_id": "5105",
     "ingredients": [
       {
         "type": "item",
@@ -20,6 +20,24 @@
         "name": "Forbidden Red Candle",
         "item_id": "660",
         "qty": 3
+      }
+    ]
+  },
+  {
+    "name": "Alarm Mask",
+    "item_id": "5086",
+    "ingredients": [
+      {
+        "type": "item",
+        "name": "Mr. Scream",
+        "item_id": "2288",
+        "qty": 1
+      },
+      {
+        "type": "item",
+        "name": "Needle of Alarm",
+        "item_id": "1095",
+        "qty": 3000
       }
     ]
   },
@@ -742,24 +760,6 @@
     ]
   },
   {
-    "name": "2nd Anniversary Hat",
-    "item_id": "5105",
-    "ingredients": [
-      {
-        "type": "item",
-        "name": "Mr. Scream",
-        "item_id": "2288",
-        "qty": 1
-      },
-      {
-        "type": "item",
-        "name": "Needle of Alarm",
-        "item_id": "1095",
-        "qty": 3000
-      }
-    ]
-  },
-  {
     "name": "Censor Bar",
     "item_id": "5175",
     "ingredients": [
@@ -975,7 +975,7 @@
         "type": "item",
         "name": "Puppy Love",
         "item_id": "5008",
-        "qty": 5
+        "qty": 1
       }
     ]
   },
@@ -1495,9 +1495,15 @@
     "ingredients": [
       {
         "type": "item",
+        "name": "Army Cap",
+        "item_id": "2261",
+        "qty": 1
+      },
+      {
+        "type": "item",
         "name": "Fluff",
         "item_id": "914",
-        "qty": 100
+        "qty": 200
       },
       {
         "type": "item",
@@ -1866,22 +1872,26 @@
     "item_id": "5243",
     "ingredients": [
       {
+        "type": "zeny",
+        "amount": 500000
+      },
+      {
         "type": "item",
-        "name": "Scarlet Dyestuffs",
-        "item_id": "975",
+        "name": "Blue Bijou",
+        "item_id": "7446",
         "qty": 1
       },
       {
         "type": "item",
-        "name": "Lemon Dyestuffs",
-        "item_id": "976",
-        "qty": 1
+        "name": "Pantie",
+        "item_id": "2339",
+        "qty": 10
       },
       {
         "type": "item",
-        "name": "Fluff",
-        "item_id": "914",
-        "qty": 100
+        "name": "Fabric",
+        "item_id": "1059",
+        "qty": 70
       },
       {
         "type": "item",
@@ -1908,6 +1918,10 @@
     "item_id": "5259",
     "ingredients": [
       {
+        "type": "zeny",
+        "amount": 1000000
+      },
+      {
         "type": "item",
         "name": "Cobaltblue Dyestuffs",
         "item_id": "978",
@@ -1915,21 +1929,39 @@
       },
       {
         "type": "item",
-        "name": "Glacial Heart",
-        "item_id": "7561",
-        "qty": 100
+        "name": "Elephant Hat",
+        "item_id": "5146",
+        "qty": 1
       },
       {
         "type": "item",
-        "name": "Feather",
-        "item_id": "949",
-        "qty": 500
+        "name": "Clam Flesh",
+        "item_id": "966",
+        "qty": 222
       },
       {
         "type": "item",
-        "name": "Acorn",
-        "item_id": "1026",
-        "qty": 200
+        "name": "Coral Reef",
+        "item_id": "7013",
+        "qty": 222
+      },
+      {
+        "type": "item",
+        "name": "Anodyne",
+        "item_id": "605",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Aloevera",
+        "item_id": "606",
+        "qty": 10
+      },
+      {
+        "type": "item",
+        "name": "Fang of Hatii",
+        "item_id": "7036",
+        "qty": 5
       }
     ]
   },
@@ -2723,6 +2755,12 @@
       },
       {
         "type": "item",
+        "name": "Apple of Archer",
+        "item_id": "2285",
+        "qty": 1
+      },
+      {
+        "type": "item",
         "name": "Orange Dyestuffs",
         "item_id": "980",
         "qty": 1
@@ -2731,7 +2769,13 @@
         "type": "item",
         "name": "Nine Tails",
         "item_id": "1022",
-        "qty": 53
+        "qty": 999
+      },
+      {
+        "type": "item",
+        "name": "Folding Fan of Cat Ghost",
+        "item_id": "7262",
+        "qty": 333
       }
     ]
   },
