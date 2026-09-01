@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NiktoutRO &mdash; Tentative Event Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --ink:        #1d2a36;
+  --ink-soft:   #5a6875;
+  --paper:      #f8fafc;
+  --paper-dim:  #eef3f7;
+  --paper-edge: #dfe6ee;
+  --forest:     #3a6b4b;
+  --forest-deep:#285238;
+  --wine:       #6d2d3d;
+  --brass:      #7db8d9;
+  --brass-soft: #4f96c9;
+  --wood:       #ffffff;
+  --wood-deep:  #eef3f7;
+  --night:      #f8fafc;
+  --night-card: #f5f7fa;
+  --night-line: #d9e1ea;
+  --moon:       #24313d;
+  --moon-dim:   #64717f;
+
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --radius-paper: 3px 14px 3px 14px;
+  --radius-soft: 8px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--wood);
+  color: var(--moon);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+a{ color: inherit; }
+
+:focus-visible{
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+/* ---------- header ---------- */
+.site-head{
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--paper-edge);
+  background: linear-gradient(180deg, rgba(64,131,198,0.08), transparent 80%);
+}
+
+.site-head__mark{
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--brass);
+}
+
+.site-head__title{
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
+  line-height: 1.04;
+  color: var(--moon);
+  max-width: 14ch;
+}
+
+.site-head__sub{
+  margin: 0;
+  max-width: 54ch;
+  font-size: 1.05rem;
+  color: var(--moon-dim);
+}
+
+/* ---------- calendar section ---------- */
+.calendar-section{
+  padding: 56px 0 44px;
+}
+
+.calendar-section__head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 22px;
+}
+
+.calendar-section__head h2{
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--moon);
+}
+
+.calendar-section__hint{
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--moon-dim);
+}
+
+.calendar-shell{
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.calendar-strip{
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 6px 4px 18px;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: var(--night-line) transparent;
+}
+
+.calendar-strip::-webkit-scrollbar{ height: 8px; }
+.calendar-strip::-webkit-scrollbar-thumb{ background: var(--night-line); border-radius: 8px; }
+
+.month-card{
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 236px;
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
+  border-radius: 10px;
+  padding: 14px 12px 16px;
+  box-shadow: 0 6px 18px rgba(18, 32, 46, 0.04);
+}
+
+.month-card__title{
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--brass-soft);
+}
+
+.month-grid{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.month-grid__dow{
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--moon-dim);
+  padding-bottom: 4px;
+}
+
+.day{
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  border-radius: 5px;
+  color: var(--moon-dim);
+}
+
+.day--out{
+  opacity: 0.28;
+}
+
+.day--event{
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 700;
+  background: var(--dot-color, var(--brass));
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08) inset, 0 0 0 2px rgba(255,255,255,0.32);
+}
+
+.day--event:hover,
+.day--event:focus-visible,
+.day--event.is-active{
+  transform: scale(1.16);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 0 0 4px rgba(79,150,201,0.28), 0 4px 12px rgba(19,32,48,0.12);
+  z-index: 2;
+}
+
+.day--range-start{ border-top-left-radius: 5px; border-bottom-left-radius: 5px; }
+.day--range-end{ border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
+
+.scroll-btn{
+  flex: 0 0 auto;
+  width: 34px;
+  border: 1px solid var(--night-line);
+  background: var(--night-card);
+  color: var(--moon);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.scroll-btn:hover{ background: var(--night-line); }
+
+/* ---------- legend ---------- */
+.legend{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.legend__item{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  color: var(--moon-dim);
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.legend__item:hover, .legend__item:focus-visible{
+  color: var(--moon);
+  border-color: var(--brass-soft);
+  background: #f2f6fb;
+}
+
+.legend__dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot-color);
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.65);
+}
+
+/* ---------- tooltip ---------- */
+.tooltip{
+  position: fixed;
+  z-index: 50;
+  max-width: 240px;
+  background: rgba(255,255,255,0.96);
+  color: var(--ink);
+  border: 1px solid var(--paper-edge);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  box-shadow: 0 8px 24px rgba(25, 39, 52, 0.14);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.tooltip.is-visible{ opacity: 1; transform: translateY(0); }
+.tooltip strong{
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+.tooltip span{ color: var(--ink-soft); display:block; margin-bottom: 4px; font-size: 0.72rem; letter-spacing: 0.02em;}
+
+/* ---------- gallery sections ---------- */
+.gallery-section, .standing-section{
+  padding: 40px 0;
+}
+
+.gallery-section__head{
+  margin-bottom: 26px;
+}
+
+.gallery-section__head h2{
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--moon);
+}
+
+.gallery-section__head p{
+  margin: 0;
+  color: var(--moon-dim);
+  font-size: 0.95rem;
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.standing-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/* ---------- event card (parchment) ---------- */
+.event-card{
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius-paper);
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 10px 22px rgba(18, 32, 46, 0.06);
+  padding: 20px 22px 18px;
+  position: relative;
+  border-left: 6px solid var(--accent, var(--brass));
+  transition: box-shadow 0.18s ease, outline-color 0.18s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.event-card.is-flash{
+  outline-color: var(--accent, var(--brass));
+  box-shadow: 0 10px 24px rgba(18, 32, 46, 0.08), 0 0 0 5px rgba(125, 184, 217, 0.18);
+}
+
+.event-card__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.event-card__dates{
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.event-card__title{
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.32rem;
+  line-height: 1.18;
+}
+
+.badge{
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(64,131,198,0.08);
+  color: var(--brass-soft);
+  border: 1px solid rgba(64,131,198,0.18);
+}
+
+.badge--length{
+  background: rgba(58,107,75,0.08);
+  color: var(--forest-deep);
+  border-color: rgba(58,107,75,0.2);
+}
+
+.event-card__concept{
+  margin: 0 0 14px;
+  font-size: 0.94rem;
+  color: var(--ink);
+}
+
+.event-card__toggle{
+  appearance: none;
+  border: 1px solid var(--paper-edge);
+  background: rgba(255,255,255,0.28);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.event-card__toggle:hover{ background: rgba(255,255,255,0.5); }
+
+.event-card__toggle .chevron{
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.15s ease;
+}
+
+.event-card.is-open .event-card__toggle .chevron{ transform: rotate(180deg); }
+
+.event-card__body{
+  display: none;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--paper-edge);
+}
+
+.event-card.is-open .event-card__body{ display: block; }
+
+.event-card__section + .event-card__section{ margin-top: 14px; }
+
+.event-card__section h4{
+  margin: 0 0 5px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--wine);
+}
+
+.event-card__section p{
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.event-card__section p:last-child{ margin-bottom: 0; }
+
+.reward-items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.reward-item{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px 4px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(64, 131, 198, 0.2);
+  background: rgba(64, 131, 198, 0.06);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.reward-item:hover,
+.reward-item:focus-visible{
+  border-color: rgba(64, 131, 198, 0.4);
+  background: rgba(64, 131, 198, 0.1);
+}
+
+.reward-item__icon{
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(18, 32, 46, 0.08);
+  flex: 0 0 auto;
+}
+
+.reward-item__name{
+  color: var(--brass-soft);
+  font-weight: 600;
+}
+
+.reward-item__qty{
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  padding: 2px 6px;
+}
+
+/* ---------- standing cards ---------- */
+.standing-card{
+  background: var(--paper-dim);
+  color: var(--ink);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius-soft);
+  padding: 16px 18px 14px;
+  border-top: 4px solid var(--accent, var(--brass));
+}
+
+.standing-card__title{
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.08rem;
+}
+
+.standing-card__concept{
+  margin: 0 0 12px;
+  font-size: 0.88rem;
+}
+
+/* ---------- footer ---------- */
+.site-foot{
+  padding: 30px 0 50px;
+  color: var(--moon-dim);
+  font-size: 0.8rem;
+  border-top: 1px solid #d9cbad;
+  margin-top: 20px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 720px){
+  .wrap{ padding: 0 18px; }
+  .site-head{ padding: 46px 0 36px; }
+  .scroll-btn{ display: none; }
+  .month-card{ width: 208px; }
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <p class="site-head__mark">NiktoutRO</p>
+  <section class="calendar-section" aria-labelledby="cal-heading">
+    <div class="calendar-section__head">
+      <h2 id="cal-heading">Tentative Event Calendar</h2>
+      <p class="calendar-section__hint">Hover a lit day for a preview. Click one to open its event details below.</p>
+    </div>
+
+    <div class="calendar-shell">
+      <button type="button" class="scroll-btn scroll-btn--prev" id="scrollPrev" aria-label="Scroll to earlier months">&#10094;</button>
+      <div class="calendar-strip" id="calendarStrip"></div>
+      <button type="button" class="scroll-btn scroll-btn--next" id="scrollNext" aria-label="Scroll to later months">&#10095;</button>
+    </div>
+
+    <ul class="legend" id="legend" aria-label="Event colour key"></ul>
+  </section>
+
+  <section class="gallery-section" aria-labelledby="annual-heading">
+    <div class="gallery-section__head">
+      <h2 id="annual-heading">Annual Events</h2>
+      <p>Twelve recurring annual events, arranged in the order the year brings them.</p>
+    </div>
+    <div class="card-grid" id="annualGrid"></div>
+  </section>
+
+  <section class="standing-section" aria-labelledby="standing-heading">
+    <div class="gallery-section__head">
+      <h2 id="standing-heading">Ongoing Events</h2>
+      <p>These repeat on their own rhythm &mdash; monthly, weekly, or continuously &mdash; rather than a fixed date.</p>
+    </div>
+    <div class="standing-grid" id="regularGrid"></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="wrap">Compiled from the Guild Events register &middot; dates given in server time</p>
+</footer>
+
+<div class="tooltip" id="tooltip" role="tooltip"></div>
+
+<script type="application/json" id="event-data">{
+  "annual": [
+    {
+      "id": "A1",
+      "type": "Annual",
+      "name": "Payon Harvest Moon",
+      "bracket": "All",
+      "length": "3 days",
+      "start": "2026-09-24",
+      "end": "2026-09-26",
+      "startDisplay": "Sep 24, 2026",
+      "endDisplay": "Sep 26, 2026",
+      "concept": "Players gather specific foods from mobs to receive a level-appropriate food item.",
+      "details": "A harvest festival with a couple new NPCs in Payon.\n\nPlayers speak to a couple NPCs in order and receive a request for specific ingedients based on their level.\n\n1~40: 100x ingredients from the list below\nApples\nCarrots\nMeat\n\n41~70: 100x ingredients from the list below\nPumpkin\nOrange\nStrawberry\n\n71~90: 100x ingredients from the list below\nYam\nFresh Fish\nHoney\n\n91~99: 100x ingredients form the list below\nFig Leaf\nAntelope Skin\nLemon",
+      "rewards": "1~40: Hard Marinade Beef (Lv 4 Str Food) #12044 x1\n\n41~70: Steamed Bat Wing in Pumpkin (Lv5 Agi Food) #12060 x1\n\n71~90: Steamed Alligator with Vegetable (Lv7 Agi Food) #12087 x1\n\n91~99: Giant Burrito (Lv8 Vit Food) #12083 x1",
+      "comments": "Quests do not change as the character levels up. Rewards and quests are based on the level when the character begins the quest.",
+      "color": "#D7B15D"
+    },
+    {
+      "id": "A2",
+      "type": "Annual",
+      "name": "Trick or Treat",
+      "bracket": "All",
+      "length": "5 days",
+      "start": "2026-10-28",
+      "end": "2026-11-01",
+      "startDisplay": "Oct 28, 2026",
+      "endDisplay": "Nov 1, 2026",
+      "concept": "Players wear a mask and talk to an NPC in each town to fight a random mob or receive random themed items.",
+      "details": "Monster NPCs will be added to each Town\nThe player will start a brief conversation, and the NPC will explain that towns all over are playing Trick or Treat, and tell the player to play by wearing a mask and talking to monsters in town. If the player wears a mask, they can start a conversation with the event NPCs, saying \"Trick or Treat!\" and the NPC will respond with a simple answer like \"Alright, here is a Treat!\" or \"Oh, then I'll give you a Trick!\", giving a random item from a set list, or summoning a monster.\n\nThe Nifflheim NPC will only say, \"Oh, you like Halloween? Not bad, come show me when you get a lot of candy.\" until the other event NPCs are all spoken to.",
+      "rewards": "Alberta:\n Candy #529 80%,  Candy Cane #530 20%\nAldebaran:\n Candy #529 80%,  Candy Cane #530 20%\nAmatsu:\n Candy #529 80%, Moon Cake #12190 20%\nAyothata:\n Candy #529 80%, Moon Cake #12190 20%\nComodo:\n Candy #529 99%, Halo-Halo #12247 1%\nGeffen:\n White Chocolate #561 80%,  Candy Cane #530 20%\nGonryun:\n Candy #529 80%, Royal Jelly #526 20%\nIzlude:\n Candy #529 80%, Sweet Milk #627 20%\nLouyang:\n Candy #529 80%, Moon Cake #12190 20%\nLutie:\n Candy Cane #530 94%,  Choco Donut in Mouth #5775 1%,\n Summon Jakk monster 5%\nMorroc:\n Candy #529 95%, Baklava #11527 5%\nPayon:\n Candy #529 80%,\n Sweet Potato #633 19%, Bubblegum #12294 1%\nProntera:\n Candy #529 80%, Candy Cane #530 19%, Bubblegum #12294 1%\nUmbala:\n Chocolate #558 80%, Banana Juice #532 15%\nYuno:\n Chocolate #558 80%, White Chocolate #561 19%, Bubblegum #12294 1%\n---\nNifflheim:\n Summon Jakk Monster 50%,\n Summon Headless Mule 30%,\n Summon Poring Monster 16%,\n Summon Baphomet MVP 1%,\n Summon Dracula MVP 1%,\n Summon Lord of Death MVP 1%, Fantastic Pumpkin Head #5202 0.9%, Cursed Baphomet Doll #6004 0.1%",
+      "comments": "",
+      "color": "#C1622E"
+    },
+    {
+      "id": "A3",
+      "type": "Annual",
+      "name": "The Great Prontera Feast",
+      "bracket": "All",
+      "length": "7 days",
+      "start": "2026-11-24",
+      "end": "2026-11-30",
+      "startDisplay": "Nov 24, 2026",
+      "endDisplay": "Nov 30, 2026",
+      "concept": "Players gather ingredients as a unified server over the course of one week at the end of November for the feast. Reward tiers are unlocked based on the goals met.",
+      "details": "A global message will announce that the Kingdom of Prontera is calling on adventurers to gather ingredients for the Great Prontera Feast. For further information, speak to the Volunteer in Prontera square. (center Prontera town event NPC)\nOnce every 4 hours and on user log-in, the NPC will update with the number of ingredients donated out of the total goal, and the remaining number of days / hours until the Feast.\nEach time a player donates 50 or more ingredients, they will receive a level 10 blessing buff.\n\nIf the event succeeds, and players reach the goal number of ingredients before the end of the event, the server will have 2x Drop (drop around player feet) from that time until the end of the event.\n\nIf the event goal is not met, a giant Pori Pori will be spawned in Prontera claiming to be hungry and demanding food. If the Pori Pori is not defeated in 30 minutes, it will despawn.",
+      "rewards": "On Donation:\nBlessing Lv 10\n\nOn Goal Completion:\nServer-wide 2x Drop (around player feet)\n\nOn Goal Failure:\nPori Pori (30m timer) in Prontera center.",
+      "comments": "",
+      "color": "#8B5A3C"
+    },
+    {
+      "id": "A4",
+      "type": "Annual",
+      "name": "Santa Poring's Delivery",
+      "bracket": "All",
+      "length": "7 days",
+      "start": "2026-12-20",
+      "end": "2026-12-26",
+      "startDisplay": "Dec 20, 2026",
+      "endDisplay": "Dec 26, 2026",
+      "concept": "Santa lost some presents and becomes upset.\nPlayers are tasked by Santa Poring to deliver event item giftboxes to event NPC children in various towns.",
+      "details": "Antonio spawns 1x per 30 minutes in the Lutie Field map.\n\nA Santa Poring NPC has is standing in Norther Prontera using various frustrated emojis.\n\nPlayers talk to the Santa Poring to learn that some presents fell out of Santa's bag, and asks help to deliver them to  children in Prontera, Izlude, Geffen, Payon, and Alberta.\n\nThe next location is not displayed until the \nprevious delivery is completed.\n\nAfter completing the entire quest, players receive presents of their own.",
+      "rewards": "Complete Event:\nGift Box #665 x3\nBuche de Noel #12354 x1",
+      "comments": "",
+      "color": "#A83446"
+    },
+    {
+      "id": "A5",
+      "type": "Annual",
+      "name": "New Year Blessings",
+      "bracket": "All",
+      "length": "2 days",
+      "start": "2026-12-30",
+      "end": "2027-01-01",
+      "startDisplay": "Dec 30, 2026",
+      "endDisplay": "Jan 1, 2027",
+      "concept": "Players visit NPCs in various towns to receive blessings and a chance at a random prize.",
+      "details": "In any order, players may start quest by speaking to an NPC in Prontera, Geffen, Payon, or Morroc.\n\nPlayers will receive celebratory \"omikuji\" to start and told to visit each town to \"pay respects\" and receive blessings.\n\nAfter visiting the last NPC, players will receive firecrackers and a randomized prize.",
+      "rewards": "Start Event:\nRice Cake #550 x 10\nComplete Event:\nFirecrackers #12018 x5\nRed Envelope #668 x5 79%\nLucky Rice Cake #12198 x1 20%\nNew Year's Hairpin #18992 x1 (non-tradeable) 1%",
+      "comments": "New Year's Hairpin currently exists in the DB.",
+      "color": "#6B4A8A"
+    },
+    {
+      "id": "A6",
+      "type": "Annual",
+      "name": "Lunar New Year",
+      "bracket": "All",
+      "length": "16 days",
+      "start": "2027-02-05",
+      "end": "2027-02-20",
+      "startDisplay": "Feb 5, 2027",
+      "endDisplay": "Feb 20, 2027",
+      "concept": "Chinese New Year Battle Event in Louyang",
+      "details": "In Louyang, there are 1~15 (respawn in three minutes), depending on the number of days into the event, wandering Dancing Dragon (1609) mobs (non-aggressive) which drop candy, red envelope, firecracker, etc.\n\nOn the last three days, if there are ever zero Dancing Dragons on the map, an announcement will be displayed globally saying \"The spirit of the new year grows stronger\" and 10 Goats wil spawn around the Louyang Monument, with glowing red effect. \n\nIf all goats are killed, the announcement will be shown again and 5 Red Ferus (1714) will spawn around the Louyang Monument.\n\nIf the 5 Red Ferus are slain, another announcement will play, all players online will receive a red envelope (50%), and a Golden Savage will spawn (50%).\n",
+      "rewards": "Default monster drops.\nRed Envelope #668 x1 are sent to all players upon event completion.",
+      "comments": "",
+      "color": "#C4432F"
+    },
+    {
+      "id": "A7",
+      "type": "Annual",
+      "name": "Doll Festival",
+      "bracket": "All",
+      "length": "3 days",
+      "start": "2027-03-01",
+      "end": "2027-03-03",
+      "startDisplay": "Mar 1, 2027",
+      "endDisplay": "Mar 3, 2027",
+      "concept": "\"Doll\" NPCs are scattered throughout various towns, giving directions as the player collects them all. Each doll can be exchanged for prizes.",
+      "details": "Monster NPCs will be added behind buildings in each town, but they will not be animated. Interacting with the NPC will give a short conversation with the Doll who has come to life. The doll will tell about their friend they were looking for and give a hint about another location.\n\nProntera - Poring\nMorroc - Chonchon\nAlberta - Puppet\nIzlue - Rocker\nGeffen - Spore\nComodo - Osiris\nAldebaran - Baphomet (bapho jr NPC)\nPayon - Raccoon\nUmbala - Yoyo\n\nAyothaya - Black Cat Doll (Leaf Cat NPC)\nGonryun - Cursed Baphomet Doll (Baphomet NPC)\nNifflheim - Little Ghost Doll (Hylozoist NPC)\nLouyang - Munak\n\nWhen all dolls are collected, a Miyabi Ningyo NPC will appear in Amatsu near the cherry blossoms.\n\nAmatsu - Girl's Doll (Miyabi Ningyo NPC)",
+      "rewards": "Poring Doll #741 x1 - Can be exchanged in Alberta for Candy 1x\nChonchon Doll #742 x1 - Can be exchanged in Alberta for Candy Cane 1x\nPuppet #740 x1 - Can be exchanged in Alberta for Candy Cane 1x\nRocker Doll #752 x1 - Can be exchanged in Alberta for Banana Juice x7\nSpore Doll #743 x1 - Can be exchanged in Alberta for Well-baked Cookie x5\nOsiris Doll #751 x1 - Can be exchanged in Alberta for Mastela Fruit x2\nBaphomet Doll #750 x1 - Can be exchanged in Alberta for Panacea x5\nRaccoon Doll #754 x1 - Can be exchanged in Alberta for Piece of Cake x3\nYoyo Doll #753 x1 - Can be exchange din Alberta for Yggdrasil Seed x1\n\nBlack Cat Doll #7206 x1 - Used for Quest NPC\nCursed Baphomet Doll #6004 x1 - Used for Quest NPC\nLittle Ghost Doll #7268 x1 - Used for Quest NPC\nMunak Doll #7277 x1 - Allows Bard to keep eggs instead of turning them in.\n\nGirl's Doll #12366 x1 - Miyabi Ningyo Taming Item",
+      "comments": "",
+      "color": "#C4708C"
+    },
+    {
+      "id": "A8",
+      "type": "Annual",
+      "name": "Flower Viewing",
+      "bracket": "All",
+      "length": "4 days",
+      "start": "2027-04-03",
+      "end": "2027-04-06",
+      "startDisplay": "Apr 3, 2027",
+      "endDisplay": "Apr 6, 2027",
+      "concept": "Porings are given a 10% chance to drop \"Spray of Flowers\" and a 1% chance to drop \"Red Prickly Fruit\".",
+      "details": "A login announcement will be displayed during the event. \"It's Spring in Poring Paradise. Let's have a drink, watch the flowers, and squish Porings together.\"",
+      "rewards": "Spray of Flowers #12310\nRed Prickly Fruit #587 - (Used to craft Beer Hat, sells for ~900z ea.)",
+      "comments": "",
+      "color": "#6F9450"
+    },
+    {
+      "id": "A9",
+      "type": "Annual",
+      "name": "Children's Day",
+      "bracket": "All",
+      "length": "3 days",
+      "start": "2027-05-04",
+      "end": "2027-05-06",
+      "startDisplay": "May 4, 2027",
+      "endDisplay": "May 6, 2027",
+      "concept": "A Children's Day Kafra NPC will appear in Prontera with simple quests and rewards.",
+      "details": "A Children's Day Kafra will appear in Prontera and Geffen. An additional Roda Frog NPC will appear in Geffen Field 04.\n\nPlayers speak to the Children's Day Kafra NPC in Prontera to get  directions to complete throughout the day to start their adventure or remember fondly their childhood challenges.\n\n1. Find a Poring Doll.\n2. Get some meat, potatoes, and milk.\n3. Find an Emveteracon.\n4. Defeat 10 Frogs.\n5. Find a hidden NPC. (If you speak to her again, she will give you a hint to talk to her friend in Geffen.\nSpeaking to the Children's Day Kafra in Geffen, she will ask you for proof you did all your tasks in Prontera. If you have a Sticky Webfoot in your inventory, she will tell you the hidden NPC is hiding in the map one north of Geffen.\nIf you speak to the Roda Frog event NPC north of Geffen, a Toad Miniboss will spawn. Defeating it and talking to the NPC again will reward the player with the Frog Hat.\n\nTalking with the Children's Day Kafras after defeating the Toad Miniboss will show a new message, \"Small challenges help shape who we are too. They weren't always so small, and we weren't always so big.\" And the player will receive a level 10 blessing.\n\n",
+      "rewards": "Each challenge earns the characters various rewards. The quest can be completed once per character.\n\n1: Grape Juice #533 x10\n2: Fresh Fish #579 x25\n3: Elunium #985 x1\n4: Emerald #721 x3\n5. Headgear depending on player level:\nPlayer Level < 70: Frog King Hat #5528 x1 (Not tradeable)\nPlayer Level > 70: Frog Hat #5447 x1 (Not tradeable)",
+      "comments": "",
+      "color": "#4F9A6A"
+    },
+    {
+      "id": "A10",
+      "type": "Annual",
+      "name": "Beach Thief Smokies",
+      "bracket": "All",
+      "length": "10 days",
+      "start": "2027-06-01",
+      "end": "2027-06-10",
+      "startDisplay": "Jun 1, 2027",
+      "endDisplay": "Jun 10, 2027",
+      "concept": "Thieving Event Smokies (1811) have appeared around Pharos Lighthouse Kokomo Beach, and Fortress Saint Darmain, stealing beach-goers icecream and swimsuits!\n",
+      "details": "A Beach Goods (Jawaii Resident Girl) NPC appears in both Comodo and Morroc\n\nEvent Smokies appear on Pharos Lighthouse Kokomo Beach, and Fortress Saint Darmain maps.\n\nPlayers can defeat the Event Smokies (1811) and trade the Ice Cream (#536) for prizes at the Event NPCs in Morroc or Comodo.",
+      "rewards": "Ice Cream #536 Items can be exchanged in the following quantities for rewards.\n\nIce Cream x25: Sweet Potato #633 x1\nIce Cream x150: Sandals [1] #2402 x1\nIce Cream x500: Vermillion on the Beach #12113 x1 (Self-Stun 10s)\nIce Cream x1000: Scuba Gear #5397 x1\nIce Cream x10000: Lazy Smokie #5048 x1",
+      "comments": "",
+      "color": "#3E8F94"
+    },
+    {
+      "id": "A11",
+      "type": "Annual",
+      "name": "Star Wish Festival",
+      "bracket": "All",
+      "length": "3 days",
+      "start": "2027-07-06",
+      "end": "2027-07-09",
+      "startDisplay": "Jul 6, 2027",
+      "endDisplay": "Jul 9, 2027",
+      "concept": "Players collect String items from special mobs in Comodo to write their wishes and hope their message is selected for star-themed rewards.",
+      "details": "A message appears in the login announcements saying \"Happy Star Festival. Come see the fireworks in Comodo!\"\nA Wish Board NPC appears in Comodo.\n\nSpecial Aster event Mobs spawn in Comodo, which drop String (#7772) items and Icecream (#536).\n\nPlayers can collect 5 Strings to interact with the Wish Board NPC and write their message.\n\nEvery hour, the Wish Board plays a fireworks animation and a random message is read to the whole server as the player's wish, and the player will receive random star-themed rewards. \nWhen this happens, all players online are \"inspired\" and receive a Lv 5 Glora Buff.",
+      "rewards": "Random Item Rewards. Each Item below will have a \"roll\" to be delivered to the winner. It is possible for all five items to be delivered.\n\nStar Dust #1001 x1 40%\nStar Crumb #1000 x1 30%\nStellar #2294 x1 10%\nStellar Hairpin #10011 x1 10%\nJewelry Box #12106 x1 1%",
+      "comments": "",
+      "color": "#4C63A8"
+    },
+    {
+      "id": "A12",
+      "type": "Annual",
+      "name": "Dock Race",
+      "bracket": "All",
+      "length": "7",
+      "start": "2027-08-14",
+      "end": "2027-08-20",
+      "startDisplay": "Aug 14, 2027",
+      "endDisplay": "Aug 20, 2027",
+      "concept": "Players race from Comodo to Izlude docks to be the fastest on the server and win prizes.",
+      "details": "A login announcement will say that the annual Dock Race from Comodo to Izlude event is being held. Interested players can speak to the Racing Staff in Comodo.\n\nPlayers speak to the Racing Staff to initiate a call for race entrants. A global announcement will be made that the race will begin in 5 minutes, and players should speak to the Racing Staff in Comodo to join. After 5 minutes the race will begin with a Firework animation above the Racing Staff, and a global announcement.\n\nPlayers race to speak to the Racing Staff NPC at Izlude docks (northeast). Top 10 racers receive prizes, while runners up receive consolation prizes. Players will be disqualified if they enter player warp portals, use the level 2 teleport skill, use mounts or PecoPeco, use butterfly wings, or use Kafra teleport service once the race starts.",
+      "rewards": "Prizes are rewarded from the following list based on their relation to the top 10 racers.\n\nAll participants: Authoritative Badge #662 x3, Gift Box x1 #664\n\n10th place - faster than no other racers in the top 10: Ginger Bread #12232 x1\n9th place - faster than 1 racer in the top 10: Ginger Bread #12232 x2\n8th place - faster than 2 racers in the top 10: Ginger Bread #12232 x3\n7th place-  faster than 3 racers in the top 10: Ginger Bread #12232 x2, Speed Potion #12016 x1\n6th place - faster than 4 racers in the top 10: Ginger Bread #12232 x1, Speed Potion #12016 x2\n5th place - faster than 5 racers in the top 10: Speed Potion #12016 x3\n4th place - faster than 6 racers in the top 10: Guyak Pudding #12710 x1, Bag of Bronze Coins #672 x3\n3rd place - faster than 7 racers in the top 10: Guyak Pudding #12710 x1, Bag of Silver Coins #676 x2\n2nd place - faster than 8 racers in the top 10: Guyak Pudding #12710 x1, Bag of Gold Coins #670 x1\n1st place - faster than 9 racers in the top 10: Old Blue Box #603 x1, Old Purple Box #617 x1, Platinum Coin #677 x100\n\nAdditional Prizes\nFastest Time on Server (handed out every time a record time is set): Old Card Album #616 x1\nAwarded by GM for final Fastest Time on Server: Moonlight Flower Card x1",
+      "comments": "",
+      "color": "#3F6FA6"
+    }
+  ],
+  "regular": [
+    {
+      "id": "W1",
+      "type": "Monthly",
+      "name": "Screenshot Contest",
+      "bracket": "All",
+      "schedule": "1st day - last day of the month.",
+      "length": "1 month",
+      "concept": "Favorite Moments Screenshot Contest",
+      "details": "Users are asked to submit unaltered screenshots of some of their favorite experiences each month via Discord.\n\nEach player is allowed to submit one screenshot per month to be considered.\n\nWinning screenshots are pinned to the channel messages, and winners are awarded a badge in Discord, and a GM will contact the player via DM to distribute item rewards in game. The item distribution will be logged in the announcments channel.\n\nOn item distribution via the in-game Mail system will be considered.",
+      "rewards": "Discord\nScreenshot Contest Winner Badge\n\nIn-Game\nEach Participant: (Competitor Count -1)x 20,000z\nWinner:\n1st Time - Old Blue Box #603 x1\n2nd Time - Old Purple Box #617 x1\n3rd Time - Old Card Album #616 x1\n4th Time - 1x guaranteed +1 Upgrade to any eligible equipment.\n5th Time - Victorious Coronet #5805 x1\nFurther: Gift Box #644 x1",
+      "comments": "",
+      "color": "#C89B3C"
+    },
+    {
+      "id": "W2",
+      "type": "Monthly",
+      "name": "Cosplay Competition",
+      "bracket": "Adventurer",
+      "schedule": "1st day - last day of the month.",
+      "length": "1 month",
+      "concept": "Dress your character up as your favorite character from movies, shoes, games, and popular culture.",
+      "details": "Users are asked to submit screenshots of their character along with a reference photo of the character they are imitating.\n\nEvent Managers gather them in a poll for voting and players vote each month for their favorite cosplay.\n\nWinning submissions are pinned to the channel messages, awarded a badge in Discord, and a GM will contact the player via DM to distribute item rewards in-game. The item distribution will be logged in the announceents channel.\n\nItem distribution via the in-game Mail system will be considered.",
+      "rewards": "Discord\nCosplay Contest Winner Badge\n\nIn-Game\nEach Participant: (Competitor Count -1)x 20,000z\nWinner: Old Blue Box #603 x1",
+      "comments": "",
+      "color": "#A83446"
+    },
+    {
+      "id": "W3",
+      "type": "Ongoing",
+      "name": "Greatest Challenger Achievements",
+      "bracket": "Veteran",
+      "schedule": "Ongoing",
+      "length": "-",
+      "concept": "Achievements as described on Discord for additional Discord badges",
+      "details": "Players submit screenshots or video evidence demonstrating their in-game accomplishments to receive the target badge.",
+      "rewards": "Discord\nJack of All Trades: Reach Level 99 with characters of 6 different classes.\nPower Overwhelming: Reach 150 VIT without buffs\nRabbit Foot: Reach 90 Perfect Dodge.\nStunlock: Reach 190 Aspd\nTensai: Reach 150 INT\nStopping Power: Reach 150 STR\nHephaestus: Blacksmith Rank 1\nDionysus: Alchemist Rank 1\nBig Game Hunter: MVP Rank 1\nWhale: Amass 99m Gold\nBeater: Solo an MVP (video required) Multi-client disallowed.\nYou're Locked In With Me: Clear Devil Square\nPermanovice: Reach level 99 with a Super Novice without dying once.\nJellopy Flavor: Participated in successfully defeating Pori Pori (Bring it On!!)\nSurgically Attached: Complete The Sign Quest.",
+      "comments": "",
+      "color": "#4C63A8"
+    },
+    {
+      "id": "W4",
+      "type": "Weekly",
+      "name": "Master Crafter",
+      "bracket": "Endgame",
+      "schedule": "Every Sunday - Every Saturday",
+      "length": "7 days",
+      "concept": "Every week players are given a Headgear or Costume from the Quest NPC List to craft for an additional prize.",
+      "details": "Players submit screenshots or video evidence showing they created the headgear during the week.\n\nPlayers who have crafted the recipe successfully will be given a prize.",
+      "rewards": "Old Blue Box #603 x1 or may exchange the Headgear for a guaranteed +1 equipment refinement.",
+      "comments": "",
+      "color": "#3E8F94"
+    }
+  ]
+}</script>
+<script>
+(() => {
+  'use strict';
+
+  const data = JSON.parse(document.getElementById('event-data').textContent);
+  const annual = data.annual || [];
+  const regular = data.regular || [];
+  const calendar = document.getElementById('calendarStrip');
+  const tooltip = document.getElementById('tooltip');
+  const annualGrid = document.getElementById('annualGrid');
+  const regularGrid = document.getElementById('regularGrid');
+  const months = [];
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+  }[char]));
+  const dateKey = (date) => date.toISOString().slice(0, 10);
+  const parseDate = (value) => new Date(`${value}T00:00:00`);
+  const formatRange = (event) => event.startDisplay === event.endDisplay
+    ? event.startDisplay : `${event.startDisplay} - ${event.endDisplay}`;
+  const lightenColor = (hex, amount = 0.25) => {
+    const normalized = hex.replace('#', '');
+    const value = normalized.length === 3
+      ? normalized.split('').map((char) => char + char).join('')
+      : normalized;
+    const num = Number.parseInt(value, 16);
+    const r = Math.min(255, Math.round(((num >> 16) & 255) + (255 - ((num >> 16) & 255)) * amount));
+    const g = Math.min(255, Math.round(((num >> 8) & 255) + (255 - ((num >> 8) & 255)) * amount));
+    const b = Math.min(255, Math.round((num & 255) + (255 - (num & 255)) * amount));
+    return `#${[r, g, b].map((channel) => channel.toString(16).padStart(2, '0')).join('')}`;
+  };
+  const eventForDay = (key) => annual.filter((event) => key >= event.start && key <= event.end);
+
+  annual.forEach((event) => {
+    event.startDate = parseDate(event.start);
+    event.endDate = parseDate(event.end);
+  });
+  const first = annual.reduce((date, event) => event.startDate < date ? event.startDate : date, annual[0].startDate);
+  for (let i = 0; i < 12; i += 1) {
+    months.push(new Date(first.getFullYear(), first.getMonth() + i, 1));
+  }
+
+  function showTooltip(day, event) {
+    tooltip.innerHTML = `<strong>${escapeHtml(event.name)}</strong><span>${escapeHtml(formatRange(event))}</span>${escapeHtml(event.concept)}`;
+    tooltip.classList.add('is-visible');
+    const rect = day.getBoundingClientRect();
+    const left = Math.min(rect.left, window.innerWidth - tooltip.offsetWidth - 12);
+    tooltip.style.left = `${Math.max(12, left)}px`;
+    tooltip.style.top = `${Math.min(window.innerHeight - tooltip.offsetHeight - 12, rect.bottom + 10)}px`;
+  }
+  function hideTooltip() { tooltip.classList.remove('is-visible'); }
+
+  function renderCalendar() {
+    calendar.innerHTML = months.map((month) => {
+      const year = month.getFullYear();
+      const monthIndex = month.getMonth();
+      const firstDay = new Date(year, monthIndex, 1).getDay();
+      const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+      const previousDays = new Date(year, monthIndex, 0).getDate();
+      const cells = [];
+      for (let i = firstDay - 1; i >= 0; i -= 1) cells.push(`<span class="day day--out">${previousDays - i}</span>`);
+      for (let dayNumber = 1; dayNumber <= daysInMonth; dayNumber += 1) {
+        const key = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
+        const events = eventForDay(key);
+        const event = events[0];
+        const classes = ['day'];
+        if (event) {
+          classes.push('day--event');
+          if (key === event.start) classes.push('day--range-start');
+          if (key === event.end) classes.push('day--range-end');
+        }
+        cells.push(`<button type="button" class="${classes.join(' ')}"${event ? ` data-event-id="${event.id}" style="--dot-color:${lightenColor(event.color, 0.22)}" aria-label="${escapeHtml(event.name)}, ${escapeHtml(formatRange(event))}"` : ' disabled'}>${dayNumber}</button>`);
+      }
+      while (cells.length < 42) cells.push('<span class="day day--out"></span>');
+      return `<section class="month-card" aria-label="${monthNames[monthIndex]} ${year}"><h3 class="month-card__title">${monthNames[monthIndex]} ${year}</h3><div class="month-grid"><span class="month-grid__dow">${weekdays.join('</span><span class="month-grid__dow">')}</span>${cells.join('')}</div></section>`;
+    }).join('');
+  }
+
+  function escapeRegExp(value) {
+    return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function itemIconUrl(itemId) {
+    const id = Number(itemId);
+    if (!Number.isFinite(id) || id <= 0) return '';
+    if (id === 18992) {
+      return 'https://www.divine-pride.net/img/items/item/dpRO/18992';
+    }
+    return `https://file5s.ratemyserver.net/items/small/${id}.gif?v=2`;
+  }
+
+  function itemLinkUrl(itemId) {
+    const id = Number(itemId);
+    if (!Number.isFinite(id) || id <= 0) return '';
+    if (id === 18992) {
+      return 'https://www.divine-pride.net/database/item/18992/new-year-hairpin-1';
+    }
+    return `https://ratemyserver.net/item_db.php?item_id=${id}&small=1`;
+  }
+
+  function sanitizeRewardName(name) {
+    return String(name || '')
+      .replace(/^[^:]+:\s*/i, '')
+      .replace(/^(?:\d+\s*(?:~|-)\s*\d+\s*[:;]\s*|\d+\s*(?:~\s*\d+)?%?\s*(?:chance of|of|to)\s*|\d+(?:st|nd|rd|th)?\s*(?:time|place)?\s*[-–:]\s*|(?:On|In-Game|Discord|Winner|Each Participant|All Participants|Start Event|Complete Event|Default|Random|Additional Prizes)\b\s*[:\-]?\s*)+/i, '')
+      .replace(/\s*(?:x|×|X)\s*\d+(?:\.\d+)?\s*$/i, '')
+      .replace(/\s*\([^)]*\)\s*$/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function parseRewardLine(rawLine) {
+    const line = String(rawLine || '').trim();
+    if (!line) return null;
+
+    const normalized = line.replace(/\s+/g, ' ');
+    const idMatch = normalized.match(/#(\d+)/);
+    if (!idMatch) return null;
+
+    const itemId = idMatch[1];
+    const itemIndex = normalized.indexOf(idMatch[0]);
+    const beforeId = normalized.slice(0, itemIndex).trim();
+    const afterId = normalized.slice(itemIndex + idMatch[0].length).trim();
+
+    if (!beforeId && !afterId) return null;
+
+    let qtyValue = '1';
+    let isPercent = false;
+    const qtyMatch = afterId.match(/^(?:x|×|X)?\s*(\d+(?:\.\d+)?)?\s*(%)?/i);
+    if (qtyMatch) {
+      qtyValue = qtyMatch[1] || '1';
+      isPercent = Boolean(qtyMatch[2]);
+    }
+
+    const beforeWithQty = beforeId.replace(/\s*(?:x|×|X)\s*\d+(?:\.\d+)?\s*$/i, '').trim();
+    const name = sanitizeRewardName(beforeWithQty);
+    if (!name || /(summon|monster|mvp|quest|event|drop|reward)/i.test(name)) return null;
+
+    return {
+      itemId,
+      itemName: name || 'Item',
+      qty: qtyValue,
+      isPercent
+    };
+  }
+
+  function renderRewardItem(entry) {
+    const itemId = Number(entry.itemId);
+    const iconUrl = itemIconUrl(itemId);
+    const itemUrl = itemLinkUrl(itemId);
+    const quantity = entry.qty && !entry.isPercent ? `×${entry.qty}` : '×1';
+    const label = escapeHtml(entry.itemName);
+    return `<a class="reward-item" href="${itemUrl}" target="_blank" rel="noopener"><img class="reward-item__icon" src="${iconUrl}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="reward-item__name">${label}</span><span class="reward-item__qty">${escapeHtml(quantity)}</span></a>`;
+  }
+
+  function renderRewardContent(value) {
+    const lines = String(value || '').split(/\n/);
+    const fragments = [];
+
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+
+      const segments = trimmed.split(/\s*(?:,|;)\s*/).map((segment) => segment.trim()).filter(Boolean);
+      const rendered = segments.map((segment) => {
+        const parsed = parseRewardLine(segment);
+        if (!parsed) return escapeHtml(segment);
+
+        let text = segment;
+        const itemToken = '__ITEM_TOKEN__';
+        text = text.replace(new RegExp(escapeRegExp(parsed.itemName), 'gi'), itemToken);
+        text = text.replace(new RegExp(escapeRegExp(`#${parsed.itemId}`), 'gi'), '');
+        text = text.replace(new RegExp(`\\b(?:x|×|X)\\s*${escapeRegExp(parsed.qty)}\\b`, 'gi'), '');
+        text = text.replace(/\s*(?:x|×|X)\s*\d+(?:\.\d+)?/gi, '');
+        text = text.replace(/\s*%/g, '%');
+        text = text.replace(/^[^A-Za-z0-9]*:/, '');
+        text = text.replace(/\s{2,}/g, ' ');
+        text = text.replace(new RegExp(escapeRegExp(itemToken), 'g'), renderRewardItem(parsed));
+        return text.trim();
+      }).filter(Boolean).join(', ');
+
+      if (rendered) {
+        fragments.push(`<p>${rendered}</p>`);
+      }
+    });
+
+    return fragments.join('');
+  }
+
+  function cardSections(event) {
+    const sections = [
+      ['Details', event.details || event.concept || ''],
+      ['Rewards', event.rewards || ''],
+      ['Comments', event.comments || '']
+    ].filter(([, value]) => value && String(value).trim());
+
+    return sections.map(([label, value]) => {
+      if (label === 'Rewards') {
+        return `<div class="event-card__section"><h4>${label}</h4>${renderRewardContent(value)}</div>`;
+      }
+      return `<div class="event-card__section"><h4>${label}</h4><p>${escapeHtml(value).replace(/\n/g, '<br>')}</p></div>`;
+    }).join('');
+  }
+  function renderAnnual() {
+    annualGrid.innerHTML = annual.map((event) => `<article class="event-card" id="card-${event.id}" data-event-card="${event.id}" style="--accent:${lightenColor(event.color, 0.18)}"><div class="event-card__top"><span class="event-card__dates">${escapeHtml(formatRange(event))}</span>${event.length ? `<span class="badge badge--length">${escapeHtml(event.length)}</span>` : ''}</div><h3 class="event-card__title">${escapeHtml(event.name)}</h3><p class="event-card__concept">${escapeHtml(event.concept)}</p><button type="button" class="event-card__toggle" aria-expanded="false">Details <span class="chevron" aria-hidden="true">&#9662;</span></button><div class="event-card__body">${cardSections(event)}</div></article>`).join('');
+  }
+  function renderRegular() {
+    regularGrid.innerHTML = regular.map((event) => `<article class="standing-card" style="--accent:${lightenColor(event.color, 0.18)}"><div class="event-card__top"><span class="event-card__dates">${escapeHtml(event.schedule)}</span>${event.length && event.length !== '-' ? `<span class="badge badge--length">${escapeHtml(event.length)}</span>` : ''}</div><h3 class="standing-card__title">${escapeHtml(event.name)}</h3><p class="standing-card__concept">${escapeHtml(event.concept)}</p>${cardSections(event)}</article>`).join('');
+  }
+  function renderLegend() {
+    document.getElementById('legend').innerHTML = annual.map((event) => `<li><button type="button" class="legend__item" data-event-id="${event.id}"><span class="legend__dot" style="--dot-color:${lightenColor(event.color, 0.2)}"></span>${escapeHtml(event.name)}</button></li>`).join('');
+  }
+  function focusEvent(id) {
+    const card = document.querySelector(`[data-event-card="${id}"]`);
+    const day = document.querySelector(`.day[data-event-id="${id}"]`);
+    document.querySelectorAll('.event-card.is-flash').forEach((item) => item.classList.remove('is-flash'));
+    if (card) {
+      card.classList.add('is-flash');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      window.setTimeout(() => card.classList.remove('is-flash'), 1400);
+    }
+    if (day) day.classList.add('is-active');
+  }
+
+  calendar.addEventListener('mouseover', (event) => {
+    const day = event.target.closest('.day--event');
+    if (day) showTooltip(day, annual.find((item) => item.id === day.dataset.eventId));
+  });
+  calendar.addEventListener('mouseout', (event) => { if (!event.relatedTarget || !event.relatedTarget.closest('.day--event')) hideTooltip(); });
+  calendar.addEventListener('focusin', (event) => { const day = event.target.closest('.day--event'); if (day) showTooltip(day, annual.find((item) => item.id === day.dataset.eventId)); });
+  calendar.addEventListener('focusout', hideTooltip);
+  calendar.addEventListener('click', (event) => { const day = event.target.closest('.day--event'); if (day) focusEvent(day.dataset.eventId); });
+  document.getElementById('legend').addEventListener('click', (event) => { const item = event.target.closest('[data-event-id]'); if (item) focusEvent(item.dataset.eventId); });
+  annualGrid.addEventListener('click', (event) => {
+    const button = event.target.closest('.event-card__toggle');
+    if (!button) return;
+    const card = button.closest('.event-card');
+    const open = card.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(open));
+  });
+  document.getElementById('scrollPrev').addEventListener('click', () => calendar.scrollBy({ left: -500, behavior: 'smooth' }));
+  document.getElementById('scrollNext').addEventListener('click', () => calendar.scrollBy({ left: 500, behavior: 'smooth' }));
+  window.addEventListener('resize', hideTooltip);
+  renderCalendar();
+  renderAnnual();
+  renderRegular();
+  renderLegend();
+})();
+</script>
+</body>
+</html>
